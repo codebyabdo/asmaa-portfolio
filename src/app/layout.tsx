@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Header } from "@/components/layout/navbar/header";
-import CustomCursor from "@/components/ui/CustomCursor";
+import { Header } from "@/components/layout/header/header";
+import CustomCursor from "@/components/effects/CustomCursor";
 
 import {
   Inter_Tight,
   Space_Grotesk,
   Cormorant_Garamond,
 } from "next/font/google";
+import LenisProvider from "@/providers/lenis-provider";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
@@ -120,7 +121,9 @@ export default function RootLayout({
 
         <Header />
 
-        <main className="relative">{children}</main>
+        <main className="relative">
+          <LenisProvider>{children}</LenisProvider>
+        </main>
 
         {/* Cinematic Grain */}
         <div
