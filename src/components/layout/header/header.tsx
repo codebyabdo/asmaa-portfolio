@@ -41,7 +41,7 @@ export function Header() {
           duration: 0.7,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className={`fixed left-1/2 top-6 z-[100] -translate-x-1/2 rounded-full border transition-all duration-300 ${
+        className={`fixed left-1/2 top-6 z-100 -translate-x-1/2 rounded-full border transition-all duration-300 ${
           isScrolled
             ? "glass border-white/10 shadow-2xl"
             : "border-transparent bg-background/50 backdrop-blur-md"
@@ -103,7 +103,7 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-luxury-charcoal text-white"
+            className="fixed inset-0 z-200 bg-luxury-charcoal text-white"
           >
             <motion.div
               initial={{ y: "100%" }}

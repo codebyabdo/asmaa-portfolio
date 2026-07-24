@@ -51,7 +51,7 @@ export default function MagneticButton({
         "relative rounded-full px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-colors overflow-hidden group",
         variant === "primary"
           ? "bg-luxury-charcoal text-white"
-          : "bg-white text-luxury-charcoal border border-border",
+          : "bg-white text-luxury-gold border border-border",
         className,
       )}
       {...props}

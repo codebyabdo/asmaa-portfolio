@@ -131,7 +131,7 @@ export default function RootLayout({
             fixed
             inset-0
             pointer-events-none
-            z-[999]
+            z-999
             opacity-[0.04]
             mix-blend-overlay
             grain-overlay
