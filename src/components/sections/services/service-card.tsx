@@ -45,7 +45,7 @@ export function ServiceCard() {
               </p>
 
               <MagneticButton
-                variant="secoundry"
+                variant="secondary"
                 className="w-full"
               >
                 Learn More
