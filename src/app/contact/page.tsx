@@ -1,5 +1,3 @@
-"use client";
-
 import ContactSection from "@/components/sections/contact/contact-section";
 
 export default function ContactPage() {

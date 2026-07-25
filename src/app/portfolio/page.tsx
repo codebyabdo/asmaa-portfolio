@@ -1,5 +1,3 @@
-'use client'
-
 import { BeforeAfterTranslation } from "@/components/sections/portfolio/before-after"
 import { PortfolioCtaSection } from "@/components/sections/portfolio/cta-section"
 import { FeaturedProjects } from "@/components/sections/portfolio/featured-projects"

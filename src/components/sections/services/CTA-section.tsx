@@ -30,11 +30,11 @@ export function CTASection() {
         </h2>
 
         <p className="mb-12 text-lg font-light leading-relaxed text-white/60">
-          Every project deserves a thoughtful linguistic approach. Let's discuss
+          Every project deserves a thoughtful linguistic approach. Let&apos;s discuss
           your goals and build communication that resonates across cultures.
         </p>
 
-        <MagneticButton variant="secoundry">
+        <MagneticButton variant="secondary">
           Schedule a Consultation
         </MagneticButton>
       </div>
