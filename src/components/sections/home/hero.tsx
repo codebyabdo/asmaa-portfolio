@@ -10,20 +10,18 @@ import { AnimatedRole } from "./hero/animated-role";
 
 export function Hero() {
   return (
-    <section className="relative h-svh w-full ">
-      {/* Animated Background */}
+    <section className="relative min-h-dvh w-full overflow-hidden">
       <HeroBackground />
 
-      <div className="relative z-10 grid h-full grid-rows-[1fr_auto]">
-        <div className="flex items-center justify-center px-6 py-6">
-          {/* Hero Content */}
-          <div className="max-w-6xl w-full text-center">
+      <div className="relative z-10 grid min-h-dvh grid-rows-[1fr_auto]">
+        <div className="flex items-center justify-center px-5 py-8 sm:px-6 lg:px-10">
+          <div className="w-full max-w-6xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="inline-block glass rounded-full border border-luxury-gold/20 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-gold">
+              <span className="inline-flex rounded-full border border-luxury-gold/20 glass px-4 py-2 text-[9px] font-bold uppercase tracking-[0.28em] text-luxury-gold sm:text-[10px]">
                 International Freelance Professional
               </span>
             </motion.div>
@@ -36,12 +34,21 @@ export function Hero() {
                   duration: 1.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mb-8 text-6xl font-serif leading-[0.9] tracking-tighter md:text-[10vw]"
+                className="
+                  mb-8
+                  font-serif
+                  leading-[0.9]
+                  tracking-tight
+                  text-[clamp(3.2rem,9vw,8rem)]
+                "
               >
                 Bridging Language,
                 <br />
-                <span className="italic font-light">Culture</span> &{" "}
-                <span className="text-luxury-gold">Logic</span>
+                <span className="font-light italic">Culture</span>{" "}
+                &{" "}
+                <span className="text-luxury-gold">
+                  Logic
+                </span>
               </motion.h1>
             </div>
 
@@ -50,8 +57,21 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-              className="mx-auto mb-12 max-w-xl text-base font-light leading-relaxed text-luxury-charcoal/60 md:text-lg"
+              transition={{
+                duration: 1,
+                delay: 1,
+              }}
+              className="
+                mx-auto
+                mb-10
+                max-w-xl
+                text-sm
+                font-light
+                leading-relaxed
+                text-luxury-charcoal/60
+                sm:text-base
+                lg:text-lg
+              "
             >
               A world-class localization experience for international leaders
               who demand precision and cultural depth.
@@ -60,10 +80,21 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2 }}
-              className="flex flex-col items-center justify-center gap-12 sm:flex-row"
+              transition={{
+                duration: 1,
+                delay: 1.2,
+              }}
+              className="
+                flex
+                flex-col
+                items-center
+                justify-center
+                gap-6
+                sm:flex-row
+                sm:gap-10
+              "
             >
-              <MagneticButton className="px-12 py-6">
+              <MagneticButton className="px-10 py-5 lg:px-12 lg:py-6">
                 Start Conversation
               </MagneticButton>
 
@@ -75,15 +106,14 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center mb-0">
-          {/* Scroll Indicator */}
+        <div className="flex justify-center">
           <motion.button
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{
               duration: 2,
               repeat: Infinity,
             }}
-            className="mb-8 flex flex-col items-center justify-center gap-2 opacity-40 transition-opacity hover:opacity-100"
+            className="mb-4 flex flex-col items-center gap-2 opacity-40 transition-opacity hover:opacity-100 sm:mb-8"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
               Scroll

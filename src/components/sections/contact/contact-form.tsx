@@ -1,145 +1,150 @@
 "use client";
 
-import { useActionState } from "react";
-import { motion } from "framer-motion";
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
 import { Send } from "lucide-react";
 
 import MagneticButton from "@/components/ui/MagneticButton";
 import {
-  ContactFormState,
-  submitContactForm,
+  sendContactEmail,
+  type ContactFormState,
 } from "@/actions/send-contact-email";
 
 const initialState: ContactFormState = {
   success: false,
-  error: null,
+  message: "",
+  fieldErrors: {
+    name: undefined,
+    email: undefined,
+    subject: undefined,
+    message: undefined,
+  },
 };
 
-export function ContactForm() {
-  const [state, formAction, isPending] = useActionState(
-    submitContactForm,
-    initialState,
-  );
+function SubmitButton() {
+  const { pending } = useFormStatus();
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="glass rounded-[2.5rem] border border-luxury-charcoal/5 p-8 md:p-12"
+    <MagneticButton
+      type="submit"
+      className="w-full"
+      disabled={pending}
     >
-      <h2 className="mb-10 font-serif text-3xl italic">
-        Send a Message
-      </h2>
+      <span className="flex items-center justify-center gap-3">
+        {pending ? "Sending..." : "Send Message"}
+        <Send size={14} />
+      </span>
+    </MagneticButton>
+  );
+}
 
-      <form action={formAction} className="space-y-8">
-        {/* Name */}
+export function ContactForm() {
+  const [state, formAction] = useActionState(sendContactEmail, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset();
+    }
+  }, [state.success]);
+
+  const inputBase =
+    "w-full bg-transparent border-b pb-4 outline-none transition-colors font-light placeholder:text-luxury-charcoal/25 focus:border-luxury-gold";
+
+  const inputError = "border-red-500";
+  const inputNormal = "border-luxury-charcoal/10";
+
+  return (
+    <div className="glass rounded-[3rem] border border-luxury-charcoal/5 p-12 shadow-2xl md:p-16">
+      <h3 className="mb-12 font-serif text-3xl italic">Send a Message</h3>
+
+      <form ref={formRef} action={formAction} className="space-y-10" noValidate>
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
             Full Name
           </label>
-
           <input
             name="name"
             type="text"
-            required
             autoComplete="name"
             placeholder="Enter your name"
-            className="w-full border-b border-luxury-charcoal/10 bg-transparent pb-4 font-light outline-none transition-colors placeholder:text-luxury-charcoal/30 focus:border-luxury-gold"
+            aria-invalid={!!state.fieldErrors?.name}
+            className={`${inputBase} ${
+              state.fieldErrors?.name ? inputError : inputNormal
+            }`}
           />
+          {state.fieldErrors?.name ? (
+            <p className="text-sm text-red-500">{state.fieldErrors.name}</p>
+          ) : null}
         </div>
 
-        {/* Email */}
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
             Email Address
           </label>
-
           <input
             name="email"
             type="email"
-            required
             autoComplete="email"
             placeholder="hello@example.com"
-            className="w-full border-b border-luxury-charcoal/10 bg-transparent pb-4 font-light outline-none transition-colors placeholder:text-luxury-charcoal/30 focus:border-luxury-gold"
+            aria-invalid={!!state.fieldErrors?.email}
+            className={`${inputBase} ${
+              state.fieldErrors?.email ? inputError : inputNormal
+            }`}
           />
+          {state.fieldErrors?.email ? (
+            <p className="text-sm text-red-500">{state.fieldErrors.email}</p>
+          ) : null}
         </div>
 
-        {/* Subject */}
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
             Subject
           </label>
-
           <input
             name="subject"
             type="text"
-            required
-            autoComplete="off"
-            placeholder="What is this regarding?"
-            className="w-full border-b border-luxury-charcoal/10 bg-transparent pb-4 font-light outline-none transition-colors placeholder:text-luxury-charcoal/30 focus:border-luxury-gold"
+            placeholder="Project inquiry"
+            aria-invalid={!!state.fieldErrors?.subject}
+            className={`${inputBase} ${
+              state.fieldErrors?.subject ? inputError : inputNormal
+            }`}
           />
+          {state.fieldErrors?.subject ? (
+            <p className="text-sm text-red-500">{state.fieldErrors.subject}</p>
+          ) : null}
         </div>
 
-        {/* Message */}
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
             Message
           </label>
-
           <textarea
             name="message"
-            required
             rows={5}
             placeholder="Tell me about your project..."
-            className="w-full resize-none border-b border-luxury-charcoal/10 bg-transparent pb-4 font-light outline-none transition-colors placeholder:text-luxury-charcoal/30 focus:border-luxury-gold"
+            aria-invalid={!!state.fieldErrors?.message}
+            className={`${inputBase} resize-none ${
+              state.fieldErrors?.message ? inputError : inputNormal
+            }`}
           />
+          {state.fieldErrors?.message ? (
+            <p className="text-sm text-red-500">{state.fieldErrors.message}</p>
+          ) : null}
         </div>
 
-        <MagneticButton
-          type="submit"
-          disabled={isPending}
-          className="w-full disabled:pointer-events-none disabled:opacity-60"
-        >
-          <span className="flex items-center justify-center gap-3">
-            {isPending ? "Sending..." : "Send Message"}
-            <Send size={16} />
-          </span>
-        </MagneticButton>
+        <SubmitButton />
+
+        {state.message ? (
+          <p
+            className={`text-sm font-medium ${
+              state.success ? "text-luxury-gold" : "text-red-500"
+            }`}
+          >
+            {state.message}
+          </p>
+        ) : null}
       </form>
-
-      {state.success && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-5"
-        >
-          <h3 className="mb-2 font-medium text-green-800">
-            Message Sent Successfully
-          </h3>
-
-          <p className="text-sm leading-relaxed text-green-700">
-            Thank you for reaching out. A confirmation email has been sent to
-            your inbox, and I&apos;ll review your message as soon as possible.
-          </p>
-        </motion.div>
-      )}
-
-      {state.error && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-8 rounded-2xl border border-red-200 bg-red-50 p-5"
-        >
-          <h3 className="mb-2 font-medium text-red-800">
-            Unable to Send Message
-          </h3>
-
-          <p className="text-sm leading-relaxed text-red-700">
-            {state.error}
-          </p>
-        </motion.div>
-      )}
-    </motion.section>
+    </div>
   );
 }

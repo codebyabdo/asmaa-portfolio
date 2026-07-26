@@ -1,3 +1,4 @@
+import { ContactPayload } from "@/types/contact";
 import {
   Body,
   Container,
@@ -7,27 +8,19 @@ import {
   Html,
   Preview,
   Section,
-  Text,
   Tailwind,
+  Text,
 } from "@react-email/components";
-
-interface ContactOwnerEmailProps {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 export function ContactOwnerEmail({
   name,
   email,
   subject,
   message,
-}: ContactOwnerEmailProps) {
+}: ContactPayload) {
   return (
     <Html lang="en">
       <Head />
-
       <Preview>{`New project inquiry from ${name}`}</Preview>
 
       <Tailwind>
@@ -45,8 +38,6 @@ export function ContactOwnerEmail({
               backgroundColor: "#FFFFFF",
             }}
           >
-            {/* Header */}
-
             <Section
               className="px-12 py-10"
               style={{
@@ -82,8 +73,6 @@ export function ContactOwnerEmail({
               </Text>
             </Section>
 
-            {/* Contact Information */}
-
             <Section className="px-12 py-10">
               <Heading
                 as="h2"
@@ -104,9 +93,7 @@ export function ContactOwnerEmail({
               />
 
               <Info label="Full Name" value={name} />
-
               <Info label="Email Address" value={email} />
-
               <Info label="Subject" value={subject} />
 
               <Section
@@ -134,8 +121,6 @@ export function ContactOwnerEmail({
                 </Text>
               </Section>
             </Section>
-
-            {/* Footer */}
 
             <Section
               className="px-12 py-8"
