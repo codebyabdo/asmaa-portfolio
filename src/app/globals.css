@@ -14,7 +14,7 @@
      Brand Colors
   ========================== */
 
-  --color-luxury-gold: #d4af37;
+  --color-luxury-gold: #d45b37;
   --color-luxury-charcoal: #0a0a0a;
   --color-luxury-ivory: #fdfbf7;
   --color-luxury-graphite: #1a1a1a;
@@ -57,7 +57,7 @@
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.3);
+    background: rgba(212, 91, 55, 0.3);
     color: var(--color-luxury-charcoal);
   }
 
@@ -154,10 +154,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.2);
+  background: rgba(212, 91, 55, 0.2);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 91, 55, 0.4);
 }

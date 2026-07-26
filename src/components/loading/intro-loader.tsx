@@ -1,12 +1,10 @@
 "use client";
 
+import { useIntroLoader } from "@/hooks/use-intro-loader";
 import { AnimatePresence, motion } from "framer-motion";
 
-interface IntroLoaderProps {
-  isLoading: boolean;
-}
-
-export function IntroLoader({ isLoading }: IntroLoaderProps) {
+export function IntroLoader() {
+  const isLoading = useIntroLoader(2000);
   return (
     <AnimatePresence mode="wait">
       {isLoading && (
