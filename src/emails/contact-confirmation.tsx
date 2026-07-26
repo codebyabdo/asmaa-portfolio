@@ -1,3 +1,4 @@
+import { ContactPayload } from "@/types/contact";
 import {
   Body,
   Container,
@@ -6,67 +7,146 @@ import {
   Hr,
   Html,
   Preview,
+  Section,
   Tailwind,
   Text,
-} from '@react-email/components';
-
-interface ContactConfirmationEmailProps {
-  /** The sender's name */
-  name: string;
-  /** Copy of their original message */
-  message: string;
-}
+} from "@react-email/components";
 
 export function ContactConfirmationEmail({
   name,
   message,
-}: ContactConfirmationEmailProps) {
+}: Pick<ContactPayload, "name" | "message">) {
   return (
     <Html lang="en">
       <Head />
-      <Preview>We received your message - Asmaa</Preview>
+      <Preview>{`We received your message, ${name}`}</Preview>
 
       <Tailwind>
-        <Body className="bg-white font-sans">
-          <Container className="mx-auto py-12 px-4 max-w-xl">
-            <Text className="text-2xl font-bold text-black">Acme</Text>
+        <Body
+          className="m-0 bg-[#FDFBF7] px-6 py-10"
+          style={{
+            fontFamily: "Inter, Arial, Helvetica, sans-serif",
+          }}
+        >
+          <Container
+            className="mx-auto overflow-hidden rounded-3xl border"
+            style={{
+              maxWidth: "680px",
+              borderColor: "#EFE7D3",
+              backgroundColor: "#FFFFFF",
+            }}
+          >
+            <Section
+              className="px-12 py-10"
+              style={{
+                background: "#0A0A0A",
+              }}
+            >
+              <Text
+                className="m-0 text-[11px] uppercase tracking-[6px]"
+                style={{
+                  color: "#D4AF37",
+                }}
+              >
+                ASMAA ADEL
+              </Text>
 
-            <Heading className="text-2xl font-bold text-gray-900 mt-8">
-              Thanks for reaching out, {name}!
-            </Heading>
+              <Heading
+                className="mt-6 mb-0 text-[38px] font-normal leading-tight"
+                style={{
+                  color: "#FFFFFF",
+                  fontFamily: "Cormorant Garamond, Georgia, serif",
+                }}
+              >
+                Thank You, {name}
+              </Heading>
 
-            <Text className="text-base text-gray-700 leading-6">
-              We&apos;ve received your message and will get back to you within
-              24-48 hours.
-            </Text>
+              <Text
+                className="mt-5 mb-0 text-base"
+                style={{
+                  color: "#BBBBBB",
+                }}
+              >
+                Your message has been received successfully.
+              </Text>
+            </Section>
 
-            <Hr className="border-gray-200 my-6" />
+            <Section className="px-12 py-10">
+              <Heading
+                as="h2"
+                className="m-0 text-[26px]"
+                style={{
+                  color: "#0A0A0A",
+                  fontFamily: "Cormorant Garamond, Georgia, serif",
+                }}
+              >
+                Next Step
+              </Heading>
 
-            {/* Copy of their message */}
-            <Text className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-              Your message:
-            </Text>
-            <Text className="text-base text-gray-700 leading-6 bg-gray-50 p-4 rounded-md">
-              {message}
-            </Text>
+              <Hr
+                className="my-8"
+                style={{
+                  borderColor: "#EFE7D3",
+                }}
+              />
 
-            <Hr className="border-gray-200 my-6" />
+              <Text
+                className="m-0 text-base leading-8"
+                style={{
+                  color: "#444444",
+                }}
+              >
+                I&apos;ll review your message and get back to you as soon as
+                possible, usually within 24 hours.
+              </Text>
 
-            <Text className="text-sm text-gray-500">
-              This is an automated confirmation. Please don&apos;t reply to this
-              email.
-            </Text>
+              <Section
+                className="mt-10 rounded-2xl p-8"
+                style={{
+                  backgroundColor: "#F8F6F2",
+                }}
+              >
+                <Text
+                  className="mt-0 mb-4 text-[11px] uppercase tracking-[3px]"
+                  style={{
+                    color: "#D4AF37",
+                  }}
+                >
+                  Your Message
+                </Text>
+
+                <Text
+                  className="m-0 whitespace-pre-wrap text-[15px] leading-8"
+                  style={{
+                    color: "#444444",
+                  }}
+                >
+                  {message}
+                </Text>
+              </Section>
+            </Section>
+
+            <Section
+              className="px-12 py-8"
+              style={{
+                backgroundColor: "#F8F6F2",
+              }}
+            >
+              <Text
+                className="m-0 text-center text-xs"
+                style={{
+                  color: "#777777",
+                }}
+              >
+                This is an automated confirmation. Please do not reply to this
+                email.
+              </Text>
+            </Section>
           </Container>
         </Body>
       </Tailwind>
     </Html>
   );
 }
-
-ContactConfirmationEmail.PreviewProps = {
-  name: 'Jane Smith',
-  message:
-    "Hi, I'm interested in learning more about your enterprise plan. Can we schedule a call?",
-} satisfies ContactConfirmationEmailProps;
 
 export default ContactConfirmationEmail;

@@ -1,77 +1,112 @@
 "use server";
 
-import { getResend } from "@/lib/resend";
-import ContactConfirmationEmail from "@/emails/contact-confirmation";
-import ContactOwnerEmail from "@/emails/contact-owner";
+import { render } from "@react-email/render";
 
-export interface ContactFormState {
+import { ContactConfirmationEmail } from "@/emails/contact-confirmation";
+import { ContactOwnerEmail } from "@/emails/contact-owner";
+import { sendMail } from "@/lib/mailer";
+import { contactSchema } from "@/validation/contact";
+
+export type ContactFormState = {
   success: boolean;
-  error: string | null;
+  message: string;
+  fieldErrors?: {
+    name?: string;
+    email?: string;
+    subject?: string;
+    message?: string;
+  };
+};
+
+const emptyFieldErrors = {
+  name: undefined,
+  email: undefined,
+  subject: undefined,
+  message: undefined,
+};
+
+function getStringField(formData: FormData, key: string) {
+  return String(formData.get(key) || "").trim();
 }
 
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-export async function submitContactForm(
-  _: ContactFormState,
+export async function sendContactEmail(
+  _prevState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
-  const name = formData.get("name")?.toString().trim() || "";
-  const email = formData.get("email")?.toString().trim() || "";
-  const subject = formData.get("subject")?.toString().trim() || "";
-  const message = formData.get("message")?.toString().trim() || "";
-
-  if (!name || !email || !subject || !message) {
-    return {
-      success: false,
-      error: "Please fill in all required fields.",
-    };
-  }
-
-  if (!isValidEmail(email)) {
-    return {
-      success: false,
-      error: "Please enter a valid email address.",
-    };
-  }
-
   try {
-    await getResend().batch.send([
-      {
-        from: process.env.EMAIL_FROM!,
-        to: [email],
-        subject: "We've received your message",
-        react: ContactConfirmationEmail({
-          name,
-          message,
-        }),
-      },
+    const rawData = {
+      name: getStringField(formData, "name"),
+      email: getStringField(formData, "email"),
+      subject: getStringField(formData, "subject"),
+      message: getStringField(formData, "message"),
+    };
 
-      {
-        from: process.env.EMAIL_FROM!,
-        to: [process.env.CONTACT_EMAIL!],
+    const parsed = contactSchema.safeParse(rawData);
+
+    if (!parsed.success) {
+      const flattened = parsed.error.flatten().fieldErrors;
+
+      return {
+        success: false,
+        message: "Please fix the highlighted fields.",
+        fieldErrors: {
+          name: flattened.name?.[0],
+          email: flattened.email?.[0],
+          subject: flattened.subject?.[0],
+          message: flattened.message?.[0],
+        },
+      };
+    }
+
+    const { name, email, subject, message } = parsed.data;
+
+    const ownerEmail = process.env.CONTACT_EMAIL;
+    if (!ownerEmail) {
+      throw new Error("CONTACT_EMAIL is missing.");
+    }
+
+    const ownerHtml = await render(
+      ContactOwnerEmail({
+        name,
+        email,
+        subject,
+        message,
+      }),
+    );
+
+    const confirmationHtml = await render(
+      ContactConfirmationEmail({
+        name,
+        message,
+      }),
+    );
+
+    await Promise.all([
+      sendMail({
+        to: ownerEmail,
         replyTo: email,
-        subject: `New Portfolio Contact • ${name}`,
-        react: ContactOwnerEmail({
-          name,
-          email,
-          subject,
-          message,
-        }),
-      },
+        subject: `New Portfolio Contact • ${subject}`,
+        html: ownerHtml,
+      }),
+      sendMail({
+        to: email,
+        subject: "We've received your message",
+        html: confirmationHtml,
+      }),
     ]);
 
     return {
       success: true,
-      error: null,
+      message: "Message sent successfully.",
+      fieldErrors: emptyFieldErrors,
     };
   } catch (error) {
-    console.error(error);
+    console.error("sendContactEmail error:", error);
 
     return {
       success: false,
-      error: "Something went wrong. Please try again.",
+      message: "Unable to send message right now. Please try again.",
+      fieldErrors: emptyFieldErrors,
     };
   }
 }
