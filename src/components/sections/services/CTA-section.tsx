@@ -34,7 +34,7 @@ export function CTASection() {
           your goals and build communication that resonates across cultures.
         </p>
 
-        <MagneticButton variant="secondary">
+        <MagneticButton variant="gradient" size="md">
           Schedule a Consultation
         </MagneticButton>
       </div>

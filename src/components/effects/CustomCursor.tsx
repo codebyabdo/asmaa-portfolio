@@ -1,35 +1,44 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { motion, useSpring, useMotionValue, animate } from "framer-motion";
 
 export default function CustomCursor() {
-  const [isPointer, setIsPointer] = useState(false);
+  const isDesktop =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer:fine)").matches;
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+  const scale = useMotionValue(1);
 
-  
-  const springConfig = { damping: 25, stiffness: 400 };
+  const springConfig = { damping: 30, stiffness: 400 };
 
   const springX = useSpring(cursorX, springConfig);
   const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-
-    if (window.innerWidth < 768) return;
+    if (!isDesktop) return;
 
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
 
       const target = e.target as HTMLElement;
-      setIsPointer(!!target.closest("a, button, [data-cursor='pointer']"));
+
+      const pointer = !!target.closest("a,button,[data-cursor='pointer']");
+
+      animate(scale, pointer ? 1.8 : 1, {
+        duration: 0.2,
+      });
     };
 
-    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousemove", moveCursor, {
+      passive: true,
+    });
+
     return () => window.removeEventListener("mousemove", moveCursor);
-  }, [cursorX, cursorY]);
+  }, [isDesktop, cursorX, cursorY, scale]);
 
   return (
     <>
@@ -38,17 +47,9 @@ export default function CustomCursor() {
         style={{
           x: springX,
           y: springY,
+          scale,
           translateX: "-50%",
           translateY: "-50%",
-        }}
-        animate={{
-          scale: isPointer ? 1.8 : 1,
-          backgroundColor: isPointer
-            ? "rgba(212, 175, 55, 0.1)"
-            : "rgba(0,0,0,0)",
-        }}
-        transition={{
-          duration: 0.2,
         }}
       />
       <motion.div
@@ -56,6 +57,7 @@ export default function CustomCursor() {
         style={{
           x: cursorX,
           y: cursorY,
+          scale,
           translateX: "-50%",
           translateY: "-50%",
         }}
