@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/header/header";
 import CustomCursor from "@/components/effects/CustomCursor";
 import LenisProvider from "@/providers/lenis-provider";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import {
   Inter_Tight,
   Space_Grotesk,
@@ -12,18 +15,21 @@ import {
 } from "next/font/google";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://asmaaadel.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://asmaaadel.vercel.app";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
 });
 
 const space = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  preload: true,
 });
 
 const cormorant = Cormorant_Garamond({
@@ -31,6 +37,7 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -44,6 +51,8 @@ export const viewport: Viewport = {
       color: "#0a0a0a",
     },
   ],
+
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
@@ -70,7 +79,11 @@ export const metadata: Metadata = {
 
   publisher: "Asmaa Adel",
 
+  generator: "Next.js 15",
+
   category: "Translation",
+
+  classification: "Professional Translation Portfolio",
 
   keywords: [
     "Translator",
@@ -82,17 +95,30 @@ export const metadata: Metadata = {
     "Translation Services",
     "Linguistic Consultant",
     "Freelance Translator",
+    "English Translator",
+    "Arabic Localization",
   ],
 
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
+    languages: {
+      "en-US": SITE_URL,
+    },
   },
 
   referrer: "origin-when-cross-origin",
 
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -105,34 +131,43 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
         url: "/icon.svg",
         type: "image/svg+xml",
       },
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
     ],
 
-    apple: "/apple-icon.png",
-
     shortcut: "/favicon.ico",
+
+    apple: [
+      {
+        url: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 
   manifest: "/manifest.webmanifest",
 
   openGraph: {
     type: "website",
+
     url: SITE_URL,
+
     title: "Asmaa Adel | Professional Translator",
+
     description:
       "Professional English–Arabic translation, localization, proofreading, and linguistic consulting services.",
+
     siteName: "Asmaa Adel",
+
     locale: "en_US",
+
+    countryName: "Egypt",
 
     images: [
       {
@@ -150,18 +185,52 @@ export const metadata: Metadata = {
     title: "Asmaa Adel | Professional Translator",
 
     description:
-      "Professional English–Arabic translation and localization services.",
+      "Professional English–Arabic translation, localization, proofreading, and linguistic consulting services.",
 
     images: ["/og-image.jpg"],
-
-    site: "@asmaaadel",
-    creator: "@asmaaadel",
   },
 
-  // أضفها بعد تفعيل Google Search Console
   // verification: {
-  //   google: "YOUR_GOOGLE_VERIFICATION_CODE",
+  //   google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
   // },
+
+  other: {
+    "color-scheme": "light",
+  },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+
+  name: "Asmaa Adel",
+
+  url: SITE_URL,
+
+  image: `${SITE_URL}/og-image.jpg`,
+
+  jobTitle: "Professional English–Arabic Translator",
+
+  description:
+    "Professional English–Arabic translator specializing in translation, localization, proofreading, and linguistic consulting.",
+
+  knowsAbout: [
+    "Translation",
+    "Localization",
+    "Proofreading",
+    "Transcreation",
+    "Arabic",
+    "English",
+  ],
+
+  nationality: "Egypt",
+
+  sameAs: [],
+
+  worksFor: {
+    "@type": "Organization",
+    name: "Freelance",
+  },
 };
 
 export default function RootLayout({
@@ -181,6 +250,13 @@ export default function RootLayout({
       `}
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+
         <CustomCursor />
 
         <Header />
@@ -189,8 +265,11 @@ export default function RootLayout({
           <LenisProvider>{children}</LenisProvider>
         </main>
 
-        {/* Cinematic Grain */}
         <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
+
+        <Analytics />
+
+        <SpeedInsights />
       </body>
     </html>
   );

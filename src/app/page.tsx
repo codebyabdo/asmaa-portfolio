@@ -7,9 +7,9 @@ import { IntroLoader } from "@/components/loading/intro-loader";
 export default function Home() {
   return (
     <>
+      <LazyMotion features={domAnimation}>
       <IntroLoader />
 
-      <LazyMotion features={domAnimation}>
         <Hero />
 
         <Floating />

@@ -19,7 +19,7 @@ export function ServiceCard() {
             duration: 0.9,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="group relative min-h-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-luxury-charcoal to-[#141414] p-10 transition-all duration-700 "
+          className="group relative min-h-155 overflow-hidden rounded-[2.5rem] bg-linear-to-br from-luxury-charcoal to-[#141414] p-10 transition-all duration-700 "
         >
           <div
             className={` absolute inset-0 opacity-20 transition-all duration-1000 group-hover:opacity-40 ${service.gradient}

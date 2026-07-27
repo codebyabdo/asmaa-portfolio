@@ -1,0 +1,39 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+>
+  <!-- Background -->
+  <circle
+    cx="256"
+    cy="256"
+    r="240"
+    fill="#D66540"
+  />
+
+  <!-- Translation Symbol -->
+  <g
+    transform="translate(95 105) scale(13)"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="1.92"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+
+    <!-- Chinese character -->
+    <line x1="0.5" y1="3.35" x2="12" y2="3.35"/>
+    
+    <line x1="7" y1="0.48" x2="5.90" y2="0.50"/>
+
+    <path d="M9.12,3.35c0,3.52-3.28,8.2-7.66,10.55"/>
+
+    <path d="M4.51,7.37A16.4,16.4,0,0,0,11,13.9"/>
+
+
+    <!-- English A -->
+    <polyline points="12 22.52 16.79 11.98 17.75 11.98 22.51 22.52"/>
+
+    <line x1="20" y1="18.69" x2="14" y2="18.69"/>
+
+  </g>
+</svg>
