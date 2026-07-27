@@ -1,14 +1,14 @@
 "use client";
 
 import { useIntroLoader } from "@/hooks/use-intro-loader";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 export function IntroLoader() {
   const isLoading = useIntroLoader(2000);
   return (
     <AnimatePresence mode="wait">
       {isLoading && (
-        <motion.div
+        <m.div
           aria-hidden="true"
           initial={{ y: 0 }}
           exit={{ y: "-100%" }}
@@ -18,7 +18,7 @@ export function IntroLoader() {
           }}
           className="fixed inset-0 h-dvh z-10000 flex flex-col items-center justify-center bg-luxury-charcoal text-white"
         >
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -34,10 +34,10 @@ export function IntroLoader() {
             </span>
 
             <span className="h-px w-8 bg-luxury-gold sm:w-10 md:w-12" />
-          </motion.div>
+          </m.div>
 
           <div className="mt-6 h-4 w-40 overflow-hidden sm:mt-8 sm:w-48 md:w-56">
-            <motion.div
+            <m.div
               initial={{ x: "-100%" }}
               animate={{ x: "100%" }}
               transition={{
@@ -48,7 +48,7 @@ export function IntroLoader() {
               className="h-0.5 w-full bg-luxury-gold/30"
             />
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

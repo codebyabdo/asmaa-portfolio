@@ -5,7 +5,6 @@ import { PointerEvent, ReactNode, useEffect, useRef, useState } from "react";
 import { m, useMotionValue, useSpring } from "framer-motion";
 
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 
 const MAGNETIC_STRENGTH = 0.35;
 
