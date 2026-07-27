@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import MagneticButton from "@/components/ui/MagneticButton";
 
 export function CTASection() {
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -38,6 +38,6 @@ export function CTASection() {
           Schedule a Consultation
         </MagneticButton>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

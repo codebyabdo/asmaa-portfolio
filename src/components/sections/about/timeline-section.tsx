@@ -1,7 +1,7 @@
 "use client";
 
 import { MILESTONES } from "@/data/timeline";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 
 export function TimelineSection() {
@@ -13,7 +13,7 @@ export function TimelineSection() {
 
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
         {MILESTONES.map((item, index) => (
-          <motion.article
+          <m.article
             key={item.year}
             initial={{
               opacity: 0,
@@ -41,7 +41,7 @@ export function TimelineSection() {
             <p className="text-base font-light leading-relaxed text-luxury-charcoal/60 ">
               {item.desc}
             </p>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </section>

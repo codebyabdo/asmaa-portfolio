@@ -1,12 +1,12 @@
 "use client"
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function Footer() {
   return (
     <footer className="border-t border-border py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container-wide">
-        <motion.div
+        <m.div
           className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -37,7 +37,7 @@ export function Footer() {
             { title: "Company", links: ["About", "Portfolio", "Process"] },
             { title: "Connect", links: ["LinkedIn", "Email", "WhatsApp"] },
           ].map((col, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -66,11 +66,11 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -89,7 +89,7 @@ export function Footer() {
           >
             Experimental design with Awwwards inspiration.
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </footer>
   );

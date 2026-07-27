@@ -43,7 +43,7 @@ export function ExperienceTimeline() {
             {exp.desc}
           </p>
 
-          <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/40">
+          <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/65">
             <MapPin size={12} />
             Remote / International
           </div>

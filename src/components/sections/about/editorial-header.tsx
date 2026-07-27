@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function EditorialHeader() {
   return (
@@ -15,7 +15,7 @@ export function EditorialHeader() {
     "
     >
       <div>
-        <motion.span
+        <m.span
           initial={{
             opacity: 0,
             y: 20,
@@ -38,9 +38,9 @@ export function EditorialHeader() {
           "
         >
           The Story Behind The Logic
-        </motion.span>
+        </m.span>
 
-        <motion.h1
+        <m.h1
           initial={{
             opacity: 0,
             y: 30,
@@ -60,10 +60,10 @@ export function EditorialHeader() {
           Beyond
           <br />
           <span className="italic font-light">Translation</span>
-        </motion.h1>
+        </m.h1>
       </div>
 
-      <motion.p
+      <m.p
         initial={{
           opacity: 0,
         }}
@@ -79,9 +79,9 @@ export function EditorialHeader() {
         className="lg:ml-auto max-w-md text-lg md:text-xl font-light leading-relaxed text-luxury-charcoal/60         "
       >
         Asmaa Adel is not just a translator; she is a cultural bridge. Through
-        linguistic precision and emotional intelligence, she transforms words
+        linguistic precision and emal intelligence, she transforms words
         into experiences that feel native to every audience.
-      </motion.p>
+      </m.p>
     </section>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Award, BookOpen, Clock } from "lucide-react";
 
 const VALUES = [
@@ -25,7 +25,7 @@ const VALUES = [
 export function ImageValuesSection() {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -47,14 +47,14 @@ export function ImageValuesSection() {
             Serving Global Clients
           </p>
         </div>
-      </motion.div>
+      </m.div>
 
       <div className="lg:col-span-5 flex flex-col justify-center gap-12">
         {VALUES.map((item) => {
           const Icon = item.icon;
 
           return (
-            <motion.div
+            <m.div
               whileHover={{ x: 8 }}
               transition={{ duration: 0.3 }}
               key={item.title}
@@ -71,7 +71,7 @@ export function ImageValuesSection() {
                   {item.text}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           );
         })}
       </div>

@@ -3,9 +3,19 @@
 import { m } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-import MagneticButton from "@/components/ui/MagneticButton";
 import { AnimatedRole } from "./hero/animated-role";
 import { HeroBackground } from "./hero/hero-background";
+
+import dynamic from "next/dynamic";
+import Link from "next/link";
+
+const MagneticButton = dynamic(
+  () => import("@/components/ui/MagneticButton"),
+  {
+    ssr: false,
+  }
+);
+
 
 export function Hero() {
   return (
@@ -45,11 +55,11 @@ export function Hero() {
             <AnimatedRole />
 
             <m.p
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 0.2,
               }}
               className="mx-auto mb-10 max-w-xl text-sm font-light leading-relaxed text-luxury-charcoal/60 sm:text-base lg:text-lg"
             >
@@ -66,9 +76,11 @@ export function Hero() {
               }}
               className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10"
             >
-              <MagneticButton variant="gradient" className="px-10 py-5 lg:px-12 lg:py-6">
+              <Link href={`/contact`}>
+              <MagneticButton variant="gradient" size="lg">
                 Start Conversation
               </MagneticButton>
+              </Link>
 
               <button className="group flex items-center gap-3 border-b border-luxury-charcoal/10 pb-2 text-[10px] font-bold uppercase tracking-[0.3em] transition-all hover:border-luxury-gold">
                 <span className="h-px w-8 bg-luxury-gold transition-all group-hover:w-12" />

@@ -60,7 +60,7 @@ export function ContactForm() {
 
       <form ref={formRef} action={formAction} className="space-y-10" noValidate>
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
             Full Name
           </label>
           <input
@@ -79,7 +79,7 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
             Email Address
           </label>
           <input
@@ -98,7 +98,7 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
             Subject
           </label>
           <input
@@ -116,7 +116,7 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/40">
+          <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
             Message
           </label>
           <textarea

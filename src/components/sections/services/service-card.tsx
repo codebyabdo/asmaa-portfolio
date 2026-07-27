@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import MagneticButton from "@/components/ui/MagneticButton";
 import { SERVICES } from "@/data/services";
@@ -9,7 +9,7 @@ export function ServiceCard() {
   return (
     <section className="grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3">
       {SERVICES.map((service, index) => (
-        <motion.article
+        <m.article
           key={service.title}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function ServiceCard() {
               </MagneticButton>
             </div>
           </div>
-        </motion.article>
+        </m.article>
       ))}
     </section>
   );

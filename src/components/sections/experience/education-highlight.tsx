@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Calendar } from "lucide-react";
 
 export function EducationHighlight() {
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -36,6 +36,6 @@ export function EducationHighlight() {
           </p>
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }
