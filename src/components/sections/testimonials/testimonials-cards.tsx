@@ -1,14 +1,14 @@
 "use client";
 
 import { TESTIMONIALS } from "@/data/testimonials";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Quote } from "lucide-react";
 
 export function TestimonialsCards() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {TESTIMONIALS.map((t, i) => (
-        <motion.div
+        <m.div
           key={i}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export function TestimonialsCards() {
             </p>
             <p className="text-white/40 text-xs font-mono">{t.role}</p>
           </div>
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );

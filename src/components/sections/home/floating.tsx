@@ -1,7 +1,7 @@
 "use client";
 
 import { BRANDS } from "@/data/brands";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 
 export function Floating() {
@@ -12,7 +12,7 @@ export function Floating() {
           Trusted Language Partnerships
         </p>
 
-        <motion.div
+        <m.div
           initial={{
             opacity: 0,
             y: 20,
@@ -30,7 +30,7 @@ export function Floating() {
           className="flex flex-wrap items-center justify-center gap-12 md:gap-24"
         >
           {BRANDS.map((brand) => (
-            <motion.span
+            <m.span
               key={brand}
               whileHover={{
                 scale: 1.05,
@@ -41,9 +41,9 @@ export function Floating() {
               className="select-none font-serif text-xl font-medium uppercase tracking-[0.2em] text-luxury-charcoal/30 transition-colors hover:text-luxury-gold md:text-2xl"
             >
               {brand}
-            </motion.span>
+            </m.span>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -67,7 +67,7 @@ export function Header() {
 
           {/* Center */}
           <div className="hidden lg:block">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-luxury-charcoal/40">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-luxury-charcoal/65">
               Linguistic Artistry
             </span>
           </div>

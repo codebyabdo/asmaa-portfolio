@@ -41,7 +41,7 @@ export function AnimatedRole() {
       className="mb-12 flex h-16 items-center justify-center overflow-hidden"
     >
       {prefersReducedMotion ? (
-        <p className="font-serif text-2xl font-light lowercase text-luxury-charcoal/40 md:text-5xl">
+        <p className="font-serif text-2xl font-light lowercase text-luxury-charcoal/65 md:text-5xl">
           {ROLES[0]}
         </p>
       ) : (
@@ -55,7 +55,7 @@ export function AnimatedRole() {
               duration: 0.7,
               ease: "easeInOut",
             }}
-            className="font-serif text-2xl font-light lowercase text-luxury-charcoal/40 md:text-5xl"
+            className="font-serif text-2xl font-light lowercase text-luxury-charcoal/65 md:text-5xl"
           >
             {ROLES[roleIndex]}
           </m.p>

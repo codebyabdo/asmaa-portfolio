@@ -54,7 +54,7 @@ export function SocialLink() {
               </div>
 
               <div>
-                <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
+                <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/65">
                   {item.title}
                 </span>
 

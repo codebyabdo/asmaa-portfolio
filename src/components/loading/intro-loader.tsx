@@ -16,18 +16,7 @@ export function IntroLoader() {
             duration: 1.2,
             ease: [0.77, 0, 0.175, 1],
           }}
-          className="
-            fixed
-            inset-0
-            h-dvh
-            z-[10000]
-            flex
-            flex-col
-            items-center
-            justify-center
-            bg-luxury-charcoal
-            text-white
-          "
+          className="fixed inset-0 h-dvh z-10000 flex flex-col items-center justify-center bg-luxury-charcoal text-white"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
@@ -38,12 +27,8 @@ export function IntroLoader() {
             <span className="h-px w-8 bg-luxury-gold sm:w-10 md:w-12" />
 
             <span
-              className="
-                font-serif
-                italic
-                tracking-tighter
-                text-[clamp(1.75rem,5vw,2.5rem)]
-              "
+              className="font-serif
+                italic tracking-tighter text-[clamp(1.75rem,5vw,2.5rem)]"
             >
               Asmaa Adel
             </span>
@@ -51,17 +36,7 @@ export function IntroLoader() {
             <span className="h-px w-8 bg-luxury-gold sm:w-10 md:w-12" />
           </motion.div>
 
-          <div
-            className="
-              mt-6
-              h-4
-              w-40
-              overflow-hidden
-              sm:mt-8
-              sm:w-48
-              md:w-56
-            "
-          >
+          <div className="mt-6 h-4 w-40 overflow-hidden sm:mt-8 sm:w-48 md:w-56">
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: "100%" }}

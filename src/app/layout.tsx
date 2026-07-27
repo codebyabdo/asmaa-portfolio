@@ -178,7 +178,6 @@ export default function RootLayout({
         ${inter.variable}
         ${space.variable}
         ${cormorant.variable}
-        scroll-smooth
       `}
     >
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
