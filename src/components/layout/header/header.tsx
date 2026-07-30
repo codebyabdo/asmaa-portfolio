@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Globe, Languages, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Evidence", href: "/case-studies" },
   { name: "Experience", href: "/experience" },
   { name: "Voices", href: "/testimonials" },
@@ -30,7 +30,7 @@ export function Header() {
 
   return (
     <>
-      <motion.header
+      <m.header
         initial={{ y: -60, opacity: 0 }}
         animate={{
           y: 0,
@@ -94,18 +94,18 @@ export function Header() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </m.header>
 
       {/* Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-200 bg-luxury-charcoal text-white"
           >
-            <motion.div
+            <m.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "-100%" }}
@@ -132,7 +132,7 @@ export function Header() {
               {/* Navigation */}
               <div className="space-y-5">
                 {navItems.map((item, index) => (
-                  <motion.div
+                  <m.div
                     key={item.name}
                     initial={{ opacity: 0, x: -40 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -153,7 +153,7 @@ export function Header() {
                         {item.name}
                       </span>
                     </Link>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -169,8 +169,8 @@ export function Header() {
                   Cairo — Egypt
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

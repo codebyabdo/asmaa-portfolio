@@ -1,68 +1,70 @@
-'use client'
+"use client";
 
-import { m } from 'framer-motion'
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 
-export function PortfolioCtaSection() {
+import MagneticButton from "@/components/ui/MagneticButton";
+
+export function PortfolioCta() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="relative py-32 px-6 md:px-8 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <m.div
-          className="absolute inset-0 bg-linear-to-br from-accent-tertiary/10 via-background to-background"
-          animate={{ backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'] }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-      </div>
+    <section className="py-28 md:py-36 xl:py-52">
+      <motion.div
+        initial={
+          reduceMotion
+            ? false
+            : {
+                opacity: 0,
+                scale: 0.96,
+                y: 40,
+              }
+        }
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.9,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="mx-auto max-w-6xl text-center"
+      >
+        <span className="mb-8 block text-[10px] font-bold uppercase tracking-[0.45em] text-luxury-gold">
+          Commence Global Resonance
+        </span>
 
-      <div className="container-wide relative z-10">
-        <m.div
-          className="text-center max-w-4xl mx-auto space-y-8"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2
-            className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9]"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            Ready to Transform Your Content?
-          </h2>
+        <h2 className="mx-auto max-w-5xl font-serif text-5xl leading-[0.88] tracking-tight md:text-7xl xl:text-[8vw]">
+          Let&apos;s Translate
+          <br />
+          The <span className="italic text-luxury-gold">Future.</span>
+        </h2>
 
-          <p
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-body)' }}
-          >
-            Let&apos;s discuss your translation and localization needs. I deliver precision, cultural intelligence, and
-            professional excellence on every project.
-          </p>
+        <p className="mx-auto mt-10 max-w-2xl text-lg font-light leading-relaxed text-luxury-charcoal/60">
+          Ready to bring your content to international audiences with
+          culturally accurate, high-quality translation and localization?
+        </p>
 
-          <m.div
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            viewport={{ once: true }}
+        <div className="mt-16 flex flex-col items-center justify-center gap-8 sm:flex-row">
+          <Link href="/contact">
+            <MagneticButton size="lg" variant="gradient">
+              Initiate Consultation
+            </MagneticButton>
+          </Link>
+
+          <Link
+            href="/portfolio.pdf"
+            target="_blank"
+            className="border-b border-luxury-charcoal/10 pb-3 text-[11px] font-bold uppercase tracking-[0.35em] transition-all hover:border-luxury-gold hover:text-luxury-gold"
           >
-            <m.a
-              href="/contact"
-              className="px-10 py-4 rounded-md font-medium bg-linear-to-r from-accent-primary to-accent-secondary text-primary shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Start Your Project
-            </m.a>
-            <m.a
-              href="/about"
-              className="px-10 py-4 rounded-md font-medium border-2 border-accent-primary/50 text-accent-primary hover:border-accent-primary bg-accent-primary/5 backdrop-blur-sm transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Learn More About Me
-            </m.a>
-          </m.div>
-        </m.div>
-      </div>
+            Download Portfolio PDF
+          </Link>
+        </div>
+      </motion.div>
     </section>
-  )
+  );
 }
+
+export default PortfolioCta;

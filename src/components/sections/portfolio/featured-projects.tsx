@@ -1,159 +1,128 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Lock, Clock, CheckCircle2 } from 'lucide-react'
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-interface Project {
-  id: string
-  title: string
-  category: string
-  languages: string
-  accuracy: number
-  timeline: string
-  description: string
-}
-
-const projects: Project[] = [
-  {
-    id: '1',
-    title: 'International Medical Report Translation',
-    category: 'Medical Translation',
-    languages: 'English → Arabic',
-    accuracy: 98,
-    timeline: '5 days',
-    description: 'Comprehensive translation of a 150-page medical diagnostic report for a leading hospital network.',
-  },
-  {
-    id: '2',
-    title: 'E-Commerce Platform Localization',
-    category: 'Website Localization',
-    languages: 'English → Arabic',
-    accuracy: 99,
-    timeline: '3 weeks',
-    description: 'Complete localization of product descriptions, UI elements, and customer support documentation.',
-  },
-  {
-    id: '3',
-    title: 'Legal Contract Bundle',
-    category: 'Legal Translation',
-    languages: 'English ↔ Arabic',
-    accuracy: 99,
-    timeline: '2 weeks',
-    description: 'Certified translation of 12 complex international commercial contracts with legal terminology.',
-  },
-]
+import { SectionHeader } from "@/components/shared/header-section";
+import { FEATURED_PROJECTS } from "@/data/projects";
+import { cn } from "@/lib/utils";
 
 export function FeaturedProjects() {
   return (
-    <section id="featured" className="relative py-32 px-6 md:px-8 bg-card overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-accent-primary/5 rounded-full blur-3xl"
-          animate={{ y: [0, 40, 0], x: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-      </div>
+    <section
+      id="featured-projects"
+      aria-labelledby="featured-projects-heading"
+      className="py-28 md:py-40"
+    >
+      <SectionHeader
+        number="01"
+        title="Featured Legacies"
+        subtitle="Major localization efforts that redefined how international brands speak to the Arabic market."
+      />
 
-      <div className="container-wide relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="mb-20 space-y-6"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-accent-primary font-medium" style={{ fontFamily: 'var(--font-accent)' }}>
-            FEATURED WORK
-          </p>
-          <h2
-            className="text-6xl md:text-7xl font-black tracking-tighter"
-            style={{ fontFamily: 'var(--font-headings)' }}
+      <div className="space-y-28 md:space-y-40">
+        {FEATURED_PROJECTS.map((project, idx) => (
+          <motion.article
+            key={project.id}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+              once: true,
+              amount: 0.25,
+            }}
+            transition={{
+              duration: 0.9,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="grid items-center gap-10 lg:grid-cols-12 lg:gap-24"
           >
-            Premium Translation Projects
-          </h2>
-        </motion.div>
+            {/* Image */}
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className="group relative"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.8 }}
-              viewport={{ once: true }}
+            <div
+              className={cn(
+                "relative group lg:col-span-7",
+                idx % 2 !== 0 && "lg:order-2"
+              )}
             >
-              {/* Card */}
-              <motion.div
-                className="h-full p-8 rounded-xl border border-border/30 bg-linear-to-br from-white/50 to-white/20 dark:from-white/5 dark:to-white/2 backdrop-blur-xl hover:border-accent-primary/30 transition-all duration-300 shadow-sm hover:shadow-lg"
-                whileHover={{ y: -8 }}
-              >
-                {/* Header */}
-                <div className="mb-6 space-y-2">
-                  <p className="text-xs font-semibold text-accent-primary uppercase tracking-widest">
-                    {project.category}
-                  </p>
-                  <h3
-                    className="text-2xl font-bold text-foreground leading-tight"
-                    style={{ fontFamily: 'var(--font-headings)' }}
-                  >
-                    {project.title}
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground mb-8 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                  {project.description}
-                </p>
-
-                {/* Metrics */}
-                <div className="space-y-4 mb-8 pt-6 border-t border-border/20">
-                  {/* Accuracy */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-accent-primary" />
-                      <span className="text-sm text-muted-foreground">Translation Accuracy</span>
-                    </div>
-                    <span className="text-sm font-bold text-accent-primary">{project.accuracy}%</span>
-                  </div>
-
-                  {/* Timeline */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-accent-primary" />
-                      <span className="text-sm text-muted-foreground">Delivery</span>
-                    </div>
-                    <span className="text-sm font-bold text-accent-primary">{project.timeline}</span>
-                  </div>
-
-                  {/* Confidential */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Lock className="w-4 h-4 text-accent-primary" />
-                      <span className="text-sm text-muted-foreground">Status</span>
-                    </div>
-                    <span className="text-sm font-bold text-accent-primary">Confidential</span>
-                  </div>
-                </div>
-
-                {/* Languages */}
-                <p className="text-xs text-accent-secondary font-medium" style={{ fontFamily: 'var(--font-accent)' }}>
-                  {project.languages}
-                </p>
-
-                {/* Hover Indicator */}
-                <motion.div
-                  className="absolute inset-0 rounded-xl pointer-events-none border border-accent-primary/0 group-hover:border-accent-primary/20"
-                  animate={{ borderColor: 'rgba(212, 175, 55, 0)' }}
-                  transition={{ duration: 0.3 }}
+              <div className="relative aspect-video overflow-hidden rounded-[2.5rem] bg-luxury-charcoal">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  priority={idx === 0}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  quality={90}
+                  sizes="(max-width:768px) 100vw,(max-width:1200px) 70vw,60vw"
+                  className="object-cover opacity-60 grayscale transition duration-1000 group-hover:scale-105 group-hover:grayscale-0"
                 />
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-luxury-charcoal via-transparent to-transparent opacity-70" />
+
+                <div className="absolute right-5 top-5 flex gap-2 md:right-8 md:top-8">
+                  <span className="glass rounded-full border border-white/10 px-3 py-1 text-[8px] font-bold uppercase tracking-widest text-white">
+                    Confidential
+                  </span>
+
+                  <span className="glass rounded-full border border-white/10 px-3 py-1 text-[8px] font-bold uppercase tracking-widest text-luxury-gold">
+                    {project.year}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+
+            <div className="lg:col-span-5">
+              <span className="mb-5 block text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-gold">
+                {project.category}
+              </span>
+
+              <h2
+                id={idx === 0 ? "featured-projects-heading" : undefined}
+                className="mb-7 font-serif text-4xl leading-tight tracking-tight md:text-6xl"
+              >
+                {project.title}
+              </h2>
+
+              <p className="mb-10 text-lg font-light leading-relaxed text-luxury-charcoal/60">
+                {project.description}
+              </p>
+
+              <dl className="mb-10 grid grid-cols-2 gap-8 border-b border-luxury-charcoal/5 pb-10">
+                <div>
+                  <dt className="mb-2 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/30">
+                    Languages
+                  </dt>
+
+                  <dd className="font-serif text-lg">
+                    {project.languages}
+                  </dd>
+                </div>
+
+                <div>
+                  <dt className="mb-2 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/30">
+                    Accuracy
+                  </dt>
+
+                  <dd className="font-serif text-lg text-luxury-gold">
+                    {project.accuracy}
+                  </dd>
+                </div>
+              </dl>
+
+              <button
+                type="button"
+                aria-label={`Read case study for ${project.title}`}
+                className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.25em]"
+              >
+                Deep Dive Case Study
+
+                <span className="h-px w-12 bg-luxury-gold transition-all duration-300 group-hover:w-20" />
+              </button>
+            </div>
+          </motion.article>
+        ))}
       </div>
     </section>
-  )
+  );
 }

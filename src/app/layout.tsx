@@ -13,10 +13,10 @@ import {
   Space_Grotesk,
   Cormorant_Garamond,
 } from "next/font/google";
+import { domAnimation, LazyMotion } from "framer-motion";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://asmaaadel.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://asmaaadel.vercel.app";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
@@ -256,20 +256,21 @@ export default function RootLayout({
             __html: JSON.stringify(personSchema),
           }}
         />
+        <LazyMotion features={domAnimation}>
+          <CustomCursor />
 
-        <CustomCursor />
+          <Header />
 
-        <Header />
+          <main className="relative">
+            <LenisProvider>{children}</LenisProvider>
+          </main>
 
-        <main className="relative">
-          <LenisProvider>{children}</LenisProvider>
-        </main>
+          <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
 
-        <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
+          <Analytics />
 
-        <Analytics />
-
-        <SpeedInsights />
+          <SpeedInsights />
+        </LazyMotion>
       </body>
     </html>
   );

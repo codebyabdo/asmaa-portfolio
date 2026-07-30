@@ -1,205 +1,204 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Maximize2 } from "lucide-react";
+
+import { SectionHeader } from "@/components/shared/header-section";
+import { cn } from "@/lib/utils";
 
 interface ArchiveProject {
-  id: string
-  title: string
-  category: string
-  languages: string
-  featured?: boolean
+  id: string;
+  title: string;
+  category: string;
+  languages: string;
+  featured?: boolean;
 }
 
 const allProjects: ArchiveProject[] = [
   {
-    id: '1',
-    title: 'Corporate Legal Agreement',
-    category: 'Legal',
-    languages: 'English → Arabic',
+    id: "1",
+    title: "Corporate Legal Agreement",
+    category: "Legal",
+    languages: "English → Arabic",
     featured: true,
   },
   {
-    id: '2',
-    title: 'Medical Device Manual',
-    category: 'Medical',
-    languages: 'English ↔ Arabic',
+    id: "2",
+    title: "Medical Device Manual",
+    category: "Medical",
+    languages: "English ↔ Arabic",
   },
   {
-    id: '3',
-    title: 'Academic Research Paper',
-    category: 'Academic',
-    languages: 'English → Arabic',
+    id: "3",
+    title: "Academic Research Paper",
+    category: "Academic",
+    languages: "English → Arabic",
   },
   {
-    id: '4',
-    title: 'E-Commerce Product Catalog',
-    category: 'Localization',
-    languages: 'English → Arabic',
+    id: "4",
+    title: "E-Commerce Product Catalog",
+    category: "Localization",
+    languages: "English → Arabic",
     featured: true,
   },
   {
-    id: '5',
-    title: 'Marketing Campaign Copy',
-    category: 'Marketing',
-    languages: 'English ↔ Arabic',
+    id: "5",
+    title: "Marketing Campaign Copy",
+    category: "Marketing",
+    languages: "English ↔ Arabic",
   },
   {
-    id: '6',
-    title: 'Technical API Documentation',
-    category: 'Technical',
-    languages: 'English → Arabic',
+    id: "6",
+    title: "Technical API Documentation",
+    category: "Technical",
+    languages: "English → Arabic",
   },
   {
-    id: '7',
-    title: 'Financial Audit Report',
-    category: 'Business',
-    languages: 'English → Arabic',
+    id: "7",
+    title: "Financial Audit Report",
+    category: "Business",
+    languages: "English → Arabic",
   },
   {
-    id: '8',
-    title: 'Website UI Localization',
-    category: 'Localization',
-    languages: 'English ↔ Arabic',
+    id: "8",
+    title: "Website UI Localization",
+    category: "Localization",
+    languages: "English ↔ Arabic",
     featured: true,
   },
-]
+];
 
 const categories = [
-  'All',
-  'Legal',
-  'Medical',
-  'Academic',
-  'Business',
-  'Localization',
-  'Marketing',
-  'Technical',
-]
+  "All",
+  "Legal",
+  "Medical",
+  "Academic",
+  "Business",
+  "Localization",
+  "Marketing",
+  "Technical",
+];
 
 export function ProjectArchive() {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const reduceMotion = useReducedMotion();
 
-  const filteredProjects =
-    activeCategory === 'All'
-      ? allProjects
-      : allProjects.filter((p) => p.category === activeCategory)
+  const [filter, setFilter] = useState("All");
+
+  const filteredProjects = useMemo(() => {
+    if (filter === "All") return allProjects;
+
+    return allProjects.filter((project) => project.category === filter);
+  }, [filter]);
 
   return (
-    <section id="archive" className="relative py-32 px-6 md:px-8 bg-card">
-      <div className="container-wide">
-        {/* Header */}
-        <motion.div
-          className="mb-20 space-y-6"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-accent-primary font-medium" style={{ fontFamily: 'var(--font-accent)' }}>
-            COMPLETE PORTFOLIO
-          </p>
-          <h2
-            className="text-6xl md:text-7xl font-black tracking-tighter"
-            style={{ fontFamily: 'var(--font-headings)' }}
-          >
-            Project Archive
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl" style={{ fontFamily: 'var(--font-body)' }}>
-            Browse all completed projects filtered by specialization and industry.
-          </p>
-        </motion.div>
+    <section
+      className="py-24 md:py-32 xl:py-40"
+      aria-labelledby="archive-heading"
+    >
+      <div className="mb-20 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+        <SectionHeader
+          number="03"
+          title="The Archive"
+          subtitle="A broader look at localization projects spanning legal, business, medical, academic and technical industries."
+        />
 
-        {/* Category Filter */}
-        <motion.div
-          className="mb-16 flex flex-wrap gap-3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <div className="flex flex-wrap gap-3">
           {categories.map((category) => (
-            <motion.button
+            <button
               key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-accent-primary text-primary shadow-lg'
-                  : 'bg-background border border-border/50 text-foreground hover:border-accent-primary/30'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              type="button"
+              onClick={() => setFilter(category)}
+              className={cn(
+                "rounded-full border px-6 py-3 text-[10px] font-bold uppercase tracking-[0.25em] transition-all",
+                filter === category
+                  ? "border-luxury-gold bg-luxury-gold text-white"
+                  : "glass border-luxury-charcoal/5 hover:border-luxury-gold/40",
+              )}
             >
               {category}
-            </motion.button>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          layout={!reduceMotion}
+          className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.article
+              key={project.id}
+              layout={!reduceMotion}
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 40,
+                    }
+              }
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={
+                reduceMotion
+                  ? {}
+                  : {
+                      opacity: 0,
+                      y: 20,
+                    }
+              }
+              transition={{
+                duration: 0.45,
+                delay: index * 0.05,
+              }}
+              className="group"
+            >
+              <div className="relative mb-7 aspect-[4/3] overflow-hidden rounded-[2.25rem] border border-luxury-charcoal/5 bg-luxury-charcoal/5">
+                <div className="absolute inset-x-6 top-6 z-10 flex items-start justify-between">
+                  <span className="glass rounded-full bg-white/80 px-3 py-1 text-[8px] font-bold uppercase tracking-[0.25em]">
+                    {project.category}
+                  </span>
+
+                  <Maximize2
+                    size={14}
+                    className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-br from-luxury-gold/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="absolute bottom-8 left-8 right-8">
+                  <div className="h-px w-12 bg-luxury-gold transition-all duration-500 group-hover:w-24" />
+                </div>
+              </div>
+
+              <h3 className="mb-3 font-serif text-2xl transition-colors duration-300 group-hover:text-luxury-gold">
+                {project.title}
+              </h3>
+
+              <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/35">
+                {project.languages}
+
+                <ArrowRight size={12} />
+
+                {project.category}
+              </p>
+
+              {project.featured && (
+                <div className="mt-5 inline-flex rounded-full border border-luxury-gold/20 bg-luxury-gold/10 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-gold">
+                  Featured
+                </div>
+              )}
+            </motion.article>
           ))}
         </motion.div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="group relative"
-              >
-                <motion.div
-                  className="h-full p-6 rounded-xl bg-background border border-border/30 hover:border-accent-primary/50 transition-all duration-300 cursor-pointer"
-                  whileHover={{ y: -4 }}
-                >
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="mb-4 inline-block px-2 py-1 rounded-full bg-accent-primary/10 text-xs font-bold text-accent-primary">
-                      Featured
-                    </div>
-                  )}
-
-                  {/* Title */}
-                  <h3
-                    className="text-lg font-bold text-foreground mb-2 group-hover:text-accent-primary transition-colors"
-                    style={{ fontFamily: 'var(--font-headings)' }}
-                  >
-                    {project.title}
-                  </h3>
-
-                  {/* Category & Languages */}
-                  <div className="space-y-2 mb-4">
-                    <p className="text-xs font-medium text-accent-primary uppercase">{project.category}</p>
-                    <p className="text-sm text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
-                      {project.languages}
-                    </p>
-                  </div>
-
-                  {/* Hover Action */}
-                  <motion.div
-                    className="mt-4 flex items-center gap-2 text-accent-primary font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ opacity: 1, x: 0 }}
-                  >
-                    View Details
-                    <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Empty State */}
-        {filteredProjects.length === 0 && (
-          <motion.div
-            className="text-center py-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            <p className="text-muted-foreground">No projects found in this category.</p>
-          </motion.div>
-        )}
-      </div>
+      </AnimatePresence>
     </section>
-  )
+  );
 }
+
+export default ProjectArchive;
