@@ -1,7 +1,7 @@
 "use client";
 
 import Lenis from "lenis";
-import { ReactNode, useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -10,24 +10,24 @@ interface Props {
 export default function LenisProvider({ children }: Props) {
   useEffect(() => {
     const lenis = new Lenis({
+      lerp: 0.1,
       smoothWheel: true,
-      duration: 1.2,
     });
 
-    let frame: number;
+    let rafId = 0;
 
-    const raf = (time: number) => {
+    function raf(time: number) {
       lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
+      rafId = requestAnimationFrame(raf);
+    }
 
-    frame = requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
-      cancelAnimationFrame(frame);
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
 
-  return <>{children}</>;
+  return children;
 }

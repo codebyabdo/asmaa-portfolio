@@ -1,131 +1,184 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Shield, Lock, Eye, FileText } from 'lucide-react'
+import { motion, useReducedMotion } from "framer-motion";
+import { Shield, Lock } from "lucide-react";
+
+const securityFeatures = [
+  "Military-grade file encryption",
+  "Sanitized Case Study previews",
+  "Strict NDA-compliant workflow",
+  "Private localization environment",
+];
 
 export function SecureWorkflow() {
-  const steps = [
-    {
-      icon: FileText,
-      title: 'Confidential Upload',
-      description: 'Secure document submission with end-to-end encryption',
-    },
-    {
-      icon: Lock,
-      title: 'Access Control',
-      description: 'NDA-protected project environment with role-based access',
-    },
-    {
-      icon: Eye,
-      title: 'Quality Review',
-      description: 'Multi-stage review process with confidentiality maintained',
-    },
-    {
-      icon: Shield,
-      title: 'Secure Delivery',
-      description: 'Watermarked files delivered through secure channels',
-    },
-  ]
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative py-32 px-6 md:px-8 bg-background overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <motion.div
-          className="absolute top-1/4 left-0 w-96 h-96 bg-accent-primary/3 rounded-full blur-3xl"
-          animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-      </div>
+    <section
+      className="py-24 md:py-32 xl:py-40"
+      aria-labelledby="security-heading"
+    >
+      <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-24">
+        {/* Content */}
+        <div className="lg:col-span-5">
+          <div className="mb-8 flex items-center gap-3 text-luxury-gold">
+            <Shield size={20} />
 
-      <div className="container-wide relative z-10">
-        {/* Header */}
-        <motion.div
-          className="max-w-3xl mb-24"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-accent-primary font-medium mb-4" style={{ fontFamily: 'var(--font-accent)' }}>
-            SECURITY & WORKFLOW
-          </p>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em]">
+              Security Protocol
+            </span>
+          </div>
+
           <h2
-            className="text-6xl md:text-7xl font-black tracking-tighter mb-8"
-            style={{ fontFamily: 'var(--font-headings)' }}
+            id="security-heading"
+            className="font-serif text-5xl leading-[0.9] md:text-6xl"
           >
-            Secure Translation Workflow
+            Architecting
+            <br />
+            <span className="font-light italic">Absolute</span>
+            <br />
+            <span className="text-luxury-gold">Trust.</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-            Every project is handled with meticulous attention to confidentiality and professional security standards.
-            Your documents remain protected at every stage.
+
+          <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-luxury-charcoal/60 md:text-xl">
+            Every translation project is handled through a confidentiality-first
+            workflow designed to protect sensitive documents, preserve client
+            privacy, and ensure secure collaboration.
           </p>
-        </motion.div>
 
-        {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => {
-            const IconComponent = step.icon
-            return (
-              <motion.div
-                key={index}
-                className="relative"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.8 }}
-                viewport={{ once: true }}
+          <ul className="mt-12 space-y-5">
+            {securityFeatures.map((item) => (
+              <li
+                key={item}
+                className="group flex items-center gap-4"
               >
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-20 -right-4 w-8 h-0.5 bg-gradient-to-r from-accent-primary/50 to-accent-primary/0" />
-                )}
+                <div className="h-1.5 w-1.5 rounded-full bg-luxury-gold transition-transform group-hover:scale-150" />
 
-                {/* Card */}
-                <motion.div
-                  className="h-full p-8 rounded-xl bg-card border border-border/50 hover:border-accent-primary/30 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -4 }}
-                >
-                  {/* Icon */}
-                  <div className="mb-6 inline-block p-3 rounded-lg bg-accent-primary/10">
-                    <IconComponent className="w-6 h-6 text-accent-primary" />
-                  </div>
-
-                  {/* Content */}
-                  <h3
-                    className="text-xl font-bold mb-3 text-foreground"
-                    style={{ fontFamily: 'var(--font-headings)' }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-                    {step.description}
-                  </p>
-
-                  {/* Step Number */}
-                  <div className="mt-6 inline-block px-3 py-1 rounded-full bg-accent-primary/10 text-xs font-bold text-accent-primary">
-                    Step {index + 1}
-                  </div>
-                </motion.div>
-              </motion.div>
-            )
-          })}
+                <span className="text-xs uppercase tracking-[0.25em] text-luxury-charcoal/70 md:text-sm">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Security Statement */}
-        <motion.div
-          className="mt-20 p-8 rounded-xl bg-gradient-to-r from-accent-primary/5 to-accent-secondary/5 border border-accent-primary/20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-center text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
-            All projects are subject to strict confidentiality agreements and professional conduct standards. Your
-            documents are encrypted, protected, and handled with the utmost discretion. Zero data collection. Complete
-            privacy assurance.
-          </p>
-        </motion.div>
+        {/* Card */}
+        <div className="relative lg:col-span-7">
+          <motion.div
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    rotate: -2,
+                    y: 30,
+                  }
+            }
+            whileInView={
+              reduceMotion
+                ? {}
+                : {
+                    opacity: 1,
+                    rotate: 0,
+                    y: 0,
+                  }
+            }
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="relative overflow-hidden rounded-[2.5rem] bg-black p-3 shadow-2xl md:rounded-[4rem] md:p-4"
+          >
+            <div className="glass-dark overflow-hidden rounded-[2rem] border border-white/10 md:rounded-[3.5rem]">
+              {/* Header */}
+
+              <div className="flex items-center justify-between border-b border-white/5 p-6 md:p-8">
+                <div className="flex items-center gap-3">
+                  <Lock
+                    size={14}
+                    className="text-luxury-gold"
+                  />
+
+                  <span className="font-mono text-[9px] uppercase tracking-widest text-white/40">
+                    Secure_Vault_v4.2
+                  </span>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="h-2 w-2 rounded-full bg-white/10" />
+                  <div className="h-2 w-2 rounded-full bg-luxury-gold" />
+                </div>
+              </div>
+
+              {/* Preview */}
+
+              <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden p-8 md:p-12">
+                <div className="pointer-events-none absolute inset-0 space-y-5 p-12 opacity-10 blur-sm grayscale select-none">
+                  <div className="h-5 rounded bg-white" />
+                  <div className="h-5 w-4/5 rounded bg-white" />
+                  <div className="h-5 rounded bg-white" />
+                  <div className="h-5 w-3/5 rounded bg-white" />
+                  <div className="h-5 w-5/6 rounded bg-white" />
+                </div>
+
+                <div className="relative z-10 flex max-w-md flex-col items-center text-center">
+                  <div className="relative mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-luxury-gold/40">
+                    {!reduceMotion && (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 18,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="absolute inset-0 rounded-full border-t border-luxury-gold"
+                      />
+                    )}
+
+                    <Shield
+                      size={32}
+                      className="text-luxury-gold"
+                    />
+                  </div>
+
+                  <h3 className="font-serif text-2xl text-white">
+                    Encryption Active
+                  </h3>
+
+                  <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-white/40">
+                    Metadata • Identity • Assets Protected
+                  </p>
+
+                  <button
+                    type="button"
+                    className="glass mt-8 rounded-full border border-white/20 px-8 py-3 text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-colors hover:bg-luxury-gold hover:text-black"
+                  >
+                    Request Secure Access
+                  </button>
+                </div>
+
+                {!reduceMotion && (
+                  <motion.div
+                    initial={{ top: "-10%" }}
+                    animate={{ top: "110%" }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute left-0 h-px w-full bg-luxury-gold/40 shadow-[0_0_20px_rgba(212,175,55,0.45)]"
+                  />
+                )}
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="pointer-events-none absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full border border-luxury-gold/10 lg:block" />
+        </div>
       </div>
     </section>
-  )
+  );
 }
+
+export default SecureWorkflow;

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "email": "email dev --dir src/emails"
+    "email": "email dev --dir src/emails",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -33,12 +34,14 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.12",
     "@react-email/ui": "^6.9.1",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "email": "^0.2.7",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
