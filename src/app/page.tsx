@@ -4,6 +4,7 @@ import { Floating } from "@/components/sections/home/floating";
 import { domAnimation, LazyMotion } from "framer-motion";
 import { IntroLoader } from "@/components/loading/intro-loader";
 
+
 export default function Home() {
   return (
     <>
