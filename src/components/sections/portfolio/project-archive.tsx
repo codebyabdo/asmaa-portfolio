@@ -6,6 +6,7 @@ import { ArrowRight, Maximize2 } from "lucide-react";
 
 import { SectionHeader } from "@/components/shared/header-section";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface ArchiveProject {
   id: string;
@@ -15,81 +16,22 @@ interface ArchiveProject {
   featured?: boolean;
 }
 
-const allProjects: ArchiveProject[] = [
-  {
-    id: "1",
-    title: "Corporate Legal Agreement",
-    category: "Legal",
-    languages: "English → Arabic",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "Medical Device Manual",
-    category: "Medical",
-    languages: "English ↔ Arabic",
-  },
-  {
-    id: "3",
-    title: "Academic Research Paper",
-    category: "Academic",
-    languages: "English → Arabic",
-  },
-  {
-    id: "4",
-    title: "E-Commerce Product Catalog",
-    category: "Localization",
-    languages: "English → Arabic",
-    featured: true,
-  },
-  {
-    id: "5",
-    title: "Marketing Campaign Copy",
-    category: "Marketing",
-    languages: "English ↔ Arabic",
-  },
-  {
-    id: "6",
-    title: "Technical API Documentation",
-    category: "Technical",
-    languages: "English → Arabic",
-  },
-  {
-    id: "7",
-    title: "Financial Audit Report",
-    category: "Business",
-    languages: "English → Arabic",
-  },
-  {
-    id: "8",
-    title: "Website UI Localization",
-    category: "Localization",
-    languages: "English ↔ Arabic",
-    featured: true,
-  },
-];
-
-const categories = [
-  "All",
-  "Legal",
-  "Medical",
-  "Academic",
-  "Business",
-  "Localization",
-  "Marketing",
-  "Technical",
-];
-
 export function ProjectArchive() {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("portfolio.archive");
 
-  const [filter, setFilter] = useState("All");
+  const categories = t.raw("categories") as string[];
 
-  const filteredProjects = useMemo(() => {
-    if (filter === "All") return allProjects;
+  const allProjects = t.raw("projects") as ArchiveProject[];
 
-    return allProjects.filter((project) => project.category === filter);
-  }, [filter]);
+  const allCategory = categories[0];
+
+  const [filter, setFilter] = useState(allCategory);
+
+  const filteredProjects =
+    filter === allCategory
+      ? allProjects
+      : allProjects.filter((project) => project.category === filter);
 
   return (
     <section
@@ -98,9 +40,9 @@ export function ProjectArchive() {
     >
       <div className="mb-20 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeader
-          number="03"
-          title="The Archive"
-          subtitle="A broader look at localization projects spanning legal, business, medical, academic and technical industries."
+          number={t("number")}
+          title={t("title")}
+          subtitle={t("subtitle")}
         />
 
         <div className="flex flex-wrap gap-3">
@@ -190,7 +132,7 @@ export function ProjectArchive() {
 
               {project.featured && (
                 <div className="mt-5 inline-flex rounded-full border border-luxury-gold/20 bg-luxury-gold/10 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-gold">
-                  Featured
+                  {t("featured")}
                 </div>
               )}
             </motion.article>

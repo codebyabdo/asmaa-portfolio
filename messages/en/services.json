@@ -1,0 +1,56 @@
+{
+  "hero": {
+    "eyebrow": "Crafted Solutions",
+    
+    "title": {
+      "first": "Excellence",
+      "second": "as a",
+      "third": "Ritual."
+    },
+    "description": "Specialized linguistic services for businesses, publishers, and international organizations seeking accurate, culturally-aware communication."
+  },
+  "quote": "Every successful localization project begins with understanding, not translation.",
+
+  "services": [
+    {
+      "title": "Localization",
+      "description": "Adapting products, software, and apps to feel native to Arabic-speaking markets.",
+      "category": "Technical"
+    },
+    {
+      "title": "Document Translation",
+      "description": "Precise translation for legal, medical, and corporate documents with absolute privacy.",
+      "category": "Legal & Corporate"
+    },
+    {
+      "title": "Website Transcreation",
+      "description": "Maintaining brand voice while creatively adapting marketing copy for impact.",
+      "category": "Marketing"
+    },
+    {
+      "title": "Subtitle Artistry",
+      "description": "Cinematic subtitling and time-synced translation for media and entertainment.",
+      "category": "Media"
+    },
+    {
+      "title": "Business Comms",
+      "description": "Elite ghostwriting and correspondence management for C-suite professionals.",
+      "category": "Consulting"
+    },
+    {
+      "title": "Cultural Audits",
+      "description": "Reviewing existing content for cultural sensitivity and linguistic accuracy.",
+      "category": "Quality Assurance"
+    }
+  ],
+
+  "cta": {
+    "title": "Need a Tailored Localization Strategy?",
+    "description": "Every project deserves a thoughtful linguistic approach. Let's discuss your goals and build communication that resonates across cultures.",
+    "button": "Schedule a Consultation"
+  },
+
+  "buttons": {
+    "learnMore": "Learn More"
+  }
+}

@@ -4,10 +4,28 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { SectionHeader } from "@/components/shared/header-section";
-import { FEATURED_PROJECTS } from "@/data/projects";
+import { FEATURED_PROJECT_META } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export function FeaturedProjects() {
+  const t = useTranslations("portfolio.featured");
+
+  const projects = t.raw("projects") as {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    image: string;
+    year: string;
+    accuracy: string;
+    languages: string;
+  }[];
+
+  const FEATURED_PROJECTS = projects.map((project, index) => ({
+    ...project,
+    ...FEATURED_PROJECT_META[index],
+  }));
   return (
     <section
       id="featured-projects"
@@ -15,9 +33,9 @@ export function FeaturedProjects() {
       className="py-28 md:py-40"
     >
       <SectionHeader
-        number="01"
-        title="Featured Legacies"
-        subtitle="Major localization efforts that redefined how international brands speak to the Arabic market."
+        number={t("number")}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       <div className="space-y-28 md:space-y-40">
@@ -41,7 +59,7 @@ export function FeaturedProjects() {
             <div
               className={cn(
                 "relative group lg:col-span-7",
-                idx % 2 !== 0 && "lg:order-2"
+                idx % 2 !== 0 && "lg:order-2",
               )}
             >
               <div className="relative aspect-video overflow-hidden rounded-[2.5rem] bg-luxury-charcoal">
@@ -60,7 +78,7 @@ export function FeaturedProjects() {
 
                 <div className="absolute right-5 top-5 flex gap-2 md:right-8 md:top-8">
                   <span className="glass rounded-full border border-white/10 px-3 py-1 text-[8px] font-bold uppercase tracking-widest text-white">
-                    Confidential
+                    {t("confidential")}
                   </span>
 
                   <span className="glass rounded-full border border-white/10 px-3 py-1 text-[8px] font-bold uppercase tracking-widest text-luxury-gold">
@@ -91,17 +109,15 @@ export function FeaturedProjects() {
               <dl className="mb-10 grid grid-cols-2 gap-8 border-b border-luxury-charcoal/5 pb-10">
                 <div>
                   <dt className="mb-2 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/30">
-                    Languages
+                    {t("languages")}
                   </dt>
 
-                  <dd className="font-serif text-lg">
-                    {project.languages}
-                  </dd>
+                  <dd className="font-serif text-lg">{project.languages}</dd>
                 </div>
 
                 <div>
                   <dt className="mb-2 text-[9px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/30">
-                    Accuracy
+                    {t("accuracy")}
                   </dt>
 
                   <dd className="font-serif text-lg text-luxury-gold">
@@ -115,7 +131,7 @@ export function FeaturedProjects() {
                 aria-label={`Read case study for ${project.title}`}
                 className="group flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.25em]"
               >
-                Deep Dive Case Study
+                {t("button")}
 
                 <span className="h-px w-12 bg-luxury-gold transition-all duration-300 group-hover:w-20" />
               </button>

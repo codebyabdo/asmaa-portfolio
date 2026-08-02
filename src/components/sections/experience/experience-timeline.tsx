@@ -3,9 +3,18 @@
 import { motion } from "framer-motion";
 import { Briefcase, MapPin } from "lucide-react";
 
-import { HISTORY } from "@/data/experience";
+import { useTranslations } from "next-intl";
 
 export function ExperienceTimeline() {
+  const t = useTranslations("experience.timeline");
+
+  const HISTORY = t.raw("history") as {
+    role: string;
+    company: string;
+    period: string;
+    desc: string;
+  }[];
+
   return (
     <section className="relative space-y-24 border-l border-luxury-charcoal/10 pl-10">
       {HISTORY.map((exp, index) => (
@@ -45,7 +54,7 @@ export function ExperienceTimeline() {
 
           <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-luxury-charcoal/65">
             <MapPin size={12} />
-            Remote / International
+            {t("location")}
           </div>
         </motion.article>
       ))}

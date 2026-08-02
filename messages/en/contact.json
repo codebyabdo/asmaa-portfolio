@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "badge": "Get In Touch",
+    "title": {
+      "first": "Let's",
+      "highlight": "Connect"
+    },
+    "description": "Available for freelance projects, localization partnerships, and international collaborations"
+  },
+
+  "form": {
+    "title": "Send a Message",
+
+    "fields": {
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "hello@example.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Project inquiry"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project..."
+      }
+    },
+
+    "buttons": {
+      "send": "Send Message",
+      "sending": "Sending..."
+    }
+  },
+
+  "contacts": [
+    {
+      "title": "Email",
+      "value": "contact@asmaaadel.com",
+      "href": "mailto:contact@asmaaadel.com"
+    },
+    {
+      "title": "LinkedIn",
+      "value": "linkedin.com/in/asmaa-adel",
+      "href": "https://linkedin.com/in/asmaa-adel"
+    },
+    {
+      "title": "WhatsApp",
+      "value": "+20 123 456 7890",
+      "href": "https://wa.me/201234567890"
+    }
+  ],
+
+  "footer": {
+    "copyright": "© 2026 Asmaa Adel. All Rights Reserved.",
+    "credit": "Designed & Developed with Precision"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "editorial": {
+    "eyebrow": "The Story Behind The Logic",
+    "title": {
+      "first": "Beyond",
+      "second": "Translation"
+    },
+    "description": "Asmaa Adel is not just a translator; she is a cultural bridge. Through linguistic precision and emotional intelligence, she transforms words into experiences that feel native to every audience."
+  },
+
+  "image": {
+    "location": "Based in Beni Suef, Egypt",
+    "caption": "Serving Global Clients",
+    "alt": "Asmaa workspace"
+  },
+
+  "values": [
+    {
+      "title": "Precision First",
+      "text": "Every comma matters. Accuracy isn't a goal; it's the standard."
+    },
+    {
+      "title": "Time Critical",
+      "text": "Global markets move fast. Delivery and reliability remain essential."
+    },
+    {
+      "title": "Continuous Flow",
+      "text": "Following linguistic evolution and localization technology."
+    }
+  ],
+
+  "timeline": {
+    "title": "The Journey",
+    "items": [
+      {
+        "year": "2022",
+        "title": "Foundation",
+        "desc": "Started building a strong foundation in translation and linguistic skills."
+      },
+      {
+        "year": "2023",
+        "title": "Freelance Journey",
+        "desc": "Started delivering professional translation solutions for diverse clients."
+      },
+      {
+        "year": "2024",
+        "title": "Professional Growth",
+        "desc": "Expanded expertise in localization and advanced translation workflows."
+      },
+      {
+        "year": "2025",
+        "title": "Global Vision",
+        "desc": "Building long-term partnerships with clients worldwide."
+      }
+    ]
+  }
+}

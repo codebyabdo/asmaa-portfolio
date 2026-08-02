@@ -1,0 +1,29 @@
+{
+  "logo": {
+    "name": "أسماء عادل",
+    "title": "مترجمة"
+  },
+  "center": {
+    "label": "فن الصياغة اللغوية"
+  },
+  "menu": {
+    "button": "القائمة",
+    "close": "إغلاق"
+  },
+  "links": {
+    "home": "الرئيسية",
+    "about": "نبذة",
+    "services": "الخدمات",
+    "portfolio": "الأعمال",
+    "evidence": "دراسات الحالة",
+    "experience": "الخبرات",
+    "voices": "آراء العملاء",
+    "contact": "تواصل"
+  },
+  "social": {
+    "linkedin": "لينكدإن",
+    "email": "البريد الإلكتروني",
+    "whatsapp": "واتساب"
+  },
+  "location": "القاهرة — مصر"
+}

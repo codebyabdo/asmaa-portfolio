@@ -2,12 +2,17 @@
 
 @theme {
   /* ==========================
-     Fonts
+     Typography
   ========================== */
 
-  --font-sans: var(--font-sans);
+  --font-body-en: var(--font-body-en);
+  --font-body-ar: var(--font-body-ar);
+
+  --font-heading-en: var(--font-heading-en);
+  --font-heading-ar: var(--font-heading-ar);
+
   --font-display: var(--font-display);
-  --font-serif: var(--font-serif);
+
   --font-mono: "JetBrains Mono", monospace;
 
   /* ==========================
@@ -39,6 +44,10 @@
   --radius-luxury: 2rem;
 }
 
+/* =========================================
+   Base
+========================================= */
+
 @layer base {
   *,
   *::before,
@@ -46,9 +55,12 @@
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
 
     cursor: none;
   }
@@ -56,14 +68,6 @@
   ::selection {
     background: rgba(212, 91, 55, 0.3);
     color: var(--color-luxury-charcoal);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  .font-serif {
-    @apply font-serif font-light tracking-tighter;
   }
 
   img,
@@ -79,7 +83,59 @@
   button {
     cursor: none;
   }
+
+  /* =====================================
+     English Typography
+  ===================================== */
+
+  html[lang="en"] body {
+    font-family: var(--font-body-en);
+    line-height: 1.7;
+  }
+
+  html[lang="en"] h1,
+  html[lang="en"] h2,
+  html[lang="en"] h3,
+  html[lang="en"] h4,
+  html[lang="en"] h5,
+  html[lang="en"] h6,
+  html[lang="en"] .font-serif {
+    font-family: var(--font-heading-en);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  /* =====================================
+     Arabic Typography
+  ===================================== */
+
+  html[lang="ar"] body {
+    font-family: var(--font-body-ar);
+    line-height: 1.95;
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6,
+  html[lang="ar"] .font-serif {
+    font-family: var(--font-heading-ar);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.25;
+  }
+
+  html[dir="rtl"] {
+    text-align: right;
+  }
 }
+
+/* =========================================
+   Utilities
+========================================= */
 
 @layer utilities {
   /* ==========================
@@ -112,20 +168,24 @@
   }
 
   /* ==========================
-     Effects
+     Glass
   ========================== */
 
   .glass {
-    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+    @apply border border-white/20 bg-white/10 backdrop-blur-2xl;
   }
 
   .glass-light {
-    @apply bg-white/60 backdrop-blur-xl border border-white/40;
+    @apply border border-white/40 bg-white/60 backdrop-blur-xl;
   }
 
   .glass-dark {
-    @apply bg-black/60 backdrop-blur-3xl border border-white/5;
+    @apply border border-white/5 bg-black/60 backdrop-blur-3xl;
   }
+
+  /* ==========================
+     Effects
+  ========================== */
 
   .text-reveal {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -138,9 +198,9 @@
   }
 }
 
-/* ==========================
+/* =========================================
    Scrollbar
-========================== */
+========================================= */
 
 ::-webkit-scrollbar {
   width: 6px;

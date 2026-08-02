@@ -1,30 +1,45 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from "react";
+import { useSpring, useMotionValue, animate } from "framer-motion";
 
 export function useMouse() {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
-  })
+  const isDesktop =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer:fine)").matches;
+
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const scale = useMotionValue(1);
+
+  const springConfig = { damping: 30, stiffness: 400 };
+
+  const springX = useSpring(cursorX, springConfig);
+  const springY = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2
-      const y = (e.clientY / window.innerHeight - 0.5) * 2
+    if (!isDesktop) return;
 
-      setMousePosition({
-        x: x * 20,
-        y: y * 20,
-      })
-    }
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
 
-    window.addEventListener('mousemove', handleMouseMove)
+      const target = e.target as HTMLElement;
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [])
+      const pointer = !!target.closest("a,button,[data-cursor='pointer']");
 
-  return mousePosition
+      animate(scale, pointer ? 1.8 : 1, {
+        duration: 0.2,
+      });
+    };
+
+    window.addEventListener("mousemove", moveCursor, {
+      passive: true,
+    });
+
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, [isDesktop, cursorX, cursorY, scale]);
+
+
+  return { springX, springY, scale };
 }

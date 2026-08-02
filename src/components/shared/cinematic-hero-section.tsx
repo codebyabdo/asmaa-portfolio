@@ -5,7 +5,8 @@ import { useRef } from "react";
 
 import MagneticButton from "@/components/ui/MagneticButton";
 import type { HeroElementProp } from "@/types/hero";
-
+// import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 export function CinematicHero({
   subtitle,
   title,
@@ -25,8 +26,6 @@ export function CinematicHero({
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.96]);
-
-  const [main, italic, gold] = title;
 
   return (
     <header
@@ -51,12 +50,12 @@ export function CinematicHero({
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-luxury-gold/5 blur-[140px]"
+            className="absolute left-1/2 top-1/2 h-162.5 w-162.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-luxury-gold/5 blur-[140px]"
           />
         )}
 
         <div className="absolute inset-0 grain-overlay opacity-[0.04]" />
-    </div>
+      </div>
 
       {/* Content */}
       <m.div
@@ -90,12 +89,7 @@ export function CinematicHero({
           }}
           className="mt-10 text-[clamp(3.5rem,10vw,8rem)] font-serif leading-[0.9] tracking-tight"
         >
-          {main}
-          <br />
-
-          <span className="font-light italic">{italic}</span>{" "}
-
-          <span className="italic text-luxury-gold">{gold}</span>
+          {title}
         </m.h1>
 
         {/* Description */}
@@ -123,23 +117,27 @@ export function CinematicHero({
           }}
           className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row"
         >
-          <MagneticButton
-            size="lg"
-            variant="gradient"
-            aria-label={mainButton}
-          >
-            {mainButton}
-          </MagneticButton>
+          <Link href={mainButton.link}>
+            <MagneticButton
+              size="lg"
+              variant="gradient"
+              aria-label={mainButton.text}
+            >
+              {mainButton.text}
+            </MagneticButton>
+          </Link>
 
           {secondaryButton && (
-            <button
-              type="button"
-              className="group flex items-center gap-3 border-b border-luxury-charcoal/10 pb-2 text-[10px] font-bold uppercase tracking-[0.3em] transition-colors hover:border-luxury-gold"
-            >
-              <span className="h-px w-8 bg-luxury-gold transition-all duration-300 group-hover:w-12" />
+            <Link href={secondaryButton.link}>
+              <button
+                type="button"
+                className="group flex items-center gap-3 border-b border-luxury-charcoal/10 pb-2 text-[10px] font-bold uppercase tracking-[0.3em] transition-colors hover:border-luxury-gold"
+              >
+                <span className="h-px w-8 bg-luxury-gold transition-all duration-300 group-hover:w-12" />
 
-              {secondaryButton}
-            </button>
+                {secondaryButton.text}
+              </button>
+            </Link>
           )}
         </m.div>
       </m.div>

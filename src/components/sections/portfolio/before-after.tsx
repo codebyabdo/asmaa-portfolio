@@ -3,9 +3,21 @@
 import { motion } from "framer-motion";
 import { Globe, Layers } from "lucide-react";
 
-import { COMPARISON_DATA } from "@/data/projects";
+import {  } from "@/data/projects";
+import { useTranslations } from "next-intl";
 
 export function BeforeAfterTranslation() {
+  const t = useTranslations("portfolio.beforeAfter");
+
+
+  const COMPARISON_DATA = t.raw("items") as {
+    title: string;
+    tag: string;
+    original: string;
+    localized: string;
+    reasoning: string;
+  }[];
+
   return (
     <section
       id="before-after"
@@ -18,19 +30,18 @@ export function BeforeAfterTranslation() {
 
       <header className="mx-auto mb-20 max-w-3xl text-center md:mb-24">
         <span className="mb-6 block text-[10px] font-bold uppercase tracking-[0.4em] text-luxury-gold">
-          Linguistic Transformation
+          {t("subtitle")}
         </span>
 
         <h2
           id="before-after-heading"
           className="mb-8 font-serif text-5xl italic leading-none tracking-tight md:text-8xl"
         >
-          The Alchemy of Words
+          {t("title")}
         </h2>
 
         <p className="mx-auto max-w-2xl text-lg font-light leading-relaxed text-luxury-charcoal/55 md:text-xl">
-          Experience the subtle shift from literal translation to culturally
-          intelligent localization that preserves meaning, tone, and intent.
+          {t("description")}
         </p>
       </header>
 
@@ -61,7 +72,7 @@ export function BeforeAfterTranslation() {
 
                 <section>
                   <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/40">
-                    Source Protocol
+                    {t("source")}
                   </h3>
 
                   <p className="font-serif text-2xl font-light italic leading-relaxed text-luxury-charcoal/80">
@@ -88,7 +99,7 @@ export function BeforeAfterTranslation() {
                   </div>
 
                   <h3 className="mb-6 text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-gold">
-                    Localized Output
+                    {t("localized")}
                   </h3>
 
                   <p
@@ -106,8 +117,8 @@ export function BeforeAfterTranslation() {
 
                 <section className="border-t border-luxury-charcoal/5 pt-8 text-sm font-light leading-8 text-luxury-charcoal/60">
                   <span className="font-bold text-luxury-gold">
-                    Linguistic Logic:
-                  </span>{" "}
+                    {t("logic")}
+                  </span>
                   {item.reasoning}
                 </section>
               </div>

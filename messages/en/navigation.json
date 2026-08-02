@@ -1,0 +1,29 @@
+{
+  "logo": {
+    "name": "Asmaa Adel",
+    "title": "Translator"
+  },
+  "center": {
+    "label": "Linguistic Artistry"
+  },
+  "menu": {
+    "button": "Menu",
+    "close": "Close"
+  },
+  "links": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "evidence": "Evidence",
+    "experience": "Experience",
+    "voices": "Voices",
+    "contact": "Contact"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "location": "Cairo — Egypt"
+}

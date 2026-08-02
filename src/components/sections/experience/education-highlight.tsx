@@ -2,8 +2,10 @@
 
 import { m } from "framer-motion";
 import { Calendar } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function EducationHighlight() {
+  const t = useTranslations("experience.education");
   return (
     <m.section
       initial={{ opacity: 0, y: 40 }}
@@ -22,17 +24,15 @@ export function EducationHighlight() {
 
         <div>
           <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-gold">
-            Education
+            {t("badge")}
           </span>
 
           <h2 className="mb-4 font-serif text-3xl">
-            Specialized Linguistic Studies
+            {t("title")}
           </h2>
 
           <p className="max-w-2xl font-light leading-relaxed text-white/65">
-            Academic training in English literature and Arabic linguistics,
-            providing the theoretical foundation behind every localization and
-            translation project.
+            {t("description")}
           </p>
         </div>
       </div>

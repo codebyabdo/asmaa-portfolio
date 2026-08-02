@@ -9,6 +9,7 @@ import {
   sendContactEmail,
   type ContactFormState,
 } from "@/actions/send-contact-email";
+import { useTranslations } from "next-intl";
 
 const initialState: ContactFormState = {
   success: false,
@@ -23,6 +24,7 @@ const initialState: ContactFormState = {
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations("contact.form");
 
   return (
     <MagneticButton
@@ -31,7 +33,7 @@ function SubmitButton() {
       disabled={pending}
     >
       <span className="flex items-center justify-center gap-3">
-        {pending ? "Sending..." : "Send Message"}
+        {pending ? t("buttons.sending") : t("buttons.send")}
         <Send size={14} />
       </span>
     </MagneticButton>
@@ -41,6 +43,7 @@ function SubmitButton() {
 export function ContactForm() {
   const [state, formAction] = useActionState(sendContactEmail, initialState);
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useTranslations("contact.form");
 
   useEffect(() => {
     if (state.success) {
@@ -56,18 +59,18 @@ export function ContactForm() {
 
   return (
     <div className="glass rounded-[3rem] border border-luxury-charcoal/5 p-12 shadow-2xl md:p-16">
-      <h3 className="mb-12 font-serif text-3xl italic">Send a Message</h3>
+      <h3 className="mb-12 font-serif text-3xl italic">{t("title")}</h3>
 
       <form ref={formRef} action={formAction} className="space-y-10" noValidate>
         <div className="space-y-2">
           <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
-            Full Name
+            {t("fields.name.label")}
           </label>
           <input
             name="name"
             type="text"
             autoComplete="name"
-            placeholder="Enter your name"
+            placeholder={t("fields.name.placeholder")}
             aria-invalid={!!state.fieldErrors?.name}
             className={`${inputBase} ${
               state.fieldErrors?.name ? inputError : inputNormal
@@ -80,13 +83,13 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
-            Email Address
+            {t("fields.email.label")}
           </label>
           <input
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="hello@example.com"
+            placeholder={t("fields.email.placeholder")}
             aria-invalid={!!state.fieldErrors?.email}
             className={`${inputBase} ${
               state.fieldErrors?.email ? inputError : inputNormal
@@ -99,12 +102,12 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
-            Subject
+            {t("fields.subject.label")}
           </label>
           <input
             name="subject"
             type="text"
-            placeholder="Project inquiry"
+            placeholder={t("fields.subject.placeholder")}
             aria-invalid={!!state.fieldErrors?.subject}
             className={`${inputBase} ${
               state.fieldErrors?.subject ? inputError : inputNormal
@@ -117,12 +120,12 @@ export function ContactForm() {
 
         <div className="space-y-2">
           <label className="ml-1 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/65">
-            Message
+            {t("fields.message.label")}
           </label>
           <textarea
             name="message"
             rows={5}
-            placeholder="Tell me about your project..."
+            placeholder={t("fields.message.placeholder")}
             aria-invalid={!!state.fieldErrors?.message}
             className={`${inputBase} resize-none ${
               state.fieldErrors?.message ? inputError : inputNormal

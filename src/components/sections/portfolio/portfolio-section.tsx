@@ -8,23 +8,34 @@ import { SecureWorkflow } from "@/components/sections/portfolio/secure-workflow"
 import { QualityAnalytics } from "@/components/sections/portfolio/quality-analyTics";
 import { ProjectArchive } from "@/components/sections/portfolio/project-archive";
 import { PortfolioCta } from "@/components/sections/portfolio/cta-section";
-
-import type { HeroElementProp } from "@/types/hero";
-
-const hero: HeroElementProp = {
-  subtitle: "Linguistic Portfolio of Precision",
-
-  title: ["The Art of", "Accurate", "Flow"],
-
-  description:
-    "Explore a curated collection of translation, localization, proofreading, and multilingual communication projects crafted with cultural precision, linguistic excellence, and complete confidentiality.",
-
-  mainButton: "Explore Portfolio",
-
-  secondaryButton: "View Case Studies",
-};
+import { useTranslations } from "next-intl";
 
 export default function PortfolioSection() {
+  const t = useTranslations("portfolio.hero");
+  const hero = {
+    subtitle: t("subtitle"),
+
+    title: (
+      <>
+        {t("title.first")} 
+        <br />
+        <span className="font-light italic">{t("title.second")}</span>
+        <span className="italic text-luxury-gold">{t("title.third")}</span>
+      </>
+    ),
+
+    description: t("description"),
+
+    mainButton: {
+      text: t("buttons.primary"),
+      link: "/portfolio",
+    },
+
+    secondaryButton: {
+      text: t("buttons.secondary"),
+      link: "/case-studies",
+    },
+  };
   return (
     <PageTransition>
       <main

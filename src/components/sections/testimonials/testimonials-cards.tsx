@@ -1,10 +1,16 @@
 "use client";
 
-import { TESTIMONIALS } from "@/data/testimonials";
 import { m } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function TestimonialsCards() {
+  const t = useTranslations("testimonials.cards");
+  const TESTIMONIALS = t.raw("items") as {
+    text: string;
+    author: string;
+    role: string;
+  }[];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {TESTIMONIALS.map((t, i) => (

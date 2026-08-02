@@ -1,6 +1,14 @@
 import type { MetadataRoute } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  // Pick a locale that is representative of the app
+  const locale = "en";
+
+  const t = await getTranslations({
+    namespace: "Manifest",
+    locale,
+  });
   return {
     id: "/",
 
@@ -25,12 +33,7 @@ export default function manifest(): MetadataRoute.Manifest {
 
     lang: "en-US",
 
-    categories: [
-      "business",
-      "productivity",
-      "portfolio",
-      "education",
-    ],
+    categories: ["business", "productivity", "portfolio", "education"],
 
     icons: [
       {

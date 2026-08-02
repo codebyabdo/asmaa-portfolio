@@ -4,8 +4,12 @@ import PageTransition from "@/components/effects/PageTransition";
 import { ContactForm } from "./contact-form";
 import { SocialLink } from "./social-link";
 import { domAnimation, LazyMotion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
+
+  const t = useTranslations("contact");
+
   return (
     <LazyMotion features={domAnimation}>
 
@@ -20,11 +24,11 @@ export default function ContactSection() {
 
           <footer className="mt-32 flex flex-col items-center justify-between gap-6 border-t border-luxury-charcoal/10 py-10 md:flex-row">
             <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/65">
-              © 2026 Asmaa Adel. All Rights Reserved.
+              {t("footer.copyright")}
             </p>
 
             <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-charcoal/65">
-              Designed & Developed with Precision
+              {t("footer.credit")}
             </p>
           </footer>
         </div>

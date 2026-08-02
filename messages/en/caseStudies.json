@@ -1,0 +1,71 @@
+{
+  
+    "hero": {
+      "title": {
+        "first": "The",
+        "highlight": "Evidence"
+      },
+      "description": "Strategic case studies demonstrating how precision translation, localization, and cultural adaptation transform international communication into measurable business impact",
+      "stats": {
+        "title": "50+ Global Successes",
+        "description": "Confidential localization projects across multiple industries"
+      }
+    },
+
+    "beforeAfter": {
+      "title": "Linguistic Transformation Experience",
+      "description": "Explore how culturally aware localization transforms literal translations into natural, audience-focused communication while preserving tone, intent, and brand identity.",
+
+      "labels": {
+        "source": "Source (English)",
+        "localized": "Localized (Arabic)",
+        "strategy": "Localization Strategy:"
+      },
+
+      "examples": [
+        {
+          "category": "Marketing Copy",
+          "original": "Our product is simply the best in the market.",
+          "arabic": "منتجنا يُمثّل القمة في السوق العالمية.",
+          "context": "Localization focuses on prestige rather than simply saying 'best'."
+        },
+        {
+          "category": "Legal Clause",
+          "original": "The parties shall resolve any disputes through mediation.",
+          "arabic": "يلتزم الطرفان بفض أي نزاعات عن طريق الوساطة.",
+          "context": "Legal terminology requires an obligatory tone using يلتزم."
+        }
+      ]
+    },
+
+    "security": {
+      "badge": "Confidential Layer",
+
+      "title": {
+        "first": "Document Security &",
+        "second": "Ethical Protection"
+      },
+
+      "description": "Every client document is processed through secure localization workflows, encrypted storage, and strict confidentiality standards. Sensitive material is never exposed publicly, ensuring complete trust throughout the translation lifecycle.",
+
+      "features": [
+        {
+          "title": "End-to-End Encryption",
+          "description": "Secure document transfer and protected file storage."
+        },
+        {
+          "title": "NDA Compliant",
+          "description": "International privacy standards with confidential handling procedures."
+        }
+      ],
+
+      "viewer": {
+        "file": "Private_Asset_042.pdf",
+        "title": "Encryption Active",
+        "description": "Public previews remain sanitized until secure authorization is granted.",
+        "button": "View Secure Preview",
+        "stamp": "Certified\nTranslation",
+        "watermark": "CONFIDENTIAL • SECURE • ENCRYPTED • NDA • TRANSLATION • PROTECTED • CONFIDENTIAL • SECURE • ENCRYPTED"
+      }
+    }
+  }

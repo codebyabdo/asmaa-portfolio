@@ -1,0 +1,212 @@
+{
+  "hero": {
+    "subtitle": "Linguistic Portfolio of Precision",
+    "title": {
+      "first": "The Art of",
+      "second": "Accurate",
+      "third": "Flow"
+    },
+    "description": "Explore a curated collection of translation, localization, proofreading, and multilingual communication projects crafted with cultural precision, linguistic excellence, and complete confidentiality.",
+    "buttons": {
+      "primary": "Explore Portfolio",
+      "secondary": "Evidence of Expertise"
+    }
+  },
+
+  "featured": {
+    "number": "01",
+    "title": "Featured Legacies",
+    "subtitle": "Major localization efforts that redefined how international brands speak to the Arabic market.",
+    "confidential": "Confidential",
+    "languages": "Languages",
+    "accuracy": "Accuracy",
+    "button": "Deep Dive Case Study",
+
+    "projects": [
+      {
+        "id": "vodafone-global",
+        "title": "Global Campaign Localization",
+        "client": "Vodafone Group",
+        "category": "Marketing",
+        "description": "Transcreating a multi-platform digital campaign to resonate with diverse Arabic-speaking markets while maintaining tech-forward brand identity.",
+        "year": "2023",
+        "accuracy": "99.9%",
+        "languages": "EN → AR (Gulf/Egyptian)",
+        "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
+      },
+      {
+        "id": "legal-framework",
+        "title": "International Legal Protocol",
+        "client": "Confidential Law Firm",
+        "category": "Legal",
+        "description": "Precision-critical translation of cross-border governance documents, requiring deep expertise in Sharia and Common Law terminology.",
+        "year": "2024",
+        "accuracy": "100%",
+        "languages": "AR → EN (US/UK)",
+        "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200"
+      }
+    ]
+  },
+
+  "beforeAfter": {
+    "subtitle": "Linguistic Transformation",
+    "title": "The Alchemy of Words",
+    "description": "Experience the subtle shift from literal translation to culturally intelligent localization that preserves meaning, tone, and intent.",
+    "source": "Source Protocol",
+    "localized": "Localized Output",
+    "logic": "Linguistic Logic",
+
+    "items": [
+      {
+        "title": "Marketing Nuance",
+        "tag": "Transcreation",
+        "original": "Our solution is the cutting-edge standard for modern enterprises.",
+        "localized": "حلولنا تُرسي معايير الريادة للمؤسسات العصرية باحترافية عالمية.",
+        "reasoning": "Substituted literal wording with culturally relevant business language that communicates leadership and market authority."
+      },
+      {
+        "title": "Legal Precision",
+        "tag": "Legal",
+        "original": "The consultant shall be liable for any direct damages arising from breach.",
+        "localized": "يتحمل الاستشاري المسؤولية عن أي أضرار مباشرة تنشأ عن الإخلال بالعقد.",
+        "reasoning": "Applied standardized Arabic legal terminology to preserve contractual accuracy and legal meaning."
+      }
+    ]
+  },
+
+  "security": {
+    "badge": "Security Protocol",
+
+    "title": {
+      "first": "Architecting",
+      "second": "Absolute",
+      "third": "Trust."
+    },
+
+    "description": "Every translation project is handled through a confidentiality-first workflow designed to protect sensitive documents, preserve client privacy, and ensure secure collaboration.",
+
+    "features": [
+      "Military-grade file encryption",
+      "Sanitized Case Study previews",
+      "Strict NDA-compliant workflow",
+      "Private localization environment"
+    ],
+
+    "vault": "Secure_Vault_v4.2",
+    "encryption": "Encryption Active",
+    "protected": "Metadata • Identity • Assets Protected",
+    "button": "Request Secure Access"
+  },
+
+  "analytics": {
+    "badge": "Performance Metrics",
+    "title": "Quantitative Excellence",
+
+    "stats": [
+      {
+        "label": "Accuracy",
+        "value": "99.9%"
+      },
+      {
+        "label": "Market Growth",
+        "value": "+42%"
+      },
+      {
+        "label": "Confidentiality",
+        "value": "100%"
+      },
+      {
+        "label": "On-Time Delivery",
+        "value": "100%"
+      }
+    ]
+  },
+
+  "archive": {
+    "number": "03",
+    "title": "The Archive",
+    "subtitle": "A broader look at localization projects spanning legal, business, medical, academic and technical industries.",
+
+      "categories": [
+      "All",
+      "Legal",
+      "Medical",
+      "Academic",
+      "Business",
+      "Localization",
+      "Marketing",
+      "Technical"
+    ],
+
+    "featured": "Featured",
+
+    "projects": [
+      {
+        "id": "1",
+        "title": "Corporate Legal Agreement",
+        "category": "Legal",
+        "languages": "English → Arabic",
+        "featured": true
+      },
+      {
+        "id": "2",
+        "title": "Medical Device Manual",
+        "category": "Medical",
+        "languages": "English ↔ Arabic"
+      },
+      {
+        "id": "3",
+        "title": "Academic Research Paper",
+        "category": "Academic",
+        "languages": "English → Arabic"
+      },
+      {
+        "id": "4",
+        "title": "E-Commerce Product Catalog",
+        "category": "Localization",
+        "languages": "English → Arabic",
+        "featured": true
+      },
+      {
+        "id": "5",
+        "title": "Marketing Campaign Copy",
+        "category": "Marketing",
+        "languages": "English ↔ Arabic"
+      },
+      {
+        "id": "6",
+        "title": "Technical API Documentation",
+        "category": "Technical",
+        "languages": "English → Arabic"
+      },
+      {
+        "id": "7",
+        "title": "Financial Audit Report",
+        "category": "Business",
+        "languages": "English → Arabic"
+      },
+      {
+        "id": "8",
+        "title": "Website UI Localization",
+        "category": "Localization",
+        "languages": "English ↔ Arabic",
+        "featured": true
+      }
+    ]
+  },
+
+  "cta": {
+    "subtitle": "Commence Global Resonance",
+
+    "title": {
+      "first": "Let's Translate",
+      "second": "The",
+      "third": "Future."
+    },
+
+    "description": "Ready to bring your content to international audiences with culturally accurate, high-quality translation and localization?",
+
+    "primary": "Initiate Consultation",
+    "secondary": "Download Portfolio PDF"
+  }
+}

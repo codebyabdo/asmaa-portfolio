@@ -4,8 +4,13 @@ import PageTransition from "@/components/effects/PageTransition";
 import { CTASection } from "./CTA-section";
 import { ServiceCard } from "./service-card";
 import { domAnimation, LazyMotion, m } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function ServicesSection() {
+
+  const t = useTranslations("services");
+
+
   return (
     <LazyMotion features={domAnimation}>
       <PageTransition>
@@ -25,7 +30,7 @@ export function ServicesSection() {
                 <div className="h-px w-8 bg-luxury-gold" />
 
                 <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-luxury-gold">
-                  Crafted Solutions
+                  {t("hero.eyebrow")}
                 </span>
               </m.div>
 
@@ -39,10 +44,10 @@ export function ServicesSection() {
                 }}
                 className="mb-10 font-serif text-6xl leading-[0.82] tracking-tighter md:text-[10vw]"
               >
-                Excellence
+                {t("hero.title.first")}
                 <br />
-                <span className="font-light italic">as a</span>{" "}
-                <span className="italic text-luxury-gold">Ritual.</span>
+                <span className="font-light italic">{t("hero.title.second")}</span>{" "}
+                <span className="italic text-luxury-gold">{t("hero.title.third")}</span>
               </m.h1>
 
               <m.p
@@ -52,20 +57,17 @@ export function ServicesSection() {
                 transition={{ delay: 0.2 }}
                 className="max-w-2xl text-lg font-light leading-relaxed text-luxury-charcoal/60 md:text-xl"
               >
-                Specialized linguistic services for businesses, publishers, and
-                international organizations seeking accurate, culturally-aware
-                communication.
+                {t("hero.description")}
               </m.p>
             </section>
 
             <ServiceCard />
 
-            <section className="my-32 border-y border-luxury-charcoal/10 py-16 text-center">
+            <div className="my-32 border-y border-luxury-charcoal/10 py-16 text-center">
               <p className="mx-auto max-w-2xl font-serif text-2xl font-light italic text-luxury-charcoal/70 md:text-3xl">
-                Every successful localization project begins with understanding,
-                not translation.
+                {t("quote")}
               </p>
-            </section>
+            </div>
 
             <CTASection />
           </div>
