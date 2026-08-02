@@ -4,8 +4,10 @@ import PageTransition from "@/components/effects/PageTransition";
 import { TestimonialsCards } from "./testimonials-cards";
 import { TestimonialsFloating } from "./testimonials-floating";
 import { domAnimation, LazyMotion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function TestimonialsSection() {
+  const t = useTranslations("testimonials.hero");
   return (
     <LazyMotion features={domAnimation}>
       <PageTransition>
@@ -18,11 +20,11 @@ export default function TestimonialsSection() {
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-32">
               <h1 className="text-7xl md:text-9xl font-serif mb-8">
-                Voices of{" "}
-                <span className="italic text-luxury-gold">Trust.</span>
+                {t("title.first")}{" "}
+                <span className="italic text-luxury-gold">{t("title.highlight")}</span>
               </h1>
               <p className="max-w-xl mx-auto text-white/50 font-light text-xl">
-                Real feedback from international partners and industry leaders.
+                {t("description")}
               </p>
             </div>
 

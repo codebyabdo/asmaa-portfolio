@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "badge": "تواصل معي",
+    "title": {
+      "first": "لنبدأ",
+      "highlight": "التواصل"
+    },
+    "description": "متاحة لمشاريع الترجمة المستقلة، وشراكات التوطين، والتعاون مع العملاء حول العالم"
+  },
+
+  "form": {
+    "title": "أرسل رسالة",
+
+    "fields": {
+      "name": {
+        "label": "الاسم الكامل",
+        "placeholder": "اكتب اسمك"
+      },
+      "email": {
+        "label": "البريد الإلكتروني",
+        "placeholder": "name@example.com"
+      },
+      "subject": {
+        "label": "الموضوع",
+        "placeholder": "استفسار عن مشروع"
+      },
+      "message": {
+        "label": "الرسالة",
+        "placeholder": "حدثني عن مشروعك..."
+      }
+    },
+
+    "buttons": {
+      "send": "إرسال الرسالة",
+      "sending": "جارٍ الإرسال..."
+    }
+  },
+
+  "contacts": [
+    {
+      "title": "البريد الإلكتروني",
+      "value": "contact@asmaaadel.com",
+      "href": "mailto:contact@asmaaadel.com"
+    },
+    {
+      "title": "لينكدإن",
+      "value": "linkedin.com/in/asmaa-adel",
+      "href": "https://linkedin.com/in/asmaa-adel"
+    },
+    {
+      "title": "واتساب",
+      "value": "+20 123 456 7890",
+      "href": "https://wa.me/201234567890"
+    }
+  ],
+
+  "footer": {
+    "copyright": "© 2026 أسماء عادل. جميع الحقوق محفوظة.",
+    "credit": "تم التصميم والتطوير باحترافية"
+  }
+}

@@ -1,8 +1,10 @@
 "use client";
 
 import { m } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function EditorialHeader() {
+  const t = useTranslations("about.editorial");
   return (
     <section
       className="
@@ -37,7 +39,7 @@ export function EditorialHeader() {
             text-luxury-gold
           "
         >
-          The Story Behind The Logic
+          {t("eyebrow")}
         </m.span>
 
         <m.h1
@@ -57,9 +59,9 @@ export function EditorialHeader() {
           }}
           className="font-serif text-6xl leading-[0.85] tracking-tighter md:text-8xl"
         >
-          Beyond
+          {t("title.first")}
           <br />
-          <span className="italic font-light">Translation</span>
+          <span className="italic font-light">{t("title.second")}</span>
         </m.h1>
       </div>
 
@@ -78,9 +80,7 @@ export function EditorialHeader() {
         }}
         className="lg:ml-auto max-w-md text-lg md:text-xl font-light leading-relaxed text-luxury-charcoal/60         "
       >
-        Asmaa Adel is not just a translator; she is a cultural bridge. Through
-        linguistic precision and emal intelligence, she transforms words
-        into experiences that feel native to every audience.
+        {t("description")}
       </m.p>
     </section>
   );

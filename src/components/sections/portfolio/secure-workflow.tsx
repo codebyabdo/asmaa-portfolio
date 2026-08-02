@@ -2,16 +2,16 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Shield, Lock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const securityFeatures = [
-  "Military-grade file encryption",
-  "Sanitized Case Study previews",
-  "Strict NDA-compliant workflow",
-  "Private localization environment",
-];
+
 
 export function SecureWorkflow() {
   const reduceMotion = useReducedMotion();
+
+  const t = useTranslations("portfolio.security");
+
+  const securityFeatures = t.raw("features") as string[];
 
   return (
     <section
@@ -25,7 +25,7 @@ export function SecureWorkflow() {
             <Shield size={20} />
 
             <span className="text-[10px] font-bold uppercase tracking-[0.4em]">
-              Security Protocol
+              {t("badge")}
             </span>
           </div>
 
@@ -33,17 +33,15 @@ export function SecureWorkflow() {
             id="security-heading"
             className="font-serif text-5xl leading-[0.9] md:text-6xl"
           >
-            Architecting
+            {t("title.first")}
             <br />
-            <span className="font-light italic">Absolute</span>
+            <span className="font-light italic">{t("title.second")}</span>
             <br />
-            <span className="text-luxury-gold">Trust.</span>
+            <span className="text-luxury-gold">{t("title.third")}</span>
           </h2>
 
           <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-luxury-charcoal/60 md:text-xl">
-            Every translation project is handled through a confidentiality-first
-            workflow designed to protect sensitive documents, preserve client
-            privacy, and ensure secure collaboration.
+           {t("description")}
           </p>
 
           <ul className="mt-12 space-y-5">
@@ -101,7 +99,7 @@ export function SecureWorkflow() {
                   />
 
                   <span className="font-mono text-[9px] uppercase tracking-widest text-white/40">
-                    Secure_Vault_v4.2
+                    {t("vault")}
                   </span>
                 </div>
 
@@ -143,18 +141,18 @@ export function SecureWorkflow() {
                   </div>
 
                   <h3 className="font-serif text-2xl text-white">
-                    Encryption Active
+                    {t("encryption")}
                   </h3>
 
                   <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-white/40">
-                    Metadata • Identity • Assets Protected
+                    {t("protected")}
                   </p>
 
                   <button
                     type="button"
                     className="glass mt-8 rounded-full border border-white/20 px-8 py-3 text-[10px] font-bold uppercase tracking-[0.25em] text-white transition-colors hover:bg-luxury-gold hover:text-black"
                   >
-                    Request Secure Access
+                    {t("button")}
                   </button>
                 </div>
 

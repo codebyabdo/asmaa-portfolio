@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "badge": "Professional Journey",
+    "title": {
+      "first": "Career",
+      "highlight": "Path"
+    },
+    "description": "Years of professional growth built on linguistic precision, localization expertise, and trusted collaboration with clients across international markets"
+  },
+  "timeline": {
+    "location": "Remote / International",
+    "history": [
+      {
+        "role": "Freelance Translator & Consultant",
+        "company": "Global Client Portfolio",
+        "period": "2021 — PRESENT",
+        "desc": "Spearheading high-level translation and localization strategies for international startups, creative agencies, and private entities."
+      },
+      {
+        "role": "Communication Specialist",
+        "company": "Vodafone Egypt",
+        "period": "2019 — 2021",
+        "desc": "Managed critical communication workflows, ensuring linguistic accuracy and cultural resonance across digital channels."
+      },
+      {
+        "role": "Junior Translator",
+        "company": "Language Hub Agency",
+        "period": "2018 — 2019",
+        "desc": "Facilitated document translation and content adaptation for diverse industry sectors including technology and legal."
+      }
+    ]
+  },
+  "education": {
+    "badge": "Education",
+    "title": "Specialized Linguistic Studies",
+    "description": "Academic training in English literature and Arabic linguistics, providing the theoretical foundation behind every localization and translation project."
+  }
+}

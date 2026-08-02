@@ -1,15 +1,24 @@
 "use client";
 
-import { MILESTONES } from "@/data/timeline";
 import { m } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 
 export function TimelineSection() {
+
+  const t = useTranslations("about.timeline");
+
+  const MILESTONES = t.raw("items") as {
+    year: string;
+    title: string;
+    desc: string;
+  }[];
+
   return (
     <section className="relative pt-16">
       <div className="absolute top-0 left-0 w-full h-px bg-luxury-gold/15" />
 
-      <h2 className="font-serif text-5xl italic mb-16 ">The Journey</h2>
+      <h2 className="font-serif text-5xl italic mb-16 ">{t("title")}</h2>
 
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 ">
         {MILESTONES.map((item, index) => (

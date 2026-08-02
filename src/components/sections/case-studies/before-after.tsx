@@ -1,10 +1,19 @@
 "use client";
 
-import { COMPARISON_EXAMPLES } from "@/data/case-studies";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function BeforeAfterStudies() {
+  const t = useTranslations("caseStudies.beforeAfter");
+
+  const COMPARISON_EXAMPLES = t.raw("examples") as {
+    category: string;
+    original: string;
+    arabic: string;
+    context: string;
+  }[];
+
   return (
     <LazyMotion features={domAnimation}>
       <section className="mb-40" aria-labelledby="transformation-heading">
@@ -16,14 +25,12 @@ export function BeforeAfterStudies() {
               id="transformation-heading"
               className="font-serif text-2xl italic text-luxury-charcoal/80 md:text-3xl"
             >
-              Linguistic Transformation Experience
+              {t("title")}
             </h2>
           </div>
 
           <p className="max-w-3xl text-base leading-relaxed text-luxury-charcoal/55 md:text-lg">
-            Explore how culturally aware localization transforms literal
-            translations into natural, audience-focused communication while
-            preserving tone, intent, and brand identity.
+            {t("description")}
           </p>
         </header>
 
@@ -49,7 +56,7 @@ export function BeforeAfterStudies() {
                 {/* Source */}
                 <section>
                   <p className="mb-3 text-[11px] font-mono uppercase tracking-wider text-luxury-charcoal/40">
-                    Source (English)
+                    {t("labels.source")}
                   </p>
 
                   <blockquote className="text-lg font-light italic leading-relaxed text-luxury-charcoal/80 md:text-xl">
@@ -64,7 +71,7 @@ export function BeforeAfterStudies() {
                   className="rounded-2xl border-r-4 border-luxury-gold bg-white p-6 shadow-sm"
                 >
                   <p className="mb-3 text-[11px] font-bold uppercase tracking-widest text-luxury-gold">
-                    Localized (Arabic)
+                    {t("labels.localized")}
                   </p>
 
                   <blockquote
@@ -80,7 +87,7 @@ export function BeforeAfterStudies() {
                 <footer className="border-t border-luxury-charcoal/5 pt-6">
                   <p className="text-sm leading-7 text-luxury-charcoal/55">
                     <span className="font-semibold text-luxury-gold">
-                      Localization Strategy:
+                      {t("labels.strategy")}
                     </span>{" "}
                     {example.context}
                   </p>

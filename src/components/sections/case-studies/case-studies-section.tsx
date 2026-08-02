@@ -4,10 +4,14 @@ import PageTransition from "@/components/effects/PageTransition";
 import { BeforeAfterStudies } from "./before-after";
 import { SecureInterface } from "./Secure-interface";
 import { LazyMotion, domAnimation, m } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const avatars = Array.from({ length: 3 }, (_, i) => i);
 
 export default function CaseStudiesSection() {
+  const t = useTranslations("caseStudies.hero");
+
+  
   return (
     <LazyMotion features={domAnimation}>
       <PageTransition>
@@ -29,14 +33,13 @@ export default function CaseStudiesSection() {
                 }}
                 className="font-serif text-6xl leading-none tracking-tight sm:text-7xl lg:text-[10vw]"
               >
-                The <span className="italic">Evidence.</span>
+                {t("title.first")}{" "}
+                <span className="italic">{t("title.highlight")}</span>
               </m.h1>
 
               <div className="mt-12 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
                 <p className="max-w-2xl text-lg leading-relaxed font-light text-luxury-charcoal/60 md:text-xl">
-                  Strategic case studies demonstrating how precision
-                  translation, localization, and cultural adaptation transform
-                  international communication into measurable business impact.
+                  {t("description")}
                 </p>
 
                 <aside
@@ -54,12 +57,11 @@ export default function CaseStudiesSection() {
 
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.25em] text-luxury-gold">
-                      50+ Global Successes
+                      {t("stats.title")}
                     </p>
 
                     <p className="mt-2 text-sm text-luxury-charcoal/45">
-                      Confidential localization projects across multiple
-                      industries.
+                      {t("stats.description")}
                     </p>
                   </div>
                 </aside>

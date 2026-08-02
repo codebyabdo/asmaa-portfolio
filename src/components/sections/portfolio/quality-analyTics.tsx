@@ -2,10 +2,17 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import { Quantitative } from "@/data/projects";
+import { QUANTITATIVE_META } from "@/data/projects";
+import { useTranslations } from "next-intl";
 
 export function QualityAnalytics() {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("portfolio.analytics");
+
+  const Quantitative = t.raw("stats") as {
+    label: string;
+    value: string;
+  }[];
 
   return (
     <section className="py-24 md:py-32 xl:py-40">
@@ -14,51 +21,54 @@ export function QualityAnalytics() {
 
         <div className="relative z-10">
           <span className="mb-6 block text-[10px] font-bold uppercase tracking-[0.35em] text-luxury-gold">
-            Performance Metrics
+            {t("badge")}
           </span>
 
           <h2 className="mb-16 font-serif text-4xl italic md:text-6xl">
-            Quantitative Excellence
+            {t("title")}
           </h2>
 
           <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
-            {Quantitative.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={
-                  reduceMotion
-                    ? false
-                    : {
-                        opacity: 0,
-                        y: 30,
-                      }
-                }
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                }}
-                className="space-y-5"
-              >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-luxury-gold shadow-sm">
-                  <stat.icon size={28} />
-                </div>
+            {Quantitative.map((stat, index) => {
+              const meta = QUANTITATIVE_META[index];
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={
+                    reduceMotion
+                      ? false
+                      : {
+                          opacity: 0,
+                          y: 30,
+                        }
+                  }
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                  }}
+                  className="space-y-5"
+                >
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-luxury-gold shadow-sm">
+                    <meta.icon size={28} />
+                  </div>
 
-                <div>
-                  <p className="font-serif text-5xl italic tracking-tight">
-                    {stat.value}
-                  </p>
+                  <div>
+                    <p className="font-serif text-5xl italic tracking-tight">
+                      {stat.value}
+                    </p>
 
-                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/35">
-                    {stat.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.3em] text-luxury-charcoal/35">
+                      {stat.label}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

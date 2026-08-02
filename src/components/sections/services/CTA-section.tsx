@@ -3,8 +3,11 @@
 import { m } from "framer-motion";
 
 import MagneticButton from "@/components/ui/MagneticButton";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export function CTASection() {
+  const t = useTranslations("services.cta");
   return (
     <m.section
       initial={{ opacity: 0, y: 40 }}
@@ -26,17 +29,17 @@ export function CTASection() {
 
       <div className="relative z-10 mx-auto max-w-2xl">
         <h2 className="mb-8 font-serif text-4xl italic md:text-5xl">
-          Need a Tailored Localization Strategy?
+          {t("title")}
         </h2>
 
         <p className="mb-12 text-lg font-light leading-relaxed text-white/60">
-          Every project deserves a thoughtful linguistic approach. Let&apos;s discuss
-          your goals and build communication that resonates across cultures.
+          {t("description")}
         </p>
-
-        <MagneticButton variant="gradient" size="md">
-          Schedule a Consultation
-        </MagneticButton>
+        <Link href={"/contact"}>
+          <MagneticButton variant="gradient" size="md">
+            {t("button")}
+          </MagneticButton>
+        </Link>
       </div>
     </m.section>
   );

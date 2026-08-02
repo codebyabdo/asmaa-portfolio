@@ -3,22 +3,26 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, m } from "framer-motion";
-import { Globe, Languages, X } from "lucide-react";
+import { Languages, X } from "lucide-react";
+import LanguageSwitcher from "./lang-switcher";
+import { useTranslations } from "next-intl";
 
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Evidence", href: "/case-studies" },
-  { name: "Experience", href: "/experience" },
-  { name: "Voices", href: "/testimonials" },
-  { name: "Contact", href: "/contact" },
+const navigationLinks = [
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "services", href: "/services" },
+  { key: "portfolio", href: "/portfolio" },
+  { key: "evidence", href: "/case-studies" },
+  { key: "experience", href: "/experience" },
+  { key: "voices", href: "/testimonials" },
+  { key: "contact", href: "/contact" }
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const t = useTranslations("navigation");
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 40);
@@ -55,12 +59,10 @@ export function Header() {
             </div>
 
             <div className="leading-none">
-              <h2 className="font-serif text-xl">
-                Asmaa Adel
-              </h2>
+              <h2 className="font-serif text-xl">{t("logo.name")}</h2>
 
               <p className="text-[9px] uppercase tracking-[0.4em] text-luxury-charcoal/50">
-                Translator
+                {t("logo.title")}
               </p>
             </div>
           </Link>
@@ -68,23 +70,20 @@ export function Header() {
           {/* Center */}
           <div className="hidden lg:block">
             <span className="text-[10px] uppercase tracking-[0.5em] text-luxury-charcoal/65">
-              Linguistic Artistry
+              {t("center.label")}
             </span>
           </div>
 
           {/* Right */}
           <div className="flex items-center gap-6">
-            <button className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-luxury-charcoal/60 transition hover:text-luxury-gold">
-              <Globe size={12} />
-              Arabic / English
-            </button>
+            <LanguageSwitcher />
 
             <button
               onClick={() => setIsOpen(true)}
               className="group flex items-center gap-3"
             >
               <span className="text-[10px] uppercase tracking-[0.3em]">
-                Menu
+                {t("menu.button")}
               </span>
 
               <div className="flex flex-col gap-1">
@@ -118,7 +117,7 @@ export function Header() {
               {/* Header */}
               <div className="flex items-center justify-between">
                 <span className="font-serif text-2xl italic">
-                  Asmaa Adel
+                  {t("logo.name")}
                 </span>
 
                 <button
@@ -131,9 +130,9 @@ export function Header() {
 
               {/* Navigation */}
               <div className="space-y-5">
-                {navItems.map((item, index) => (
+                {navigationLinks.map((item, index) => (
                   <m.div
-                    key={item.name}
+                    key={item.key}
                     initial={{ opacity: 0, x: -40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
@@ -150,7 +149,7 @@ export function Header() {
                       </span>
 
                       <span className="font-serif text-5xl md:text-7xl transition group-hover:text-luxury-gold group-hover:italic">
-                        {item.name}
+                        {t(`links.${item.key}`)}
                       </span>
                     </Link>
                   </m.div>
@@ -160,13 +159,13 @@ export function Header() {
               {/* Footer */}
               <div className="flex flex-wrap items-center justify-between gap-8 border-t border-white/10 pt-8">
                 <div className="flex gap-8 text-xs uppercase tracking-[0.3em]">
-                  <a href="#">LinkedIn</a>
-                  <a href="#">Email</a>
-                  <a href="#">WhatsApp</a>
+                  <a href="#">{t("social.linkedin")}</a>
+                  <a href="#">{t("social.email")}</a>
+                  <a href="#">{t("social.whatsapp")}</a>
                 </div>
 
                 <p className="text-xs uppercase tracking-[0.3em] text-white/30">
-                  Cairo — Egypt
+                  {t("location")}
                 </p>
               </div>
             </m.div>

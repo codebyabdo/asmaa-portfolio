@@ -13,9 +13,12 @@ import {
   Lock,
   Shield,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function SecureInterface() {
   const [isUnlocked, setIsUnlocked] = useState(false);
+
+  const t = useTranslations("caseStudies.security");
 
   return (
     <LazyMotion features={domAnimation}>
@@ -39,7 +42,7 @@ export function SecureInterface() {
               />
 
               <span className="text-[11px] font-bold uppercase tracking-[0.35em]">
-                Confidential Layer
+                {t("badge")}
               </span>
             </div>
 
@@ -47,19 +50,15 @@ export function SecureInterface() {
               id="security-heading"
               className="mb-8 font-serif text-5xl leading-tight md:text-6xl"
             >
-              Document Security &
+              {t("title.first")}
               <br />
               <span className="italic font-light">
-                Ethical Protection
+                {t("title.second")}
               </span>
             </h2>
 
             <p className="mb-14 max-w-xl text-lg leading-relaxed font-light text-white/55">
-              Every client document is processed through secure
-              localization workflows, encrypted storage, and strict
-              confidentiality standards. Sensitive material is never
-              exposed publicly, ensuring complete trust throughout the
-              translation lifecycle.
+              {t("description")}
             </p>
 
             <div className="grid gap-8 sm:grid-cols-2">
@@ -70,11 +69,11 @@ export function SecureInterface() {
                 />
 
                 <h3 className="text-sm font-bold uppercase tracking-widest">
-                  End-to-End Encryption
+                  {t("features.0.title")}
                 </h3>
 
                 <p className="mt-2 text-sm leading-relaxed text-white/45">
-                  Secure document transfer and protected file storage.
+                  {t("features.0.description")}
                 </p>
               </div>
 
@@ -85,12 +84,11 @@ export function SecureInterface() {
                 />
 
                 <h3 className="text-sm font-bold uppercase tracking-widest">
-                  NDA Compliant
+                  {t("features.1.title")}
                 </h3>
 
                 <p className="mt-2 text-sm leading-relaxed text-white/45">
-                  International privacy standards with confidential
-                  handling procedures.
+                  {t("features.1.description")}
                 </p>
               </div>
             </div>
@@ -112,7 +110,7 @@ export function SecureInterface() {
                   />
 
                   <span className="font-mono text-[10px] uppercase tracking-widest text-white/70">
-                    Private_Asset_042.pdf
+                    {t("viewer.file")}
                   </span>
                 </div>
 
@@ -157,12 +155,11 @@ export function SecureInterface() {
                       />
 
                       <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.25em]">
-                        Encryption Active
+                        {t("viewer.title")}
                       </h3>
 
                       <p className="mb-8 text-sm leading-relaxed text-white/50">
-                        Public previews remain sanitized until secure
-                        authorization is granted.
+                        {t("viewer.description")}
                       </p>
 
                       <button
@@ -170,7 +167,7 @@ export function SecureInterface() {
                         onClick={() => setIsUnlocked(true)}
                         className="rounded-full border border-white/20 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.25em] transition-all hover:border-luxury-gold hover:bg-luxury-gold hover:text-luxury-charcoal"
                       >
-                        View Secure Preview
+                        {t("viewer.button")}
                       </button>
                     </div>
                   </m.div>
@@ -182,8 +179,7 @@ export function SecureInterface() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 overflow-hidden font-mono text-[72px] leading-none opacity-[0.04] select-none"
               >
-                CONFIDENTIAL • SECURE • ENCRYPTED • NDA • TRANSLATION •
-                PROTECTED • CONFIDENTIAL • SECURE • ENCRYPTED
+                {t("viewer.watermark")}
               </div>
             </m.div>
 
@@ -192,9 +188,7 @@ export function SecureInterface() {
               aria-hidden="true"
               className="pointer-events-none absolute -right-6 -top-6 flex h-24 w-24 rotate-12 items-center justify-center rounded-full border border-luxury-gold/30 text-center text-[8px] font-bold uppercase tracking-widest text-luxury-gold/60"
             >
-              Certified
-              <br />
-              Translation
+              {t("viewer.stamp")}
             </div>
           </aside>
         </div>

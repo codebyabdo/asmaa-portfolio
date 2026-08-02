@@ -1,0 +1,19 @@
+{
+  "hero": {
+    "subtitle": "International Freelance Professional",
+    "title": {
+      "main": "Bridging Language,",
+      "italic": "Culture",
+      "gold": "Logic"
+    },
+    "description": "A world-class localization experience for international leaders who demand precision and cultural depth.",
+    "buttons": {
+      "primary": "Start Conversation",
+      "secondary": "Explore Evidence"
+    },
+    "scroll": "Scroll"
+  },
+  "floating": {
+    "title": "Trusted Language Partnerships"
+  }
+}

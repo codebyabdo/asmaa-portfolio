@@ -3,26 +3,18 @@
 import Image from "next/image";
 import { m } from "framer-motion";
 import { Award, BookOpen, Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const VALUES = [
-  {
-    icon: Award,
-    title: "Precision First",
-    text: "Every comma matters. Accuracy isn't a goal; it's the standard.",
-  },
-  {
-    icon: Clock,
-    title: "Time Critical",
-    text: "Global markets move fast. Delivery and reliability remain essential.",
-  },
-  {
-    icon: BookOpen,
-    title: "Continuous Flow",
-    text: "Following linguistic evolution and localization technology.",
-  },
-];
+const icons = [Award, BookOpen, Clock];
 
 export function ImageValuesSection() {
+  const t = useTranslations("about");
+
+  const VALUES = t.raw("values") as {
+    title: string;
+    text: string;
+  }[];
+
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
       <m.div
@@ -33,25 +25,25 @@ export function ImageValuesSection() {
       >
         <Image
           src="/about-workspace.png"
-          alt="Asmaa workspace"
+          alt={t("image.alt")}
           fill
           className="object-cover opacity-70 grayscale hover:grayscale-0 hover:scale-105 transition-all duration-1000"
         />
 
         <div className="absolute bottom-10 left-10">
           <p className="text-xs uppercase tracking-widest text-white/50">
-            Based in Beni Swif, Egypt
+            {t("image.location")}
           </p>
 
           <p className="font-serif text-3xl italic text-white">
-            Serving Global Clients
+            {t("image.caption")}
           </p>
         </div>
       </m.div>
 
       <div className="lg:col-span-5 flex flex-col justify-center gap-12">
-        {VALUES.map((item) => {
-          const Icon = item.icon;
+        {VALUES.map((item, index) => {
+          const Icon = icons[index];
 
           return (
             <m.div

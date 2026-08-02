@@ -5,8 +5,12 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import PageTransition from "@/components/effects/PageTransition";
 import { ExperienceTimeline } from "./experience-timeline";
 import { EducationHighlight } from "./education-highlight";
+import { useTranslations } from "next-intl";
 
 export default function ExperienceSection() {
+  
+  const t = useTranslations("experience.hero");
+
   return (
     <LazyMotion features={domAnimation}>
       <PageTransition>
@@ -19,7 +23,7 @@ export default function ExperienceSection() {
                 viewport={{ once: true }}
                 className="mb-6 block text-[10px] font-bold uppercase tracking-[0.4em] text-luxury-gold"
               >
-                Professional Journey
+                {t("badge")}
               </m.span>
 
               <m.h1
@@ -32,9 +36,9 @@ export default function ExperienceSection() {
                 }}
                 className="mb-8 font-serif text-6xl leading-[0.85] tracking-tighter md:text-8xl"
               >
-                Career
+                {t("title.first")}
                 <br />
-                <span className="font-light italic">Path.</span>
+                <span className="font-light italic">{t("title.highlight")}</span>
               </m.h1>
 
               <m.p
@@ -44,9 +48,7 @@ export default function ExperienceSection() {
                 transition={{ delay: 0.2 }}
                 className="max-w-xl text-lg font-light leading-relaxed text-luxury-charcoal/60 md:text-xl"
               >
-                Years of professional growth built on linguistic precision,
-                localization expertise, and trusted collaboration with clients
-                across international markets.
+                {t("description")}
               </m.p>
             </section>
 
