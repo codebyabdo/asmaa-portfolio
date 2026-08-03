@@ -1,6 +1,6 @@
 "use client";
 
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -15,7 +15,6 @@ export function BeforeAfterStudies() {
   }[];
 
   return (
-    <LazyMotion features={domAnimation}>
       <section className="mb-40" aria-labelledby="transformation-heading">
         <header className="mb-14">
           <div className="mb-5 flex items-center gap-4">
@@ -97,6 +96,5 @@ export function BeforeAfterStudies() {
           ))}
         </div>
       </section>
-    </LazyMotion>
   );
 }

@@ -3,16 +3,12 @@
 import PageTransition from "@/components/effects/PageTransition";
 import { ContactForm } from "./contact-form";
 import { SocialLink } from "./social-link";
-import { domAnimation, LazyMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
-
   const t = useTranslations("contact");
 
   return (
-    <LazyMotion features={domAnimation}>
-
     <PageTransition>
       <main className="px-6 pt-40 pb-32">
         <div className="mx-auto max-w-7xl">
@@ -34,7 +30,5 @@ export default function ContactSection() {
         </div>
       </main>
     </PageTransition>
-    </LazyMotion>
-
   );
 }

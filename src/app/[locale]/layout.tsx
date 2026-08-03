@@ -15,7 +15,6 @@ import {
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { LazyMotion, domAnimation } from "framer-motion";
 import DirectionProvider from "@/providers/DirectionProvider";
 
 const SITE_URL =
@@ -156,18 +155,16 @@ export default async function LocaleLayout({
         }}
       />
       <DirectionProvider />
-      <LazyMotion features={domAnimation}>
-        <main className="relative">
-          <Header />
-          <LenisProvider>{children}</LenisProvider>
-        </main>
+      <main className="relative">
+        <Header />
+        <LenisProvider>{children}</LenisProvider>
+      </main>
 
-        <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
+      <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
 
-        <Analytics />
+      <Analytics />
 
-        <SpeedInsights />
-      </LazyMotion>
+      <SpeedInsights />
     </NextIntlClientProvider>
   );
 }
