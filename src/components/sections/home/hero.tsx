@@ -1,39 +1,45 @@
 "use client";
 
-import { m } from "framer-motion";
+import { useMemo } from "react";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { CinematicHero } from "@/components/shared/cinematic-hero-section";
-
-import { useTranslations } from "next-intl";
 
 export function Hero() {
   const t = useTranslations("home.hero");
 
-  const hero = {
-    subtitle: t("subtitle"),
+  const hero = useMemo(
+    () => ({
+      subtitle: t("subtitle"),
 
-    title: (
-      <>
-        {t("title.main")}
-        <br />
-        <span className="font-light italic">{t("title.italic")}</span>{" "}
-        <span className="italic text-luxury-gold">{t("title.gold")}</span>
-      </>
-    ),
+      title: (
+        <>
+          {t("title.main")}
+          <br />
+          <span className="font-light italic">
+            {t("title.italic")}
+          </span>{" "}
+          <span className="italic text-luxury-gold">
+            {t("title.gold")}
+          </span>
+        </>
+      ),
 
-    description: t("description"),
+      description: t("description"),
 
-    mainButton: {
-      text: t("buttons.primary"),
-      link: "/contact",
-    },
+      mainButton: {
+        text: t("buttons.primary"),
+        link: "/contact",
+      },
 
-    secondaryButton: {
-      text: t("buttons.secondary"),
-      link: "/portfolio",
-    },
-  };
+      secondaryButton: {
+        text: t("buttons.secondary"),
+        link: "/portfolio",
+      },
+    }),
+    [t]
+  );
 
   return (
     <section className="relative min-h-dvh w-full overflow-hidden">
@@ -41,20 +47,30 @@ export function Hero() {
         <CinematicHero {...hero} />
 
         <div className="flex justify-center">
-          <m.button
-            animate={{ y: [0, 8, 0] }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-            }}
-            className="mb-4 flex flex-col items-center gap-2 opacity-40 transition-opacity hover:opacity-100 sm:mb-8"
+          <button
+            type="button"
+            aria-label={t("scroll")}
+            className="
+              mb-4 flex flex-col items-center gap-2
+              opacity-40 transition-opacity duration-300
+              hover:opacity-100
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-luxury-gold
+              focus-visible:ring-offset-4
+              focus-visible:ring-offset-background
+              sm:mb-8
+            "
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
               {t("scroll")}
             </span>
 
-            <ChevronDown size={14} />
-          </m.button>
+            <ChevronDown
+              size={14}
+              className="animate-bounce"
+            />
+          </button>
         </div>
       </div>
     </section>

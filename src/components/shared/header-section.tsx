@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 interface SectionHeaderProps {
   title: string;
@@ -18,7 +18,7 @@ export function SectionHeader({
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.header
+    <m.header
       initial={
         reduceMotion
           ? false
@@ -65,7 +65,7 @@ export function SectionHeader({
           {subtitle}
         </p>
       )}
-    </motion.header>
+    </m.header>
   );
 }
 
