@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Briefcase, MapPin } from "lucide-react";
 
 import { useTranslations } from "next-intl";
@@ -18,7 +18,7 @@ export function ExperienceTimeline() {
   return (
     <section className="relative space-y-24 border-l border-luxury-charcoal/10 pl-10">
       {HISTORY.map((exp, index) => (
-        <motion.article
+        <m.article
           key={`${exp.company}-${index}`}
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -56,7 +56,7 @@ export function ExperienceTimeline() {
             <MapPin size={12} />
             {t("location")}
           </div>
-        </motion.article>
+        </m.article>
       ))}
     </section>
   );

@@ -1,5 +1,5 @@
 import { ReactNode, memo, useRef } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -15,13 +15,13 @@ function PageTransition({
   const shouldReduceMotion = useReducedMotion();
   const nodeRef = useRef<HTMLDivElement>(null);
 
-  // If animations should be disabled or user prefers reduced motion
+  // If animations should be disabled or user prefers reduced m
   if (disableAnimation || shouldReduceMotion) {
     return <div className={className}>{children}</div>;
   }
 
   return (
-    <motion.div
+    <m.div
       ref={nodeRef}
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ function PageTransition({
       style={{ willChange: 'transform, opacity' }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 

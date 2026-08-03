@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {  useState } from "react";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { ArrowRight, Maximize2 } from "lucide-react";
 
 import { SectionHeader } from "@/components/shared/header-section";
@@ -65,12 +65,12 @@ export function ProjectArchive() {
       </div>
 
       <AnimatePresence mode="popLayout">
-        <motion.div
+        <m.div
           layout={!reduceMotion}
           className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
         >
           {filteredProjects.map((project, index) => (
-            <motion.article
+            <m.article
               key={project.id}
               layout={!reduceMotion}
               initial={
@@ -135,9 +135,9 @@ export function ProjectArchive() {
                   {t("featured")}
                 </div>
               )}
-            </motion.article>
+            </m.article>
           ))}
-        </motion.div>
+        </m.div>
       </AnimatePresence>
     </section>
   );

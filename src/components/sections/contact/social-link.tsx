@@ -1,7 +1,7 @@
 "use client";
 
 import { CONTACTS_ICONS } from "@/data/social-links";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export function SocialLink() {
@@ -14,16 +14,16 @@ export function SocialLink() {
   }[];
   return (
     <section>
-      <motion.span
+      <m.span
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         className="mb-6 block text-[10px] font-bold uppercase tracking-[0.4em] text-luxury-gold"
       >
         {t("hero.badge")}
-      </motion.span>
+      </m.span>
 
-      <motion.h1
+      <m.h1
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -32,9 +32,9 @@ export function SocialLink() {
         {t("hero.title.first")}
         <br />
         <span className="font-light italic">{t("hero.title.highlight")}</span>
-      </motion.h1>
+      </m.h1>
 
-      <motion.p
+      <m.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -42,7 +42,7 @@ export function SocialLink() {
         className="mb-16 max-w-md text-lg font-light leading-relaxed text-luxury-charcoal/60"
       >
         {t("hero.description")}
-      </motion.p>
+      </m.p>
 
       <div className="space-y-10">
         {CONTACTS.map((item, index) => {

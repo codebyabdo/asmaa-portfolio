@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 import { QUANTITATIVE_META } from "@/data/projects";
 import { useTranslations } from "next-intl";
@@ -32,7 +32,7 @@ export function QualityAnalytics() {
             {Quantitative.map((stat, index) => {
               const meta = QUANTITATIVE_META[index];
               return (
-                <motion.div
+                <m.div
                   key={stat.label}
                   initial={
                     reduceMotion
@@ -66,7 +66,7 @@ export function QualityAnalytics() {
                       {stat.label}
                     </p>
                   </div>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>

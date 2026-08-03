@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { Shield, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -62,7 +62,7 @@ export function SecureWorkflow() {
 
         {/* Card */}
         <div className="relative lg:col-span-7">
-          <motion.div
+          <m.div
             initial={
               reduceMotion
                 ? false
@@ -123,7 +123,7 @@ export function SecureWorkflow() {
                 <div className="relative z-10 flex max-w-md flex-col items-center text-center">
                   <div className="relative mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-luxury-gold/40">
                     {!reduceMotion && (
-                      <motion.div
+                      <m.div
                         animate={{ rotate: 360 }}
                         transition={{
                           duration: 18,
@@ -157,7 +157,7 @@ export function SecureWorkflow() {
                 </div>
 
                 {!reduceMotion && (
-                  <motion.div
+                  <m.div
                     initial={{ top: "-10%" }}
                     animate={{ top: "110%" }}
                     transition={{
@@ -170,7 +170,7 @@ export function SecureWorkflow() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
           <div className="pointer-events-none absolute -bottom-8 -right-8 hidden h-32 w-32 rounded-full border border-luxury-gold/10 lg:block" />
         </div>

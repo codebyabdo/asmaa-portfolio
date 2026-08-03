@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 import MagneticButton from "@/components/ui/MagneticButton";
 import { useTranslations } from "next-intl";
@@ -12,7 +12,7 @@ export function PortfolioCta() {
 
   return (
     <section className="py-28 md:py-36 xl:py-52">
-      <motion.div
+      <m.div
         initial={
           reduceMotion
             ? false
@@ -63,7 +63,7 @@ export function PortfolioCta() {
             {t("secondary")}
           </Link>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

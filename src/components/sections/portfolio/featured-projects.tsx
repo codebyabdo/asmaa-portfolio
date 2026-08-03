@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { SectionHeader } from "@/components/shared/header-section";
 import { FEATURED_PROJECT_META } from "@/data/projects";
@@ -40,7 +40,7 @@ export function FeaturedProjects() {
 
       <div className="space-y-28 md:space-y-40">
         {FEATURED_PROJECTS.map((project, idx) => (
-          <motion.article
+          <m.article
             key={project.id}
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export function FeaturedProjects() {
                 <span className="h-px w-12 bg-luxury-gold transition-all duration-300 group-hover:w-20" />
               </button>
             </div>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </section>

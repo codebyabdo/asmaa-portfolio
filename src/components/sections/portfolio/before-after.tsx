@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Globe, Layers } from "lucide-react";
 
 import {  } from "@/data/projects";
@@ -82,7 +82,7 @@ export function BeforeAfterTranslation() {
 
                 {/* Translation */}
 
-                <motion.div
+                <m.div
                   whileHover={{
                     scale: 1.015,
                   }}
@@ -111,7 +111,7 @@ export function BeforeAfterTranslation() {
                   </p>
 
                   <div className="absolute bottom-0 left-0 h-1 w-full bg-luxury-gold" />
-                </motion.div>
+                </m.div>
 
                 {/* Explanation */}
 
