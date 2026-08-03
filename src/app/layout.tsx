@@ -1,12 +1,17 @@
-import CustomCursor from "@/components/effects/CustomCursor";
-import { IBM_Plex_Sans_Arabic, Ruwudu } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
+
+import CustomCursor from "@/components/effects/CustomCursor";
+import IntroLoader from "@/components/loading/intro-loader";
 
 import {
   Inter_Tight,
   Space_Grotesk,
   Cormorant_Garamond,
 } from "next/font/google";
+
+import { IBM_Plex_Sans_Arabic, Ruwudu } from "next/font/google";
+import MotionProvider from "@/providers/motion-provider";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
@@ -41,26 +46,35 @@ const space = Space_Grotesk({
   display: "swap",
 });
 
-export default async function RootLayout({
+export const metadata: Metadata = {
+  metadataBase: new URL("https://asmaaadel.vercel.app"),
+};
+
+export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html
+      lang="en"
       suppressHydrationWarning
       className={`
-    ${inter.variable}
-    ${ibmArabic.variable}
-    ${cormorant.variable}
-    ${ruwudu.variable}
-    ${space.variable}
-  `}
+        ${inter.variable}
+        ${ibmArabic.variable}
+        ${cormorant.variable}
+        ${ruwudu.variable}
+        ${space.variable}
+      `}
     >
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className="min-h-screen overflow-x-hidden bg-background text-foreground antialiased">
+        <MotionProvider>
+          <IntroLoader />
 
-        <CustomCursor />
-        {children}
+          <CustomCursor />
+
+          <main id="main-content">{children}</main>
+        </MotionProvider>
       </body>
     </html>
   );

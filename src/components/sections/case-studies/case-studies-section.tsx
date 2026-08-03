@@ -3,7 +3,7 @@
 import PageTransition from "@/components/effects/PageTransition";
 import { BeforeAfterStudies } from "./before-after";
 import { SecureInterface } from "./Secure-interface";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { m } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 const avatars = Array.from({ length: 3 }, (_, i) => i);
@@ -11,71 +11,65 @@ const avatars = Array.from({ length: 3 }, (_, i) => i);
 export default function CaseStudiesSection() {
   const t = useTranslations("caseStudies.hero");
 
-  
   return (
-    <LazyMotion features={domAnimation}>
-      <PageTransition>
-        <main
-          className="px-6 pt-36 pb-32"
-          aria-labelledby="case-studies-heading"
-        >
-          <div className="mx-auto max-w-7xl">
-            {/* Hero */}
-            <header className="mb-32">
-              <m.h1
-                id="case-studies-heading"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.8,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="font-serif text-6xl leading-none tracking-tight sm:text-7xl lg:text-[10vw]"
+    <PageTransition>
+      <main className="px-6 pt-36 pb-32" aria-labelledby="case-studies-heading">
+        <div className="mx-auto max-w-7xl">
+          {/* Hero */}
+          <header className="mb-32">
+            <m.h1
+              id="case-studies-heading"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="font-serif text-6xl leading-none tracking-tight sm:text-7xl lg:text-[10vw]"
+            >
+              {t("title.first")}{" "}
+              <span className="italic">{t("title.highlight")}</span>
+            </m.h1>
+
+            <div className="mt-12 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
+              <p className="max-w-2xl text-lg leading-relaxed font-light text-luxury-charcoal/60 md:text-xl">
+                {t("description")}
+              </p>
+
+              <aside
+                aria-label="Portfolio statistics"
+                className="flex items-center gap-6"
               >
-                {t("title.first")}{" "}
-                <span className="italic">{t("title.highlight")}</span>
-              </m.h1>
+                <div className="flex -space-x-4" aria-hidden="true">
+                  {avatars.map((avatar) => (
+                    <div
+                      key={avatar}
+                      className="h-12 w-12 rounded-full border-4 border-luxury-ivory bg-luxury-gold/20 backdrop-blur-md"
+                    />
+                  ))}
+                </div>
 
-              <div className="mt-12 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-end">
-                <p className="max-w-2xl text-lg leading-relaxed font-light text-luxury-charcoal/60 md:text-xl">
-                  {t("description")}
-                </p>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-luxury-gold">
+                    {t("stats.title")}
+                  </p>
 
-                <aside
-                  aria-label="Portfolio statistics"
-                  className="flex items-center gap-6"
-                >
-                  <div className="flex -space-x-4" aria-hidden="true">
-                    {avatars.map((avatar) => (
-                      <div
-                        key={avatar}
-                        className="h-12 w-12 rounded-full border-4 border-luxury-ivory bg-luxury-gold/20 backdrop-blur-md"
-                      />
-                    ))}
-                  </div>
+                  <p className="mt-2 text-sm text-luxury-charcoal/45">
+                    {t("stats.description")}
+                  </p>
+                </div>
+              </aside>
+            </div>
+          </header>
 
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-luxury-gold">
-                      {t("stats.title")}
-                    </p>
+          {/* Before / After */}
+          <BeforeAfterStudies />
 
-                    <p className="mt-2 text-sm text-luxury-charcoal/45">
-                      {t("stats.description")}
-                    </p>
-                  </div>
-                </aside>
-              </div>
-            </header>
-
-            {/* Before / After */}
-            <BeforeAfterStudies />
-
-            {/* Secure Viewer */}
-            <SecureInterface />
-          </div>
-        </main>
-      </PageTransition>
-    </LazyMotion>
+          {/* Secure Viewer */}
+          <SecureInterface />
+        </div>
+      </main>
+    </PageTransition>
   );
 }
