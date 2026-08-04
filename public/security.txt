@@ -1,0 +1,13 @@
+Contact: mailto:security@asmaaadel.vercel.app
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, ar
+Canonical: https://asmaaadel.vercel.app/.well-known/security.txt
+
+Policy: https://asmaaadel.vercel.app/security
+Acknowledgments: https://asmaaadel.vercel.app
+
+Hiring: https://codebyabdo.vercel.app
+
+Encryption: https://keys.openpgp.org
+
+CSAF: https://asmaaadel.vercel.app

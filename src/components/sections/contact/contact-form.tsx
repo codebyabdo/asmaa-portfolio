@@ -58,7 +58,7 @@ export function ContactForm() {
   const inputNormal = "border-luxury-charcoal/10";
 
   return (
-    <div className="glass rounded-[3rem] border border-luxury-charcoal/5 p-12 shadow-2xl md:p-16">
+    <div className="glass rounded-[3rem] border border-luxury-charcoal/5 p-12 shadow-xl md:p-16">
       <h3 className="mb-12 font-serif text-3xl italic">{t("title")}</h3>
 
       <form ref={formRef} action={formAction} className="space-y-10" noValidate>

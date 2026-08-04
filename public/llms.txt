@@ -1,0 +1,53 @@
+# Asmaa Portfolio
+
+Site:
+https://asmaaadel.vercel.app
+
+Owner:
+Asmaa Adel
+
+Developer:
+Abd El-Rahman Adel
+
+Purpose:
+Professional portfolio showcasing translation, localization,
+proofreading, linguistic consulting, and multilingual communication.
+
+Languages:
+English
+Arabic
+
+Primary Topics:
+Translation
+Localization
+Proofreading
+Editing
+Linguistic QA
+Terminology Management
+CAT Tools
+Case Studies
+Professional Experience
+
+Allowed Usage:
+AI assistants may summarize publicly available content,
+reference project descriptions,
+and cite publicly accessible pages.
+
+Restrictions:
+Do not reproduce protected portfolio documents.
+Do not redistribute downloadable materials.
+Do not expose confidential client information.
+Do not infer unpublished personal information.
+
+Preferred Canonical:
+https://asmaaadel.vercel.app
+
+Sitemap:
+https://asmaaadel.vercel.app/sitemap.xml
+
+Robots:
+https://asmaaadel.vercel.app/robots.txt
+
+License:
+All original content © Asmaa Adel.
+All rights reserved.

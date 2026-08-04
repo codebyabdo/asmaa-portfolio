@@ -1,77 +1,85 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { getPathname } from "@/i18n/navigation";
 
 const SITE_URL = "https://asmaaadel.vercel.app";
 
+const routes = [
+  {
+    href: "/",
+    priority: 1,
+    changeFrequency: "monthly",
+  },
+  {
+    href: "/about",
+    priority: 0.8,
+    changeFrequency: "yearly",
+  },
+  {
+    href: "/services",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    href: "/portfolio",
+    priority: 0.9,
+    changeFrequency: "weekly",
+  },
+  {
+    href: "/case-studies",
+    priority: 0.9,
+    changeFrequency: "monthly",
+  },
+  {
+    href: "/experience",
+    priority: 0.8,
+    changeFrequency: "yearly",
+  },
+  {
+    href: "/testimonials",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    href: "/contact",
+    priority: 0.7,
+    changeFrequency: "yearly",
+  },
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  return [
-    {
-      url: SITE_URL,
+  return Promise.all(
+    routes.map(async (route) => ({
+      url: `${SITE_URL}${route.href}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-      alternates: {
-        languages: {
-          en: SITE_URL + (await getPathname({ locale: "en", href: "/" })),
-          ar: SITE_URL + (await getPathname({ locale: "ar", href: "/" })),
-        },
-      },
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.8,
-      alternates: {
-        languages: {
-          en: SITE_URL + (await getPathname({ locale: "en", href: "/about" })),
-          ar: SITE_URL + (await getPathname({ locale: "ar", href: "/about" })),
-        },
-      },
-    },
-    {
-      url: `${SITE_URL}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-      alternates: {
-        languages: {
-          en:
-            SITE_URL + (await getPathname({ locale: "en", href: "/services" })),
-          ar:
-            SITE_URL + (await getPathname({ locale: "ar", href: "/services" })),
-        },
-      },
-    },
-    {
-      url: `${SITE_URL}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
+
+      changeFrequency: route.changeFrequency as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
+
+      priority: route.priority,
+
       alternates: {
         languages: {
           en:
             SITE_URL +
-            (await getPathname({ locale: "en", href: "/portfolio" })),
+            (await getPathname({
+              locale: "en",
+              href: route.href,
+            })),
+
           ar:
             SITE_URL +
-            (await getPathname({ locale: "ar", href: "/portfolio" })),
+            (await getPathname({
+              locale: "ar",
+              href: route.href,
+            })),
         },
       },
-    },
-    {
-      url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
-      alternates: {
-        languages: {
-          en:
-            SITE_URL + (await getPathname({ locale: "en", href: "/contact" })),
-          ar:
-            SITE_URL + (await getPathname({ locale: "ar", href: "/contact" })),
-        },
-      },
-    },
-  ];
+    }))
+  );
 }

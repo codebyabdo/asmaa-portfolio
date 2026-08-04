@@ -3,15 +3,15 @@ import "./globals.css";
 
 import CustomCursor from "@/components/effects/CustomCursor";
 import IntroLoader from "@/components/loading/intro-loader";
+import MotionProvider from "@/providers/motion-provider";
 
 import {
   Inter_Tight,
   Space_Grotesk,
   Cormorant_Garamond,
+  IBM_Plex_Sans_Arabic,
+  Ruwudu,
 } from "next/font/google";
-
-import { IBM_Plex_Sans_Arabic, Ruwudu } from "next/font/google";
-import MotionProvider from "@/providers/motion-provider";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
@@ -58,7 +58,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`
         ${inter.variable}
         ${ibmArabic.variable}
@@ -67,7 +66,23 @@ export default function RootLayout({
         ${space.variable}
       `}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+      </head>
+
       <body className="min-h-screen overflow-x-hidden bg-background text-foreground antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-9999 rounded-md bg-black px-4 py-2 text-white "
+        >
+          Skip to content
+        </a>
+
         <MotionProvider>
           <IntroLoader />
 

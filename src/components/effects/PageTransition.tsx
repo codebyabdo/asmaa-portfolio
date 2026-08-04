@@ -1,3 +1,4 @@
+"use client"
 import { ReactNode, memo, useRef } from "react";
 import { m, useReducedMotion } from "framer-motion";
 
