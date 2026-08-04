@@ -77,7 +77,7 @@ export function SecureInterface() {
           <m.div
             whileHover={{ scale: 1.015 }}
             transition={{ duration: 0.25 }}
-            className="glass-dark group relative overflow-hidden rounded-[2rem] border border-white/10 p-8 shadow-2xl"
+            className="glass-dark group relative overflow-hidden rounded-[2rem] border border-white/10 p-8 shadow-xl"
           >
             {/* Header */}
             <div className="mb-8 flex items-center justify-between border-b border-white/10 pb-5">

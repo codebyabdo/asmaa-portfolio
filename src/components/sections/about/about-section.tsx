@@ -1,5 +1,3 @@
-"use client";
-
 import PageTransition from "@/components/effects/PageTransition";
 
 import { ImageValuesSection } from "./image-values-section";

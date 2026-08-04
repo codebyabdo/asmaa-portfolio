@@ -17,10 +17,12 @@ export default function PortfolioSection() {
 
     title: (
       <>
-        {t("title.first")} 
+        {t("title.first")}
         <br />
         <span className="font-light italic">{t("title.second")}</span>
-        <span className="italic text-luxury-gold">{t("title.third")}</span>
+        <span className="italic bg-linear-to-r from-luxury-gold to-amber-500 bg-clip-text text-transparent">
+          {t("title.third")}
+        </span>
       </>
     ),
 

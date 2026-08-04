@@ -2,23 +2,24 @@ import type { Metadata, Viewport } from "next";
 
 import { Header } from "@/components/layout/header/header";
 import LenisProvider from "@/providers/lenis-provider";
+import DirectionProvider from "@/providers/DirectionProvider";
 
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import {
   getMessages,
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
 
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import DirectionProvider from "@/providers/DirectionProvider";
-
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://asmaaadel.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://asmaaadel.vercel.app";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -46,9 +47,6 @@ export async function generateMetadata({
     namespace: "metadata",
   });
 
-  const SITE_URL =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://asmaaadel.vercel.app";
-
   return {
     metadataBase: new URL(SITE_URL),
 
@@ -74,12 +72,19 @@ export async function generateMetadata({
 
     category: t("category"),
 
+    manifest: "/manifest.webmanifest",
+
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
-
-    manifest: "/manifest.webmanifest",
 
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
@@ -95,7 +100,6 @@ export async function generateMetadata({
       title: t("title.default"),
       description: t("description"),
       siteName: t("siteName"),
-
       locale: locale === "ar" ? "ar_EG" : "en_US",
 
       images: [
@@ -103,6 +107,7 @@ export async function generateMetadata({
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
+          alt: "Asmaa Adel",
         },
       ],
     },
@@ -125,27 +130,42 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
+
   const t = await getTranslations({
     locale,
     namespace: "metadata",
   });
 
-  if (!hasLocale(routing.locales, locale)) {
-    return notFound();
-  }
-
-  setRequestLocale(locale);
-  const messages = await getMessages();
-
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+
     name: "Asmaa Adel",
+
     url: SITE_URL,
+
     image: `${SITE_URL}/og-image.jpg`,
+
     jobTitle: t("jobTitle"),
+
     description: t("personDescription"),
+
+    knowsLanguage: ["English", "Arabic"],
+
+    sameAs: [
+      // Add Social URLs Here
+      // "https://www.linkedin.com/in/...",
+      // "https://www.instagram.com/...",
+    ],
   };
+
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <script
@@ -154,13 +174,16 @@ export default async function LocaleLayout({
           __html: JSON.stringify(personSchema),
         }}
       />
-      <DirectionProvider />
-      <main className="relative">
-        <Header />
-        <LenisProvider>{children}</LenisProvider>
-      </main>
 
-      <div className="fixed inset-0 pointer-events-none z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
+      <DirectionProvider />
+
+      <div className="relative">
+        <Header />
+
+        <LenisProvider>{children}</LenisProvider>
+      </div>
+
+      <div className="pointer-events-none fixed inset-0 z-[999] opacity-[0.04] mix-blend-overlay grain-overlay" />
 
       <Analytics />
 

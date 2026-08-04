@@ -10,6 +10,10 @@ const withNextIntl = createNextIntlPlugin();
 
 const securityHeaders = [
   {
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
+  },
+  {
     key: "X-Frame-Options",
     value: "SAMEORIGIN",
   },
@@ -23,11 +27,25 @@ const securityHeaders = [
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=()",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
+  {
+    key: "Cross-Origin-Opener-Policy",
+    value: "same-origin",
+  },
+  {
+    key: "Cross-Origin-Resource-Policy",
+    value: "same-origin",
   },
 ];
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+
+  poweredByHeader: false,
+
+  compress: true,
+
   images: {
     remotePatterns: [
       {
@@ -35,13 +53,20 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+
+    formats: ["image/avif", "image/webp"],
+
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+
     qualities: [75, 90],
   },
-  reactStrictMode: true,
 
-  poweredByHeader: false,
-
-  compress: true,
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+    ],
+  },
 
   async headers() {
     return [
@@ -49,8 +74,21 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2|ttf)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value:
+              "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
 };
 
-export default withBundleAnalyzer(withNextIntl(nextConfig));
+export default withBundleAnalyzer(
+  withNextIntl(nextConfig)
+);

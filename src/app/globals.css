@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* ==========================
+  /* =========================================
      Typography
-  ========================== */
+  ========================================= */
 
   --font-body-en: var(--font-body-en);
   --font-body-ar: var(--font-body-ar);
@@ -15,18 +15,18 @@
 
   --font-mono: "JetBrains Mono", monospace;
 
-  /* ==========================
-     Brand Colors
-  ========================== */
+  /* =========================================
+     Brand
+  ========================================= */
 
   --color-luxury-gold: #d45b37;
   --color-luxury-charcoal: #0a0a0a;
   --color-luxury-ivory: #fdfbf7;
   --color-luxury-graphite: #1a1a1a;
 
-  /* ==========================
-     Semantic Colors
-  ========================== */
+  /* =========================================
+     Semantic
+  ========================================= */
 
   --color-background: var(--color-luxury-ivory);
   --color-foreground: var(--color-luxury-charcoal);
@@ -37,36 +37,43 @@
   --color-muted: #6b6b6b;
   --color-border: rgba(0, 0, 0, 0.08);
 
-  /* ==========================
+  /* =========================================
      Radius
-  ========================== */
+  ========================================= */
 
   --radius-luxury: 2rem;
 }
 
-/* =========================================
+/* =====================================================
    Base
-========================================= */
+===================================================== */
 
 @layer base {
   *,
   *::before,
   *::after {
     box-sizing: border-box;
+    border-color: var(--color-border);
   }
 
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    @apply bg-background text-foreground overflow-x-hidden antialiased;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     cursor: none;
   }
 
   ::selection {
-    background: rgba(212, 91, 55, 0.3);
+    background: rgb(212 91 55 / 30%);
     color: var(--color-luxury-charcoal);
   }
 
@@ -77,16 +84,26 @@
   svg {
     display: block;
     max-width: 100%;
+    height: auto;
   }
 
-  a,
-  button {
+  button,
+  a {
     cursor: none;
   }
 
-  /* =====================================
-     English Typography
-  ===================================== */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-luxury-gold);
+    outline-offset: 4px;
+  }
+
+  /* ==========================
+     English
+  ========================== */
 
   html[lang="en"] body {
     font-family: var(--font-body-en);
@@ -106,9 +123,9 @@
     line-height: 0.9;
   }
 
-  /* =====================================
-     Arabic Typography
-  ===================================== */
+  /* ==========================
+     Arabic
+  ========================== */
 
   html[lang="ar"] body {
     font-family: var(--font-body-ar);
@@ -125,7 +142,7 @@
     font-family: var(--font-heading-ar);
     font-weight: 500;
     letter-spacing: 0;
-    line-height: 1.25;
+    line-height: 1.2;
   }
 
   html[dir="rtl"] {
@@ -133,43 +150,25 @@
   }
 }
 
-/* =========================================
-   Utilities
-========================================= */
+/* =====================================================
+   Components
+===================================================== */
 
-@layer utilities {
-  /* ==========================
-     Layout
-  ========================== */
-
+@layer components {
   .container-section {
     width: 100%;
     max-width: 80rem;
     margin-inline: auto;
-    padding-inline: 1.5rem;
+    padding-inline: clamp(1rem, 3vw, 1.5rem);
   }
 
   .section {
-    padding-block: 8rem;
+    padding-block: clamp(5rem, 10vw, 8rem);
   }
 
   .section-sm {
-    padding-block: 5rem;
+    padding-block: clamp(3rem, 6vw, 5rem);
   }
-
-  @media (max-width: 768px) {
-    .section {
-      padding-block: 5rem;
-    }
-
-    .section-sm {
-      padding-block: 3.5rem;
-    }
-  }
-
-  /* ==========================
-     Glass
-  ========================== */
 
   .glass {
     @apply border border-white/20 bg-white/10 backdrop-blur-2xl;
@@ -182,25 +181,56 @@
   .glass-dark {
     @apply border border-white/5 bg-black/60 backdrop-blur-3xl;
   }
+}
 
-  /* ==========================
-     Effects
-  ========================== */
+/* =====================================================
+   Utilities
+===================================================== */
 
+@layer utilities {
   .text-reveal {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: inset(0);
   }
 
   .grain-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     mask-image: radial-gradient(circle at center, black, transparent);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .balance {
+    text-wrap: balance;
+  }
+
+  .pretty {
+    text-wrap: pretty;
   }
 }
 
-/* =========================================
+/* =====================================================
+   Reduced Motion
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================
    Scrollbar
-========================================= */
+===================================================== */
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -211,11 +241,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(212, 91, 55, 0.2);
-  border-radius: 999px;
+  background: rgb(212 91 55 / 25%);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 91, 55, 0.4);
+  background: rgb(212 91 55 / 45%);
 }
-

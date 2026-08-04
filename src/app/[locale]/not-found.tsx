@@ -22,7 +22,7 @@ export default function NotFound() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute left-1/2 top-1/2 h-160 w-160 -translate-x-1/2 -translate-y-1/2 rounded-full bg-luxury-gold/10 blur-[140px] "
+            className="absolute left-1/2 top-1/2 h-160 w-160 -translate-x-1/2 -translate-y-1/2 rounded-full bg-luxury-gold/10 blur-3xl "
           />
         </div>
 

@@ -1,0 +1,49 @@
+/* TEAM */
+
+Developer: Abd El-Rahman Adel
+Role: Frontend Engineer
+Website: https://codebyabdo.vercel.app
+GitHub: https://github.com/codebyabdo
+Location: Egypt
+
+Client:
+Asmaa Adel
+English ↔ Arabic Translator
+Localization Specialist
+
+/* SITE */
+
+Site: Asmaa Portfolio
+URL: https://asmaaadel.vercel.app
+
+Stack:
+Next.js 15
+React 19
+TypeScript
+Tailwind CSS v4
+Framer Motion
+Next-Intl
+Vercel
+
+Performance:
+Optimized for Core Web Vitals
+Responsive
+SEO Optimized
+Accessible
+
+Deployment:
+Vercel
+
+Last Updated:
+2026
+
+/* THANKS */
+
+Special thanks to:
+
+OpenAI
+Vercel
+Next.js Team
+Tailwind CSS Team
+Framer Motion Team
+Lucide Icons

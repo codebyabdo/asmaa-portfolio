@@ -86,7 +86,7 @@ export function SecureWorkflow() {
               duration: 0.9,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="relative overflow-hidden rounded-[2.5rem] bg-black p-3 shadow-2xl md:rounded-[4rem] md:p-4"
+            className="relative overflow-hidden rounded-[2.5rem] bg-black p-3 shadow-xl md:rounded-[4rem] md:p-4"
           >
             <div className="glass-dark overflow-hidden rounded-[2rem] border border-white/10 md:rounded-[3.5rem]">
               {/* Header */}
