@@ -1,19 +1,19 @@
 {
   "hero": {
-    "subtitle": "International Freelance Professional",
+    "subtitle": "Professional Arabic–English Translator",
     "title": {
-      "main": "Bridging Language,",
-      "italic": "Culture",
-      "gold": "Logic"
+      "main": "Beyond Words,",
+      "italic": "Meaning",
+      "gold": "Matters."
     },
-    "description": "A world-class localization experience for international leaders who demand precision and cultural depth.",
+    "description": "Accurate Arabic–English translation built around meaning, context, and clarity — helping every document communicate naturally and professionally.",
     "buttons": {
-      "primary": "Start Conversation",
-      "secondary": "Explore Evidence"
+      "primary": "Start Your Project",
+      "secondary": "Explore My Work"
     },
     "scroll": "Scroll"
   },
   "floating": {
-    "title": "Trusted Language Partnerships"
+    "title": "Precision · Clarity · Trust"
   }
 }

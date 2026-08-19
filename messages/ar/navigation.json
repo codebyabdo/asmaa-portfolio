@@ -1,29 +1,34 @@
 {
   "logo": {
     "name": "أسماء عادل",
-    "title": "مترجمة"
+    "title": "مترجمة ومتخصصة في التوطين"
   },
+
   "center": {
-    "label": "فن الصياغة اللغوية"
+    "label": "لغة. ثقافة. تأثير."
   },
+
   "menu": {
     "button": "القائمة",
     "close": "إغلاق"
   },
+
   "links": {
     "home": "الرئيسية",
-    "about": "نبذة",
+    "about": "نبذة عني",
     "services": "الخدمات",
     "portfolio": "الأعمال",
     "evidence": "دراسات الحالة",
-    "experience": "الخبرات",
+    "experience": "الخبرة",
     "voices": "آراء العملاء",
-    "contact": "تواصل"
+    "contact": "لنتحدث"
   },
+
   "social": {
     "linkedin": "لينكدإن",
     "email": "البريد الإلكتروني",
     "whatsapp": "واتساب"
   },
-  "location": "القاهرة — مصر"
+
+  "location": "بني سويف — مصر"
 }

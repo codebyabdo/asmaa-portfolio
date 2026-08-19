@@ -24,7 +24,7 @@ const initialState: ContactFormState = {
 
 function SubmitButton() {
   const { pending } = useFormStatus();
-  const t = useTranslations("contact.form");
+  const t = useTranslations("contact.contact.form");
 
   return (
     <MagneticButton
@@ -43,7 +43,7 @@ function SubmitButton() {
 export function ContactForm() {
   const [state, formAction] = useActionState(sendContactEmail, initialState);
   const formRef = useRef<HTMLFormElement>(null);
-  const t = useTranslations("contact.form");
+  const t = useTranslations("contact.contact.form");
 
   useEffect(() => {
     if (state.success) {

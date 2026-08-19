@@ -2,37 +2,40 @@
   "hero": {
     "badge": "Professional Journey",
     "title": {
-      "first": "Career",
-      "highlight": "Path"
+      "first": "A Path",
+      "highlight": "Built on Meaning"
     },
-    "description": "Years of professional growth built on linguistic precision, localization expertise, and trusted collaboration with clients across international markets"
+    "description": "From an academic foundation in English to professional translation, every step has shaped a deeper understanding of language, communication, and the responsibility behind every word."
   },
+
   "timeline": {
-    "location": "Remote / International",
+    "location": "Beni-Suef, Egypt",
+
     "history": [
       {
-        "role": "Freelance Translator & Consultant",
-        "company": "Global Client Portfolio",
-        "period": "2021 — PRESENT",
-        "desc": "Spearheading high-level translation and localization strategies for international startups, creative agencies, and private entities."
+        "role": "English Language Graduate",
+        "company": "Beni-Suef University · Faculty of Education",
+        "period": "2022",
+        "desc": "Earned a Bachelor of Arts and Education in English Language, Basic Education, building a strong academic foundation in language, communication, and English studies."
       },
       {
-        "role": "Communication Specialist",
+        "role": "Tele Sales Representative",
         "company": "Vodafone Egypt",
-        "period": "2019 — 2021",
-        "desc": "Managed critical communication workflows, ensuring linguistic accuracy and cultural resonance across digital channels."
+        "period": "Mar 2023 — Dec 2023",
+        "desc": "Developed practical experience in customer communication, active listening, problem-solving, and understanding client needs in a fast-paced professional environment."
       },
       {
-        "role": "Junior Translator",
-        "company": "Language Hub Agency",
-        "period": "2018 — 2019",
-        "desc": "Facilitated document translation and content adaptation for diverse industry sectors including technology and legal."
+        "role": "Arabic–English Translator",
+        "company": "Newtrans Translation Company",
+        "period": "Jan 2025 — Present",
+        "desc": "Providing professional Arabic–English and English–Arabic translation across legal, medical, financial, and literary content, with a focus on accuracy, clarity, terminology, and context."
       }
     ]
   },
+
   "education": {
-    "badge": "Education",
-    "title": "Specialized Linguistic Studies",
-    "description": "Academic training in English literature and Arabic linguistics, providing the theoretical foundation behind every localization and translation project."
+    "badge": "Academic Foundation",
+    "title": "English Language & Education",
+    "description": "Bachelor of Arts and Education in English Language — Basic Education, Beni-Suef University, 2022. An academic foundation that continues to shape a careful and context-driven approach to translation."
   }
 }

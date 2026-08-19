@@ -56,8 +56,7 @@ export function PortfolioCta() {
           </Link>
 
           <Link
-            href="/"
-            target="_blank"
+            href="/contact"
             className="border-b border-luxury-charcoal/10 pb-3 text-[11px] font-bold uppercase tracking-[0.35em] transition-all hover:border-luxury-gold hover:text-luxury-gold"
           >
             {t("secondary")}

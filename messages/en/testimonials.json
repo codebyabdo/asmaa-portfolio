@@ -1,34 +1,47 @@
 {
-  "hero": {
-    "title": {
-      "first": "Voices of",
-      "highlight": "Trust"
+  "testimonials": {
+    "hero": {
+      "eyebrow": "The Standard Behind Every Project",
+      "title": {
+        "first": "Built on",
+        "highlight": "Precision"
+      },
+      "description": "A professional translation approach shaped by accuracy, context, confidentiality, and clear communication — from the first brief to the final delivery."
     },
-    "description": "Real feedback from international partners and industry leaders"
-  },
-  "cards": {
-    "items": [
-      {
-        "text": "Asmaa's translation felt so native that our Arabic user base grew by 40% within three months. Her localization work is truly elite.",
-        "author": "Elena Petrova",
-        "role": "Global Product Lead, TechFlow"
-      },
-      {
-        "text": "Working with Asmaa was seamless. She captured our brand voice perfectly, even when dealing with highly technical e-commerce copy.",
-        "author": "Marc Dupond",
-        "role": "CMO, LuxeGlobal"
-      },
-      {
-        "text": "Professionalism at its finest. The absolute privacy and precision she provided for our legal documents was exactly what we needed.",
-        "author": "Sarah Al-Fahad",
-        "role": "Legal Consultant, Emirates Group"
-      }
-    ]
-  },
-  "companies": [
-    "GlobalLink",
-    "EuroTech",
-    "SmartDoc",
-    "CreativeFlow"
-  ]
+
+    "standards": {
+      "footer": "Professional Standard",
+
+      "items": [
+        {
+          "number": "01",
+          "label": "Precision",
+          "title": "Meaning First",
+          "text": "Every translation begins with understanding the message, its purpose, and its audience — because the right words only matter when they carry the right meaning."
+        },
+        {
+          "number": "02",
+          "label": "Context",
+          "title": "Made to Feel Natural",
+          "text": "The goal is never to make content sound translated. Language is adapted to its audience while preserving the original intent, tone, and identity."
+        },
+        {
+          "number": "03",
+          "label": "Reliability",
+          "title": "Trust in the Process",
+          "text": "Clear communication, careful document handling, attention to detail, and commitment to agreed deadlines are part of every professional engagement."
+        }
+      ]
+    },
+
+    "expertise": {
+      "label": "Areas of Expertise",
+      "items": [
+        "Legal Translation",
+        "Medical Translation",
+        "Financial Translation",
+        "Literary Translation"
+      ]
+    }
+  }
 }

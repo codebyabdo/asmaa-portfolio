@@ -1,56 +1,58 @@
 {
   "hero": {
-    "eyebrow": "Crafted Solutions",
-    
+    "eyebrow": "Language, With Purpose",
+
     "title": {
-      "first": "Excellence",
-      "second": "as a",
-      "third": "Ritual."
+      "first": "Precision",
+      "second": "Beyond",
+      "third": "Words."
     },
-    "description": "Specialized linguistic services for businesses, publishers, and international organizations seeking accurate, culturally-aware communication."
+
+    "description": "Professional Arabic–English translation crafted to preserve meaning, context, and tone across legal, medical, financial, literary, and professional content."
   },
-  "quote": "Every successful localization project begins with understanding, not translation.",
+
+  "quote": "A good translation does not sound translated. It feels clear, natural, and true to the original message.",
 
   "services": [
     {
-      "title": "Localization",
-      "description": "Adapting products, software, and apps to feel native to Arabic-speaking markets.",
-      "category": "Technical"
+      "title": "Legal Translation",
+      "description": "Accurate translation of contracts, agreements, certificates, and official documents with careful attention to legal terminology and context.",
+      "category": "Legal"
+    },
+    {
+      "title": "Medical Translation",
+      "description": "Clear and precise translation of medical and healthcare content, with careful handling of terminology and sensitive information.",
+      "category": "Medical"
+    },
+    {
+      "title": "Financial Translation",
+      "description": "Professional translation of financial and business content while maintaining terminology, consistency, and the intended meaning.",
+      "category": "Financial"
+    },
+    {
+      "title": "Literary Translation",
+      "description": "Thoughtful translation that carries the voice, tone, and emotion of literary and creative content into the target language.",
+      "category": "Literary"
     },
     {
       "title": "Document Translation",
-      "description": "Precise translation for legal, medical, and corporate documents with absolute privacy.",
-      "category": "Legal & Corporate"
+      "description": "Reliable Arabic–English and English–Arabic translation for professional documents, adapted to the purpose and audience of each project.",
+      "category": "Professional"
     },
     {
-      "title": "Website Transcreation",
-      "description": "Maintaining brand voice while creatively adapting marketing copy for impact.",
-      "category": "Marketing"
-    },
-    {
-      "title": "Subtitle Artistry",
-      "description": "Cinematic subtitling and time-synced translation for media and entertainment.",
-      "category": "Media"
-    },
-    {
-      "title": "Business Comms",
-      "description": "Elite ghostwriting and correspondence management for C-suite professionals.",
-      "category": "Consulting"
-    },
-    {
-      "title": "Cultural Audits",
-      "description": "Reviewing existing content for cultural sensitivity and linguistic accuracy.",
-      "category": "Quality Assurance"
+      "title": "Proofreading & Review",
+      "description": "Careful linguistic review to improve grammar, clarity, consistency, terminology, and overall readability before your content reaches its audience.",
+      "category": "Quality"
     }
   ],
 
   "cta": {
-    "title": "Need a Tailored Localization Strategy?",
-    "description": "Every project deserves a thoughtful linguistic approach. Let's discuss your goals and build communication that resonates across cultures.",
-    "button": "Schedule a Consultation"
+    "title": "Have Something to Translate?",
+    "description": "Whether it is a legal document, medical content, financial material, or a piece of creative work, let's make sure your message reaches its audience clearly and naturally.",
+    "button": "Start Your Project"
   },
 
   "buttons": {
-    "learnMore": "Learn More"
+    "learnMore": "Explore Service"
   }
 }
