@@ -1,212 +1,184 @@
 {
   "hero": {
-    "subtitle": "Linguistic Portfolio of Precision",
+    "subtitle": "Selected Work in Language & Translation",
     "title": {
-      "first": "The Art of",
-      "second": "Accurate",
-      "third": "Flow"
+      "first": "Where",
+      "second": "Meaning",
+      "third": "Comes First"
     },
-    "description": "Explore a curated collection of translation, localization, proofreading, and multilingual communication projects crafted with cultural precision, linguistic excellence, and complete confidentiality.",
+    "description": "A selection of professional translation work across legal, medical, financial, and literary content — shaped with accuracy, context, and a clear understanding of the audience.",
     "buttons": {
-      "primary": "Explore Portfolio",
-      "secondary": "Evidence of Expertise"
+      "primary": "Explore My Work",
+      "secondary": "Discuss Your Project"
     }
   },
 
   "featured": {
     "number": "01",
-    "title": "Featured Legacies",
-    "subtitle": "Major localization efforts that redefined how international brands speak to the Arabic market.",
+    "title": "Selected Expertise",
+    "subtitle": "A closer look at the types of content I work with and the standards I bring to every translation.",
     "confidential": "Confidential",
-    "languages": "Languages",
-    "accuracy": "Accuracy",
-    "button": "Deep Dive Case Study",
+    "languages": "Language Pair",
+    "accuracy": "Focus",
+    "button": "View Details",
 
     "projects": [
       {
-        "id": "vodafone-global",
-        "title": "Global Campaign Localization",
-        "client": "Vodafone Group",
-        "category": "Marketing",
-        "description": "Transcreating a multi-platform digital campaign to resonate with diverse Arabic-speaking markets while maintaining tech-forward brand identity.",
-        "year": "2023",
-        "accuracy": "99.9%",
-        "languages": "EN → AR (Gulf/Egyptian)",
-        "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
+        "id": "legal-translation",
+        "title": "Legal Document Translation",
+        "client": "Confidential",
+        "category": "Legal",
+        "description": "Careful Arabic–English translation of legal and official documents, with close attention to terminology, structure, and the intended legal meaning.",
+        "year": "Professional Work",
+        "accuracy": "Terminology & Context",
+        "languages": "Arabic ↔ English",
+        "image": "/images/portfolio/legal-translation.webp"
       },
       {
-        "id": "legal-framework",
-        "title": "International Legal Protocol",
-        "client": "Confidential Law Firm",
-        "category": "Legal",
-        "description": "Precision-critical translation of cross-border governance documents, requiring deep expertise in Sharia and Common Law terminology.",
-        "year": "2024",
-        "accuracy": "100%",
-        "languages": "AR → EN (US/UK)",
-        "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200"
+        "id": "medical-translation",
+        "title": "Medical Content Translation",
+        "client": "Confidential",
+        "category": "Medical",
+        "description": "Clear and accurate translation of medical and healthcare-related content, balancing specialized terminology with readability and context.",
+        "year": "Professional Work",
+        "accuracy": "Clarity & Precision",
+        "languages": "Arabic ↔ English",
+        "image": "/images/portfolio/medical-translation.webp"
       }
     ]
   },
 
   "beforeAfter": {
-    "subtitle": "Linguistic Transformation",
-    "title": "The Alchemy of Words",
-    "description": "Experience the subtle shift from literal translation to culturally intelligent localization that preserves meaning, tone, and intent.",
-    "source": "Source Protocol",
-    "localized": "Localized Output",
-    "logic": "Linguistic Logic",
+    "subtitle": "Translation in Context",
+    "title": "Meaning, Not Just Words",
+    "description": "Good translation is not about replacing every word. It is about understanding what the message needs to achieve — then expressing it naturally in another language.",
+    "source": "Original",
+    "localized": "Arabic Version",
+    "logic": "Translation Approach",
 
     "items": [
       {
-        "title": "Marketing Nuance",
-        "tag": "Transcreation",
-        "original": "Our solution is the cutting-edge standard for modern enterprises.",
-        "localized": "حلولنا تُرسي معايير الريادة للمؤسسات العصرية باحترافية عالمية.",
-        "reasoning": "Substituted literal wording with culturally relevant business language that communicates leadership and market authority."
+        "title": "Professional Tone",
+        "tag": "Business",
+        "original": "We are committed to providing reliable solutions that support your business.",
+        "localized": "نلتزم بتقديم حلول موثوقة تدعم أعمالكم وتساعدكم على المضي قدمًا بثقة.",
+        "reasoning": "The goal is to preserve the professional tone and intended message rather than forcing a word-for-word structure."
       },
       {
-        "title": "Legal Precision",
+        "title": "Legal Clarity",
         "tag": "Legal",
         "original": "The consultant shall be liable for any direct damages arising from breach.",
         "localized": "يتحمل الاستشاري المسؤولية عن أي أضرار مباشرة تنشأ عن الإخلال بالعقد.",
-        "reasoning": "Applied standardized Arabic legal terminology to preserve contractual accuracy and legal meaning."
+        "reasoning": "Legal translation requires terminology and phrasing that preserve the contractual meaning clearly and professionally."
       }
     ]
   },
 
   "security": {
-    "badge": "Security Protocol",
+    "badge": "Confidentiality First",
 
     "title": {
-      "first": "Architecting",
-      "second": "Absolute",
-      "third": "Trust."
+      "first": "Your Content",
+      "second": "Deserves",
+      "third": " Trust"
     },
 
-    "description": "Every translation project is handled through a confidentiality-first workflow designed to protect sensitive documents, preserve client privacy, and ensure secure collaboration.",
+    "description": "Professional translation often involves sensitive documents and private information. Every project is handled with discretion, careful document management, and respect for client confidentiality.",
 
     "features": [
-      "Military-grade file encryption",
-      "Sanitized Case Study previews",
-      "Strict NDA-compliant workflow",
-      "Private localization environment"
+      "Respect for client confidentiality",
+      "Careful handling of sensitive documents",
+      "Professional communication",
+      "Responsible project delivery"
     ],
 
-    "vault": "Secure_Vault_v4.2",
-    "encryption": "Encryption Active",
-    "protected": "Metadata • Identity • Assets Protected",
-    "button": "Request Secure Access"
+    "vault": "CONFIDENTIAL_WORKFLOW",
+    "encryption": "Privacy Matters",
+    "protected": "Documents • Information • Client Privacy",
+    "button": "Discuss a Private Project"
   },
 
   "analytics": {
-    "badge": "Performance Metrics",
-    "title": "Quantitative Excellence",
+    "badge": "Professional Standards",
+    "title": "What Every Project Deserves",
 
     "stats": [
       {
         "label": "Accuracy",
-        "value": "99.9%"
+        "value": "Essential"
       },
       {
-        "label": "Market Growth",
-        "value": "+42%"
+        "label": "Clarity",
+        "value": "Priority"
       },
       {
         "label": "Confidentiality",
-        "value": "100%"
+        "value": "Respect"
       },
       {
-        "label": "On-Time Delivery",
-        "value": "100%"
+        "label": "Deadlines",
+        "value": "Commitment"
       }
     ]
   },
 
   "archive": {
     "number": "03",
-    "title": "The Archive",
-    "subtitle": "A broader look at localization projects spanning legal, business, medical, academic and technical industries.",
+    "title": "Areas of Expertise",
+    "subtitle": "Professional translation across specialized fields, with each project approached according to its terminology, audience, and purpose.",
 
-      "categories": [
+    "categories": [
       "All",
       "Legal",
       "Medical",
-      "Academic",
-      "Business",
-      "Localization",
-      "Marketing",
-      "Technical"
+      "Financial",
+      "Literary"
     ],
 
-    "featured": "Featured",
+    "featured": "Specialized",
 
     "projects": [
       {
         "id": "1",
-        "title": "Corporate Legal Agreement",
+        "title": "Legal & Official Documents",
         "category": "Legal",
-        "languages": "English → Arabic",
+        "languages": "Arabic ↔ English",
         "featured": true
       },
       {
         "id": "2",
-        "title": "Medical Device Manual",
+        "title": "Medical & Healthcare Content",
         "category": "Medical",
-        "languages": "English ↔ Arabic"
+        "languages": "Arabic ↔ English"
       },
       {
         "id": "3",
-        "title": "Academic Research Paper",
-        "category": "Academic",
-        "languages": "English → Arabic"
+        "title": "Financial & Business Documents",
+        "category": "Financial",
+        "languages": "Arabic ↔ English",
+        "featured": true
       },
       {
         "id": "4",
-        "title": "E-Commerce Product Catalog",
-        "category": "Localization",
-        "languages": "English → Arabic",
-        "featured": true
-      },
-      {
-        "id": "5",
-        "title": "Marketing Campaign Copy",
-        "category": "Marketing",
-        "languages": "English ↔ Arabic"
-      },
-      {
-        "id": "6",
-        "title": "Technical API Documentation",
-        "category": "Technical",
-        "languages": "English → Arabic"
-      },
-      {
-        "id": "7",
-        "title": "Financial Audit Report",
-        "category": "Business",
-        "languages": "English → Arabic"
-      },
-      {
-        "id": "8",
-        "title": "Website UI Localization",
-        "category": "Localization",
-        "languages": "English ↔ Arabic",
-        "featured": true
+        "title": "Literary & Creative Content",
+        "category": "Literary",
+        "languages": "Arabic ↔ English"
       }
     ]
   },
 
   "cta": {
-    "subtitle": "Commence Global Resonance",
+    "subtitle": "Let's Work With Meaning",
 
     "title": {
-      "first": "Let's Translate",
-      "second": "The",
-      "third": "Future."
+      "first": "Your Message",
+      "second": "Deserves",
+      "third": "To Be Understood."
     },
 
-    "description": "Ready to bring your content to international audiences with culturally accurate, high-quality translation and localization?",
+    "description": "Whether you need a legal document, medical content, financial material, or literary work translated, let's make sure your message reaches its audience with clarity and confidence.",
 
-    "primary": "Initiate Consultation",
-    "secondary": "Download Portfolio PDF"
+    "primary": "Start Your Project",
+    "secondary": "Get in Touch"
   }
 }

@@ -1,71 +1,70 @@
 {
-  
-    "hero": {
-      "title": {
-        "first": "The",
-        "highlight": "Evidence"
-      },
-      "description": "Strategic case studies demonstrating how precision translation, localization, and cultural adaptation transform international communication into measurable business impact",
-      "stats": {
-        "title": "50+ Global Successes",
-        "description": "Confidential localization projects across multiple industries"
-      }
+  "hero": {
+    "title": {
+      "first": "The",
+      "highlight": "Difference"
+    },
+    "description": "A closer look at how careful translation, contextual understanding, and linguistic precision turn a message from simply translated into naturally understood.",
+    "stats": {
+      "title": "Precision in Every Detail",
+      "description": "A professional approach shaped by accuracy, context, clarity, and consistency."
+    }
+  },
+
+  "beforeAfter": {
+    "title": "Where Translation Becomes Meaning",
+    "description": "Good translation goes beyond replacing words. It considers tone, context, audience, and purpose to create language that feels natural without losing the original message.",
+
+    "labels": {
+      "source": "Original",
+      "localized": "Arabic Adaptation",
+      "strategy": "Translation Approach:"
     },
 
-    "beforeAfter": {
-      "title": "Linguistic Transformation Experience",
-      "description": "Explore how culturally aware localization transforms literal translations into natural, audience-focused communication while preserving tone, intent, and brand identity.",
-
-      "labels": {
-        "source": "Source (English)",
-        "localized": "Localized (Arabic)",
-        "strategy": "Localization Strategy:"
+    "examples": [
+      {
+        "category": "Marketing",
+        "original": "Our product is simply the best in the market.",
+        "arabic": "منتجنا يقدّم مستوى من الجودة والتميز يضعه في صدارة السوق.",
+        "context": "The wording moves beyond a literal claim and creates a more natural, confident expression for an Arabic-speaking audience."
       },
+      {
+        "category": "Legal",
+        "original": "The parties shall resolve any disputes through mediation.",
+        "arabic": "يلتزم الطرفان بتسوية أي نزاعات عن طريق الوساطة.",
+        "context": "The translation uses clear contractual language while preserving the obligatory meaning of the original clause."
+      }
+    ]
+  },
 
-      "examples": [
-        {
-          "category": "Marketing Copy",
-          "original": "Our product is simply the best in the market.",
-          "arabic": "منتجنا يُمثّل القمة في السوق العالمية.",
-          "context": "Localization focuses on prestige rather than simply saying 'best'."
-        },
-        {
-          "category": "Legal Clause",
-          "original": "The parties shall resolve any disputes through mediation.",
-          "arabic": "يلتزم الطرفان بفض أي نزاعات عن طريق الوساطة.",
-          "context": "Legal terminology requires an obligatory tone using يلتزم."
-        }
-      ]
+  "security": {
+    "badge": "Confidentiality First",
+
+    "title": {
+      "first": "Your Documents",
+      "second": "Deserve"
     },
 
-    "security": {
-      "badge": "Confidential Layer",
+    "description": "Translation work often involves private documents and sensitive information. Every project is approached with discretion, responsible document handling, and respect for client confidentiality.",
 
-      "title": {
-        "first": "Document Security &",
-        "second": "Ethical Protection"
+    "features": [
+      {
+        "title": "Confidential Handling",
+        "description": "Sensitive documents are treated with discretion throughout the translation process."
       },
-
-      "description": "Every client document is processed through secure localization workflows, encrypted storage, and strict confidentiality standards. Sensitive material is never exposed publicly, ensuring complete trust throughout the translation lifecycle.",
-
-      "features": [
-        {
-          "title": "End-to-End Encryption",
-          "description": "Secure document transfer and protected file storage."
-        },
-        {
-          "title": "NDA Compliant",
-          "description": "International privacy standards with confidential handling procedures."
-        }
-      ],
-
-      "viewer": {
-        "file": "Private_Asset_042.pdf",
-        "title": "Encryption Active",
-        "description": "Public previews remain sanitized until secure authorization is granted.",
-        "button": "View Secure Preview",
-        "stamp": "Certified\nTranslation",
-        "watermark": "CONFIDENTIAL • SECURE • ENCRYPTED • NDA • TRANSLATION • PROTECTED • CONFIDENTIAL • SECURE • ENCRYPTED"
+      {
+        "title": "Professional Privacy",
+        "description": "Client information and project content are handled responsibly and are not used as public work without permission."
       }
+    ],
+
+    "viewer": {
+      "file": "Private_Project.pdf",
+      "title": "Confidential Project",
+      "description": "Private project materials remain protected and are not displayed publicly without client permission.",
+      "button": "Discuss a Private Project",
+      "stamp": "Private\nProject",
+      "watermark": "CONFIDENTIAL • PRIVATE • PROTECTED • TRANSLATION • CLIENT WORK • CONFIDENTIAL • PRIVATE • PROTECTED"
     }
   }
+}

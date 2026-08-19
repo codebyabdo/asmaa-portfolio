@@ -1,12 +1,18 @@
 {
   "title": {
-    "default": "Asmaa Adel | Professional Translator",
+    "default": "Asmaa Adel | English–Arabic Translator & Localization Specialist",
     "template": "%s | Asmaa Adel"
   },
-  "description": "Professional English–Arabic translator specializing in translation, localization, proofreading, and linguistic consulting.",
+
+  "description": "English–Arabic translation and localization services focused on linguistic accuracy, cultural relevance, and clear communication for businesses, organizations, and global audiences.",
+
   "applicationName": "Asmaa Adel",
+
   "siteName": "Asmaa Adel",
-  "category": "Translation",
-  "jobTitle": "Professional English–Arabic Translator",
-  "personDescription": "Professional English–Arabic translator specializing in translation, localization, proofreading, and linguistic consulting."
+
+  "category": "Translation & Localization",
+
+  "jobTitle": "English–Arabic Translator & Localization Specialist",
+
+  "personDescription": "English–Arabic translator and localization specialist helping businesses and organizations communicate naturally with Arabic-speaking audiences through accurate, culturally relevant translation."
 }

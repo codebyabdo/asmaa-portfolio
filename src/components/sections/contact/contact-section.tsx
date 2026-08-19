@@ -6,7 +6,7 @@ import { SocialLink } from "./social-link";
 import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
-  const t = useTranslations("contact");
+  const t = useTranslations("contact.contact");
 
   return (
     <PageTransition>

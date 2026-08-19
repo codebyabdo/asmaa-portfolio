@@ -1,61 +1,63 @@
 {
-  "hero": {
-    "badge": "Get In Touch",
-    "title": {
-      "first": "Let's",
-      "highlight": "Connect"
+  "contact": {
+    "hero": {
+      "badge": "Start a Conversation",
+      "title": {
+        "first": "Let's",
+        "highlight": "Work Together"
+      },
+      "description": "Have a document to translate, content to localize, or a project that needs the right words? Tell me what you're working on and let's find the right linguistic approach."
     },
-    "description": "Available for freelance projects, localization partnerships, and international collaborations"
-  },
 
-  "form": {
-    "title": "Send a Message",
+    "form": {
+      "title": "Tell Me About Your Project",
 
-    "fields": {
-      "name": {
-        "label": "Full Name",
-        "placeholder": "Enter your name"
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "you@example.com"
+        },
+        "subject": {
+          "label": "Project Type",
+          "placeholder": "e.g. Legal translation"
+        },
+        "message": {
+          "label": "Project Details",
+          "placeholder": "Tell me what you need, the languages involved, and any important details..."
+        }
       },
-      "email": {
-        "label": "Email Address",
-        "placeholder": "hello@example.com"
-      },
-      "subject": {
-        "label": "Subject",
-        "placeholder": "Project inquiry"
-      },
-      "message": {
-        "label": "Message",
-        "placeholder": "Tell me about your project..."
+
+      "buttons": {
+        "send": "Send Inquiry",
+        "sending": "Sending..."
       }
     },
 
-    "buttons": {
-      "send": "Send Message",
-      "sending": "Sending..."
-    }
-  },
+    "contacts": [
+      {
+        "title": "Email",
+        "value": "contact.asmaaadel@gmail.com",
+        "href": "mailto:contact.asmaaadel@gmail.com"
+      },
+      {
+        "title": "LinkedIn",
+        "value": "linkedin.com/in/asmaa-3del",
+        "href": "https://www.linkedin.com/in/asmaa-3del"
+      },
+      {
+        "title": "WhatsApp",
+        "value": "+20 109 080 0786",
+        "href": "https://wa.me/201090800786"
+      }
+    ],
 
-  "contacts": [
-    {
-      "title": "Email",
-      "value": "contact@asmaaadel.com",
-      "href": "mailto:contact@asmaaadel.com"
-    },
-    {
-      "title": "LinkedIn",
-      "value": "linkedin.com/in/asmaa-adel",
-      "href": "https://linkedin.com/in/asmaa-adel"
-    },
-    {
-      "title": "WhatsApp",
-      "value": "+20 123 456 7890",
-      "href": "https://wa.me/201234567890"
+    "footer": {
+      "copyright": "© 2026 Asmaa Adel. All Rights Reserved.",
+      "credit": "Built with Precision"
     }
-  ],
-
-  "footer": {
-    "copyright": "© 2026 Asmaa Adel. All Rights Reserved.",
-    "credit": "Designed & Developed with Precision"
   }
 }

@@ -5,7 +5,7 @@ import { m } from "framer-motion";
 import { useTranslations } from "next-intl";
 
 export function SocialLink() {
-  const t = useTranslations("contact");
+  const t = useTranslations("contact.contact");
 
   const CONTACTS = t.raw("contacts") as {
     title: string;

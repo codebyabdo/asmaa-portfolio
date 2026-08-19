@@ -36,8 +36,7 @@ export function SecureWorkflow() {
             {t("title.first")}
             <br />
             <span className="font-light italic">{t("title.second")}</span>
-            <br />
-            <span className="text-luxury-gold">{t("title.third")}</span>
+            <span className="text-luxury-gold italic">{t("title.third")}</span>
           </h2>
 
           <p className="mt-8 max-w-xl text-lg font-light leading-relaxed text-luxury-charcoal/60 md:text-xl">

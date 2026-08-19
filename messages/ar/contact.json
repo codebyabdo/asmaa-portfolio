@@ -1,61 +1,63 @@
 {
-  "hero": {
-    "badge": "تواصل معي",
-    "title": {
-      "first": "لنبدأ",
-      "highlight": "التواصل"
+  "contact": {
+    "hero": {
+      "badge": "لنبدأ الحديث",
+      "title": {
+        "first": "لنجعل",
+        "highlight": "رسالتك تصل"
+      },
+      "description": "لديك مستند يحتاج إلى ترجمة، أو محتوى يحتاج إلى تكييف، أو مشروع تبحث له عن الصياغة المناسبة؟ شاركني التفاصيل ولنحدد معًا أفضل طريقة للعمل عليه."
     },
-    "description": "متاحة لمشاريع الترجمة المستقلة، وشراكات التوطين، والتعاون مع العملاء حول العالم"
-  },
 
-  "form": {
-    "title": "أرسل رسالة",
+    "form": {
+      "title": "أخبرني عن مشروعك",
 
-    "fields": {
-      "name": {
-        "label": "الاسم الكامل",
-        "placeholder": "اكتب اسمك"
+      "fields": {
+        "name": {
+          "label": "الاسم الكامل",
+          "placeholder": "اكتب اسمك"
+        },
+        "email": {
+          "label": "البريد الإلكتروني",
+          "placeholder": "you@example.com"
+        },
+        "subject": {
+          "label": "نوع المشروع",
+          "placeholder": "مثال: ترجمة قانونية"
+        },
+        "message": {
+          "label": "تفاصيل المشروع",
+          "placeholder": "أخبرني عن احتياجك، واللغات المطلوبة، وأي تفاصيل مهمة..."
+        }
       },
-      "email": {
-        "label": "البريد الإلكتروني",
-        "placeholder": "name@example.com"
-      },
-      "subject": {
-        "label": "الموضوع",
-        "placeholder": "استفسار عن مشروع"
-      },
-      "message": {
-        "label": "الرسالة",
-        "placeholder": "حدثني عن مشروعك..."
+
+      "buttons": {
+        "send": "أرسل استفسارك",
+        "sending": "جارٍ الإرسال..."
       }
     },
 
-    "buttons": {
-      "send": "إرسال الرسالة",
-      "sending": "جارٍ الإرسال..."
-    }
-  },
+    "contacts": [
+      {
+        "title": "البريد الإلكتروني",
+        "value": "contact.asmaaadel@gmail.com",
+        "href": "mailto:contact.asmaaadel@gmail.com"
+      },
+      {
+        "title": "لينكدإن",
+        "value": "linkedin.com/in/asmaa-3del",
+        "href": "https://www.linkedin.com/in/asmaa-3del"
+      },
+      {
+        "title": "واتساب",
+        "value": "+20 109 080 0786",
+        "href": "https://wa.me/201090800786"
+      }
+    ],
 
-  "contacts": [
-    {
-      "title": "البريد الإلكتروني",
-      "value": "contact@asmaaadel.com",
-      "href": "mailto:contact@asmaaadel.com"
-    },
-    {
-      "title": "لينكدإن",
-      "value": "linkedin.com/in/asmaa-adel",
-      "href": "https://linkedin.com/in/asmaa-adel"
-    },
-    {
-      "title": "واتساب",
-      "value": "+20 123 456 7890",
-      "href": "https://wa.me/201234567890"
+    "footer": {
+      "copyright": "© 2026 أسماء عادل. جميع الحقوق محفوظة.",
+      "credit": "صُمم بدقة"
     }
-  ],
-
-  "footer": {
-    "copyright": "© 2026 أسماء عادل. جميع الحقوق محفوظة.",
-    "credit": "تم التصميم والتطوير باحترافية"
   }
 }

@@ -1,40 +1,78 @@
 "use client";
 
 import { m } from "framer-motion";
-import { Quote } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+type Standard = {
+  number: string;
+  title: string;
+  text: string;
+  label: string;
+};
+
 export function TestimonialsCards() {
-  const t = useTranslations("testimonials.cards");
-  const TESTIMONIALS = t.raw("items") as {
-    text: string;
-    author: string;
-    role: string;
-  }[];
+  const t = useTranslations("testimonials.testimonials.standards");
+
+  const standards = t.raw("items") as Standard[];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {TESTIMONIALS.map((t, i) => (
-        <m.div
-          key={i}
-          initial={{ opacity: 0, y: 30 }}
+    <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-3">
+      {standards.map((item, index) => (
+        <m.article
+          key={item.number}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.1 }}
-          className="glass-dark border-white/5 p-12 rounded-[3rem] flex flex-col justify-between group h-full"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{
+            duration: 0.7,
+            delay: index * 0.1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="group relative flex min-h-[430px] flex-col justify-between bg-white/[0.025] p-8 transition-colors duration-500 hover:bg-white/[0.06] md:p-10 lg:p-12"
         >
-          <Quote
-            className="text-luxury-gold mb-10 opacity-30 group-hover:opacity-100 transition-opacity"
-            size={40}
-          />
-          <p className="text-2xl font-serif italic mb-12 leading-relaxed text-white/80">
-            &quot;{t.text}&quot;
-          </p>
-          <div>
-            <p className="font-bold uppercase tracking-widest text-sm mb-1">
-              {t.author}
-            </p>
-            <p className="text-white/40 text-xs font-mono">{t.role}</p>
+          {/* Top */}
+          <div className="flex items-start justify-between">
+            <span className="font-mono text-xs tracking-[0.2em] text-luxury-gold/60">
+              {item.number}
+            </span>
+
+            <ArrowUpRight
+              size={18}
+              strokeWidth={1}
+              className="text-white/20 transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-luxury-gold"
+            />
           </div>
-        </m.div>
+
+          {/* Main Content */}
+          <div className="mt-16">
+            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.3em] text-white/30">
+              {item.label}
+            </p>
+
+            <h2 className="font-heading-en text-3xl font-light tracking-[-0.03em] text-white md:text-4xl">
+              {item.title}
+            </h2>
+
+            <div className="mt-6 h-px w-10 bg-luxury-gold/60 transition-all duration-500 group-hover:w-20" />
+
+            <p className="mt-6 max-w-sm text-sm font-light leading-7 text-white/45 md:text-base">
+              {item.text}
+            </p>
+          </div>
+
+          {/* Bottom */}
+          <div className="mt-12 flex items-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-luxury-gold" />
+
+            <span className="text-[10px] uppercase tracking-[0.25em] text-white/30">
+              {t("footer")}
+            </span>
+          </div>
+
+          {/* Hover Accent */}
+          <div className="absolute bottom-0 left-0 h-px w-0 bg-luxury-gold transition-all duration-700 group-hover:w-full" />
+        </m.article>
       ))}
     </div>
   );

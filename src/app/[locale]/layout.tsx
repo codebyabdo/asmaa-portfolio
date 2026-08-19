@@ -160,9 +160,7 @@ export default async function LocaleLayout({
     knowsLanguage: ["English", "Arabic"],
 
     sameAs: [
-      // Add Social URLs Here
-      // "https://www.linkedin.com/in/...",
-      // "https://www.instagram.com/...",
+      "https://www.linkedin.com/in/asmaa-3del"
     ],
   };
 
@@ -183,7 +181,7 @@ export default async function LocaleLayout({
         <LenisProvider>{children}</LenisProvider>
       </div>
 
-      <div className="pointer-events-none fixed inset-0 z-[999] opacity-[0.04] mix-blend-overlay grain-overlay" />
+      <div className="pointer-events-none fixed inset-0 z-999 opacity-[0.04] mix-blend-overlay grain-overlay" />
 
       <Analytics />
 
